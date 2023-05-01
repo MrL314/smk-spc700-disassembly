@@ -1,0 +1,402 @@
+;=======================================================================;
+;		Super Mario Kart SPC700 General Defines							;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		This file holds defines for general constants used in the		;
+;		program for SMK.												;
+;=======================================================================;
+
+
+includeonce		; help avoid redefinition mistakes
+
+
+
+; ==============================================;
+;	"Song Control" Commands						;
+; ==============================================;
+!SIG_stop_song		= $1D	; Silence music
+!SIG_fade_out		= $1E	; Fade out song
+!SIG_upload_song	= $1F	; Stop current song and upload new song from SNES
+
+!SONG_CMD_END		= $20	; End of "Song Commands" range
+; ==============================================;
+
+
+
+
+
+
+; ==============================================;
+;	"Play Song" Commands						;
+; ==============================================;
+!SONG_CMD_BEGIN		= $01	; Beginning of "Song Commands" range
+
+!PLAY_fanfare		= $01
+!PLAY_tt_intro		= $02
+!PLAY_gp_intro		= $03
+!PLAY_upload_norm 	= $04
+!PLAY_final_lap 	= $05
+!PLAY_fast_castle	= $06	; Last lap version of Bowser Castle
+!PLAY_fast_norm 	= $07	; Last lap version of normal song
+!PLAY_starman 		= $08
+!PLAY_qualified 	= $09
+!PLAY_no_record 	= $0A
+!PLAY_rank_out 		= $0B
+!PLAY_rank_mario 	= $0C
+!PLAY_rank_luigi 	= $0D
+!PLAY_rank_bowser 	= $0E
+!PLAY_rank_peach 	= $0F
+!PLAY_rank_dkjr 	= $10
+!PLAY_rank_koopa 	= $11
+!PLAY_rank_toad 	= $12
+!PLAY_rank_yoshi 	= $13
+!PLAY_game_over 	= $14
+!PLAY_fast_obake 	= $15	; Last lap version of Ghost Valley
+!PLAY_credits		= $16	; Play credits (Note: This is to eliminate an unwanted "click"
+							;	sound at the beginning of the credits song)
+; = $17		; Unused
+; = $18		; Unused
+; = $19		; Unused
+; = $1A		; Unused
+; = $1B		; Unused
+; = $1C		; Unused
+; ==============================================;
+
+
+
+; ==============================================;
+;	"Play SFX" Commands							;
+; ==============================================;
+!SFX_CMD_BEGIN			= $20	; start of SFX commands range
+
+!sfx_NULL		= $00	; null sfx (no new sfx)
+
+!sfx_coin			= $20	; Coin
+!sfx_hop			= $21	; Small Hop
+!sfx_hole_jump		= $22	; Jumping Over Monty Mole Hole
+!sfx_dirt_ramp		= $23	; CI Dirt Ramp (Also used for Awarder Charging)
+!sfx_spin_jump		= $24	; Feather Spin Jump
+!sfx_land_solid		= $25	; Landing on Solid Ground
+!sfx_poof			= $26	; Racer "Poof"
+!sfx_fall			= $27	; Falling Off Edge
+!sfx_lava			= $28	; Falling Into Lava
+!sfx_balloon		= $29	; Balloon Pop
+!sfx_hititem_sad	= $2A	; Jingle played after Player Hit By Item 
+!sfx_myitem_use		= $2B	; Item Thrown by Player
+!sfx_cursor_move	= $2C	; Move Cursor Selection
+!sfx_pause			= $2D	; Pause
+!sfx_cursor_set		= $2E	; Set Selection
+!sfx_cursor_cancel	= $2F	; Cancel Selection
+
+!sfx_objhit_block_L	= $30	; Item Hit Block Wall (Loud)
+!sfx_objhit_block_M	= $31	; Item Hit Block Wall (Medium)
+!sfx_objhit_block_S	= $32	; Item Hit Block Wall (Soft)
+!sfx_objhit_wood_L	= $33	; Item Hit Wood Wall (Loud)
+!sfx_objhit_wood_M	= $34	; Item Hit Wood Wall (Medium)
+!sfx_objhit_wood_S	= $35	; Item Hit Wood Wall (Soft)
+!sfx_objhit_ice_L	= $36	; Item Hit Ice Wall (Loud)
+!sfx_objhit_ice_M	= $37	; Item Hit Ice Wall (Medium)
+!sfx_objhit_ice_S	= $38	; Item Hit Ice Wall (Soft)
+!sfx_objhit_car_L	= $39	; Item Hit Kart (Loud)
+!sfx_objhit_car_M	= $3A	; Item Hit Kart (Medium)
+!sfx_1up			= $3B	; 1-UP
+!sfx_objhit_pipe_L	= $3C	; Enemy Kart Hit Wall / Item Hit Pipe (Loud)
+!sfx_objhit_pipe_M	= $3D	; Enemy Kart Hit Wall / Item Hit Pipe (Medium)
+!sfx_objhit_pipe_S	= $3E	; Enemy Kart Hit Wall / Item Hit Pipe (Soft)
+!sfx_carhit_block	= $3F	; Player Kart Hit Block Wall
+
+!sfx_carhit_wood	= $40	; Player Kart Hit Wood Wall
+!sfx_carhit_ice		= $41	; Player Kart Hit Ice Wall
+!sfx_carhit_car		= $42	; Player Kart Hit Kart
+!sfx_carhit_pipe	= $43	; Player Kart Hit Pipe
+!sfx_thwomp_L		= $44	; Thwomp Thud (Loud)
+!sfx_thwomp_M		= $45	; Thwomp Thud (Medium)
+!sfx_thwomp_S		= $46	; Thwomp Thud (Soft)
+!sfx_flattened		= $47	; Kart Flattened and Floating
+!sfx_mushroom		= $48	; Speed Boost from Mushroom
+!sfx_award_cork		= $49	; Award Ceremony Cork Pop
+!sfx_award_throw	= $4A	; Award Ceremony Trophy Thrown
+!sfx_award_zoom		= $4B	; Award Ceremony "CONGRATULATIONS" zoom
+!sfx_land_liquid	= $4C	; Landing on Water or Mud
+!sfx_rankup			= $4D	; Rankup SFX / Enemy Taunt for "Humans" (Mario, Luigi, Peach, Toad)
+!sfx_super_ramp		= $4E	; Ramping While Boosting
+!sfx_danger			= $4F	; Warning/Danger effect when Enemy has a Star
+
+!sfx_taunt_yoshi	= $50	; Enemy Taunt for Yoshi
+!sfx_taunt_bowser	= $51	; Enemy Taunt for Bowser
+!sfx_taunt_koopa	= $52	; Enemy Taunt for Koopa
+!sfx_enemyitem_use	= $53	; Item Thrown by Enemy
+!sfx_carhit_VS		= $54	; Player Kart hit Other Player Kart
+!sfx_rank_warn		= $55	; Last Lap Low Rank Warning \
+!sfx_item_sel		= $55	; Item Finished Selection   / Same SFX :)
+!sfx_ghost_on		= $56	; Boo Startup (Turn invisible)
+!sfx_ghost_off		= $57	; Boo Finish (Turn visible)
+!sfx_objhit_obj_L	= $58	; Item Hit Item (Loud)
+!sfx_objhit_obj_M	= $59	; Item Hit Item (Medium)
+!sfx_objhit_obj_S	= $5A	; Item Hit Item (Soft)
+!sfx_rank_out		= $5B	; Ranked Out Text Falling
+!sfx_taunt_dkjr		= $5C	; Enemy Taunt for DK Jr.
+!sfx_shrink			= $5D	; Kart Shrink (Also Affects Engine)
+!sfx_shrink_engine	= $5E	; Shrink Engine Fade (Slide Engine into "Small" mode)
+!sfx_grow			= $5F	; Kart Grow (Also Affects Engine)
+
+!sfx_grow_engine	= $60	; Grow Engine Fade (Slide Engine into "Big" mode)
+!sfx_lightning		= $61	; Lightning Jingle
+!sfx_enemy_grow		= $62	; Enemy Grow (Does NOT Affect Engine)
+!sfx_reset_engine	= $63	; Reset Engine to "Normal" State Without Sliding
+!sfx_award_fly		= $64	; Cheep Cheep Awarder Flying
+!sfx_mole_repel		= $65	; When Monty Shaken Off
+!sfx_enemy_spin		= $66	; Enemy Spinout
+!sfx_enemy_spin2	= $67	; *Enemy Spinout (... again... why?) (TODO: look into :p)
+!sfx_finish_line	= $68	; Finish Line Crossed
+;			= $69	; unused
+;			= $6A	; unused
+;			= $6B	; unused
+;			= $6C	; unused
+;			= $6D	; unused
+;			= $6E	; unused
+;			= $6F	; unused
+
+!SFX_CMD_END			= $70	; End of SFX commands range
+; ==============================================;
+
+
+
+
+
+
+; ==============================================;
+;	Engine Control Commands						;
+; ==============================================;
+!SFXCTRL_CMD_BEGIN		= $70	; Beginning of "SFXCTRL" commands range
+
+!sfxctrl_p1eng_ML		= $70	; Set P1 (main) engine to Mario/Luigi
+!sfxctrl_p1eng_BD		= $71	; Set P1 (main) engine to Bowser/DK Jr.
+!sfxctrl_p1eng_KT		= $72	; Set P1 (main) engine to Koopa/Toad
+!sfxctrl_p1eng_PY		= $73	; Set P1 (main) engine to Peach/Yoshi
+!sfxctrl_p2eng_ML		= $74	; Set P2 (sub) engine to Mario/Luigi
+!sfxctrl_p2eng_BD		= $75	; Set P2 (sub) engine to Bowser/DK Jr.
+!sfxctrl_p2eng_KT		= $76	; Set P2 (sub) engine to Koopa/Toad
+!sfxctrl_p2eng_PY		= $77	; Set P2 (sub) engine to Peach/Yoshi
+!sfxctrl_enemy_ML		= $78	; Set Doppler Enemy engine to Mario/Luigi
+!sfxctrl_enemy_BD		= $79	; Set Doppler Enemy engine to Bowser/DK Jr.
+!sfxctrl_enemy_KT		= $7A	; Set Doppler Enemy engine to Koopa/Toad
+!sfxctrl_enemy_PY		= $7B	; Set Doppler Enemy engine to Peach/Yoshi
+!sfxctrl_set_1P			= $7C	; Set Engine Control to 1-Player Mode
+!sfxctrl_set_2P			= $7D	; Set Engine Control to 2-Player Mode
+!sfxctrl_p1eng_grow		= $7E	; Set P1 (main) engine to "grow"/"normal" mode
+!sfxctrl_p2eng_grow		= $7F	; Set P2 (sub) engine to "grow"/"normal" mode
+
+!SFXCTRL_CMD_END		= $80	; End of "SFXCTRL" commands range
+; ==============================================;
+
+
+
+
+; ==============================================;
+; ==============================================;
+!EXSFX_NUM_BRAKES			= $00	; Pressing the Brakes
+!EXSFX_NUM_DRIFT_ROAD		= $01	; Drifting on Non-Special Road [eg: MC, DP, CI, VL, KB, RR] Extra SFX
+!EXSFX_NUM_DRIFT_BRICK		= $02	; Drifting on Brick [eg: BC] Extra SFX
+!EXSFX_NUM_UNDERWATER		= $03	; Underwater Extra SFX
+!EXSFX_NUM_OFFROAD_DIRT		= $04	; Driving Offroad on Dirt [eg: CI] Extra SFX
+!EXSFX_NUM_OFFROAD_GRASS	= $05	; Driving Offroad on Grass [eg: DP, KB bushes] Extra SFX
+!EXSFX_NUM_WOOD_BRIDGE		= $06	; Driving on Wooden Bridge [eg: DP, NOT GV floor] Extra SFX
+!EXSFX_NUM_OFFROAD_SNOW		= $07	; Driving Offroad on Snow [eg: VL] Extra SFX
+!EXSFX_NUM_OFFROAD_WATER	= $08	; Driving Offroad on Shallow Water [eg: KB] Extra SFX
+!EXSFX_NUM_SPINOUT			= $09	; Spinout Extra SFX
+!EXSFX_NUM_LAKITU_CARRY		= $0A	; Lakitu Carrying Racer Extra SFX
+!EXSFX_NUM_ITEM_WHEEL		= $0B	; Item Roulette Scrolling Extra SFX
+!EXSFX_NUM_DRIFT_WOOD		= $0C	; Drifting on Wood Road [eg: GV] Extra SFX
+!EXSFX_NUM_WARNING			= $0D	; "Wrong Way", "Out of Bounds", etc. Extra SFX
+!EXSFX_NUM_MONTY			= $0E	; Monty Mole "Squeak" Extra SFX
+!EXSFX_NUM_CLEAR			= $0F	; Clear Extra SFX
+; ==============================================;
+
+
+
+
+
+
+
+; ==============================================;
+;	Instrument SRCN Numbers
+; ==============================================;
+
+!srcn_skid					#= $00+1	; (00) Road Skid
+!srcn_splash				#= $01+1	; (01) Water Splash
+!srcn_engine_1				#= $02+1	; (02) M/L Engine 
+!srcn_engine_2				#= $03+1	; (03) B/D Engine
+!srcn_hihat					#= $04+1	; (04) Closed Hi-Hat
+!srcn_snare					#= $05+1	; (05) Reverb Snare Drum (Also Explosion)
+!srcn_kick					#= $06+1	; (06) Synth Kick
+!srcn_orch_hit				#= $07+1	; (07) KOOL Orchestra Hit (Doubles as "Yoshi")
+!srcn_brass					#= $08+1	; (08) Synth Brass
+!srcn_clarinet				#= $09+1	; (09) Clarinet
+!srcn_e_guitar				#= $0A+1	; (0A) Electric Guitar
+!srcn_piano					#= $0B+1	; (0B) Piano
+!srcn_bass					#= $0C+1	; (0C) Synth Slap Bass
+!srcn_marimba				#= $0D+1	; (0D) Marimba
+!srcn_drawbar				#= $0E+1	; (0E) Drawbar Organ
+!srcn_whistle				#= $0F+1	; (0F) Whistle
+!srcn_bongo					#= $10+1	; (10) Bongos
+!srcn_guitar				#= $11+1	; (11) Acoustic Nylon Guitar
+!srcn_water					#= $12+1	; (12) Underwater
+!srcn_gravel				#= $13+1	; (13) Gravel Skid
+!srcn_organ					#= $14+1	; (14) Synth Organ
+!srcn_cowbell				#= $15+1	; (15) Cowbell
+!srcn_timbale				#= $16+1	; (16) Timbale
+!srcn_engine_3				#= $17+1	; (17) P/Y Engine
+!srcn_engine_4				#= $18+1	; (18) K/T Engine
+!srcn_shrill				#= $19+1	; (19) Shrill Whistle
+
+; ==============================================;
+
+
+
+
+
+
+
+; ==============================================;
+;	Initialization Sequence Step Counters		;
+; ==============================================;
+
+!SEQ_READY		= $00	; Sequence Done, Ready to Play
+!SEQ_PART_1		= $01	; First Part of Initializaton Sequence
+!SEQ_PART_2		= $02	; Second Part of Initializaton Sequence
+
+; ==============================================;
+
+
+
+
+; ==============================================;
+;	Pause Status Defines						;
+; ==============================================;
+
+; for pause_status
+!UNPAUSED			= $00	; Fully Unpaused
+!PAUSED				= $01	; Fully Paused
+!PAUSE_UPDATING		= $02	; Pause Status Updating
+
+; for pause_switch
+!NOT_SWITCHING		= $00	; Pause Status Not Switching
+!SWITCH_PAUSING		= $01	; Switching from Unpaused to Paused
+!SWITCH_UNPAUSING	= $02	; Switching from Paused to Unpaused
+
+; ==============================================;
+
+
+
+
+
+; ==============================================;
+;	Engine Init Status Defines					;
+; ==============================================;
+
+!ENGINE_OFF			= $00	; Engine fully not running
+!ENGINE_SWITCHING	= $01	; Engine switching from off->on or on->off
+!ENGINE_ON			= $02	; Engine fully running
+
+; ==============================================;
+
+
+; ==============================================;
+;	Doppler Init Status Defines					;
+; ==============================================;
+
+!DOPPLER_OFF		= $00	; Doppler Engine fully not running
+!DOPPLER_SWITCHING	= $01	; Doppler Engine switching from off->on
+!DOPPLER_ON			= $02	; Doppler fully running
+
+; ==============================================;
+
+
+
+
+
+; ==============================================;
+;	SFX ADSR Note Restart Status Defines		;
+; ==============================================;
+
+;!ADSRSTAT_NONE		= $00	; No status update
+;!ADSRSTAT_RESTART	= $01	; Restart ADSR from beginning
+;!ADSRSTAT_UPDATE	= $02	; Waiting one tick to set KON
+;!ADSRSTAT_CONTINUE	= $03	; No ADSR restart, but wait one tick
+
+; ==============================================;
+
+
+
+; ==============================================;
+;	Key ADSR Status Defines						;
+; ==============================================;
+
+!KEYSTAT_NULL		= $00	; No change :)
+!KEYSTAT_RELEASE	= $01	; Release current note, then set to Attack
+!KEYSTAT_ATTACK		= $02	; Restart ADSR from Attack state
+!KEYSTAT_CONTINUE	= $03	; Don't release current note, continue current ADSR
+
+; ==============================================;
+
+
+
+; ==============================================;
+;	Extra SFX Boot Status Defines				;
+; ==============================================;
+
+!EX_READY		= $00	; Extra SFX is ready to load and run
+!EX_INIT		= $01	; Extra SFX has just been set
+!EX_LOAD		= $02	; Extra SFX is loading data
+!EX_STOP		= $03	; Extra SFX is stopping
+
+; ==============================================;
+
+
+
+; ==============================================;
+;	Player Mode For Engines Defines				;
+; ==============================================;
+
+!TWO_PLAYER		= $00	; 2 Player Mode
+!ONE_PLAYER		= $01	; 1 Player Mode
+
+; ==============================================;
+
+
+
+; ==============================================;
+;	Engine Size Control Defines					;
+; ==============================================;
+
+!ENG_GROW		= $00	; Grow/Normal Mode
+!ENG_SHRINK		= $01	; Shrink Mode
+
+; ==============================================;
+
+
+
+; ==============================================;
+;	Pitch Bend Envelope Defines					;
+; ==============================================;
+
+!ENV_BEND_IN	= $00	; Bend In To Note
+!ENV_BEND_OUT	= $01	; Bend Out From Note
+
+; ==============================================;
+
+
+
+; ==============================================;
+;	Extra SFX Play Side Defines					;
+; ==============================================;
+
+!SIDE_CLEAR		= $00	; Clear "side" value
+!SIDE_LEFT		= $01	; Left side
+!SIDE_RIGHT		= $02	; Right side
+
+; ==============================================;

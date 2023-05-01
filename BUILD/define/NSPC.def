@@ -1,0 +1,111 @@
+;=======================================================================;
+;		Super Mario Kart SPC700 - N-SPC Instruction Defines				;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last Revision: March 17, 2023								;
+;																		;
+;		This file holds defines related to the N-SPC format used in		;
+;		SMK's SPC700 Program.											;
+;=======================================================================;
+
+
+includeonce		; help avoid redefinition mistakes
+
+
+
+
+
+
+
+; ====================================================================================================================
+
+
+
+; ==============================================;
+;	VCMD Commands								;
+; ==============================================;
+
+; --------------------------
+;	End/Return
+; --------------------------
+!VCMD_END                   = $00		; End Phrase
+!VCMD_RETURN                = $00		; Return from Subroutine
+; --------------------------
+
+
+
+; --------------------------
+;	Note Parameters
+; --------------------------
+!VCMD_DSV_RANGE_BEGIN       = $01		; Begin "Note Parameters" (Duration, Sustain, Velocity) Range
+!VCMD_DSV_RANGE_END         = $7F		; End "Note Parameters" (Duration, Sustain, Velocity) Range
+; --------------------------
+
+
+
+; --------------------------
+;	Play Note
+; --------------------------
+!VCMD_NOTE_RANGE_BEGIN      = $80		; Begin "Play Note" Command Range
+!VCMD_TONE_RANGE_BEGIN      = $80		; Begin "Note Tone" Command Range
+!VCMD_PLAY_NOTE             = $80		; "Play Note" Command Base
+!VCMD_TONE_RANGE_END        = $C7		; End "Note Tone" Command Range
+!VCMD_TIE_NOTE              = $C8		; "Tie Note" VCMD
+!VCMD_REST_NOTE             = $C9		; "Rest Note" VCMD
+!VCMD_NOTE_RANGE_END        = $C9		; End "Play Note" Command Range
+; --------------------------
+
+
+; --------------------------
+;	Percussion
+; --------------------------
+!VCMD_PERCUSS_BEGIN         = $CA		; Begin "Play Percussion Note" VCMD Range
+!VCMD_PERCUSSION            = $CA		; "Play Percussion Note" VCMD
+	!VCMD_PERC00                #= !VCMD_PERCUSSION+$00		; "Play Percussion Instrument 00" VCMD
+	!VCMD_PERC01                #= !VCMD_PERCUSSION+$01		; "Play Percussion Instrument 01" VCMD
+	!VCMD_PERC02                #= !VCMD_PERCUSSION+$02		; "Play Percussion Instrument 02" VCMD
+	!VCMD_PERC03                #= !VCMD_PERCUSSION+$03		; "Play Percussion Instrument 03" VCMD
+	!VCMD_PERC04                #= !VCMD_PERCUSSION+$04		; "Play Percussion Instrument 04" VCMD
+	!VCMD_PERC05                #= !VCMD_PERCUSSION+$05		; "Play Percussion Instrument 05" VCMD
+	!VCMD_PERC06                #= !VCMD_PERCUSSION+$06		; "Play Percussion Instrument 06" VCMD
+	!VCMD_PERC07                #= !VCMD_PERCUSSION+$07		; "Play Percussion Instrument 07" VCMD
+	!VCMD_PERC08                #= !VCMD_PERCUSSION+$08		; "Play Percussion Instrument 08" VCMD
+	!VCMD_PERC09                #= !VCMD_PERCUSSION+$09		; "Play Percussion Instrument 09" VCMD
+	!VCMD_PERC0A                #= !VCMD_PERCUSSION+$0A		; "Play Percussion Instrument 0A" VCMD
+	!VCMD_PERC0B                #= !VCMD_PERCUSSION+$0B		; "Play Percussion Instrument 0B" VCMD
+	!VCMD_PERC0C                #= !VCMD_PERCUSSION+$0C		; "Play Percussion Instrument 0C" VCMD
+	!VCMD_PERC0D                #= !VCMD_PERCUSSION+$0D		; "Play Percussion Instrument 0D" VCMD
+	!VCMD_PERC0E                #= !VCMD_PERCUSSION+$0E		; "Play Percussion Instrument 0E" VCMD
+	!VCMD_PERC0F                #= !VCMD_PERCUSSION+$0F		; "Play Percussion Instrument 0F" VCMD
+	!VCMD_PERC10                #= !VCMD_PERCUSSION+$10		; "Play Percussion Instrument 10" VCMD
+	!VCMD_PERC11                #= !VCMD_PERCUSSION+$11		; "Play Percussion Instrument 11" VCMD
+	!VCMD_PERC12                #= !VCMD_PERCUSSION+$12		; "Play Percussion Instrument 12" VCMD
+	!VCMD_PERC13                #= !VCMD_PERCUSSION+$13		; "Play Percussion Instrument 13" VCMD
+	!VCMD_PERC14                #= !VCMD_PERCUSSION+$14		; "Play Percussion Instrument 14" VCMD
+	!VCMD_PERC15                #= !VCMD_PERCUSSION+$15		; "Play Percussion Instrument 15" VCMD
+!VCMD_PERCUSS_END           = $DF		; End "Play Percussion Note" VCMD Range
+; --------------------------
+
+
+
+; --------------------------
+;	Control VCMD
+; --------------------------
+!VCMD_CTRL_RANGE_BEGIN      = $E0		; Begin "Control VCMD" Command Range
+!VCMD_SET_INSTRUMENT        = $E0		; "Set Instrument" VCMD
+
+
+!VCMD_CALL                  = $EF		; "Call Subroutine" VCMD
+
+
+!VCMD_PORTAMENTO            = $F9		; "Immediate Portamento" VCMD
+; --------------------------
+
+; ==============================================;
+
+
+
+
+
+; ====================================================================================================================

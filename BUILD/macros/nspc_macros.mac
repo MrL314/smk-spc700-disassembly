@@ -1,0 +1,836 @@
+;=======================================================================;
+;		Super Mario Kart SPC700 N-SPC Helpers							;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: April 8, 2023								;
+;																		;
+;		Some helper macros and functions for assistance in the 			;
+;		assembly of the N-SPC formatted songs.							;
+;=======================================================================;
+
+
+if not(defined("OPTIMIZE_DSV"))
+	!OPTIMIZE_DSV = 0
+endif
+
+
+;================================================
+;	Note Defines
+;================================================
+
+!_OCTVE = $80
+!_OCT = 1
+
+
+while !_OCTVE < $C8
+	!{Cb!{_OCT}} #= !_OCTVE-1
+	!{C!{_OCT}} #= !_OCTVE+0
+	!{Cs!{_OCT}} #= !_OCTVE+1
+	!{Db!{_OCT}} #= !_OCTVE+1
+	!{D!{_OCT}} #= !_OCTVE+2
+	!{Ds!{_OCT}} #= !_OCTVE+3
+	!{Eb!{_OCT}} #= !_OCTVE+3
+	!{E!{_OCT}} #= !_OCTVE+4
+	!{Es!{_OCT}} #= !_OCTVE+5
+	!{Fb!{_OCT}} #= !_OCTVE+4
+	!{F!{_OCT}} #= !_OCTVE+5
+	!{Fs!{_OCT}} #= !_OCTVE+6
+	!{Gb!{_OCT}} #= !_OCTVE+6
+	!{G!{_OCT}} #= !_OCTVE+7
+	!{Gs!{_OCT}} #= !_OCTVE+8
+	!{Ab!{_OCT}} #= !_OCTVE+8
+	!{A!{_OCT}} #= !_OCTVE+9
+	!{As!{_OCT}} #= !_OCTVE+10
+	!{Bb!{_OCT}} #= !_OCTVE+10
+	!{B!{_OCT}} #= !_OCTVE+11
+	!{Bs!{_OCT}} #= !_OCTVE+12
+
+	!_OCTVE #= !_OCTVE+12
+	!_OCT #= !_OCT+1
+endwhile
+
+undef "Cb1"
+undef "Bs6"
+
+!_TIE_CMD = $C8
+!_REST_CMD = $C9
+
+!_PRC = $CA
+!_PRC_BASE = 0
+while !_PRC < $E0
+	!{P!{_PRC_BASE}} #= !_PRC_BASE
+	!_PRC #= !_PRC+1
+	!_PRC_BASE #= !_PRC_BASE+1
+endwhile
+
+
+
+;================================================
+
+
+
+
+
+
+
+;================================================
+;	General Defines (DON'T TOUCH)
+;================================================
+!CURR_DUR = $00
+!CURR_SUS = $00
+!CURR_VEL = $00
+
+!DUR_CHANGED = 0
+!SUS_CHANGED = 0
+!VEL_CHANGED = 0
+
+!ON = 1
+!OFF = 0
+;================================================
+
+
+
+;================================================
+;	Helper Functions
+;================================================
+
+function EN(v0,v1,v2,v3,v4,v5,v6,v7) = ((v0<<0)|(v1<<1)|(v2<<2)|(v3<<3)|(v4<<4)|(v5<<5)|(v6<<6)|(v7<<7))
+function PHASEREV(L,R) = (L<<1|R)
+;================================================
+
+
+
+
+;================================================
+;	Phrase Control Blocks
+;================================================
+
+macro play_block(...)
+	if sizeof(...) == 1
+		dw	<...[0]>
+	else
+		warning "'PLAY N' INSTRUCTION NOT SUPPORTED BY SMK"
+		dw	<...[1]>+1, <...[0]>
+	endif
+
+endmacro
+
+
+
+macro jump(ptr)
+	dw	$00FF, <ptr>
+endmacro
+
+macro stop()
+	dw	$0000
+endmacro
+
+;================================================
+
+
+
+
+;================================================
+;	Phrase Pointer Blocks
+;================================================
+
+macro p_block(...)
+	if sizeof(...) > 8
+		error "Phrase Pointer Block must contain at most 8 voices. ",sizeof(...)," voices given."
+	endif
+
+	; write the 8 voice pointers
+	!a #= 0
+	while !a < sizeof(...)
+		dw <...[!a]>
+		!a #= !a+1
+	endwhile
+	while !a < 8
+		dw $0000
+		!a #= !a+1
+	endwhile
+endmacro
+
+;================================================
+
+
+
+
+
+;================================================
+;	VCMD Instructions
+;================================================
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+; [00h] - END/RETURN
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro END()
+	; VCMD data
+	db	$00
+endmacro
+
+macro RETURN()
+	; VCMD data
+	db	$00
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[01h-7Fh] - Note Parameters
+;	args: [xx <yy>]
+;		xx : Note Duration
+;		yy : <not required> Sustain/Velocity
+;			-hhh vvvv:
+;			 hhh      - Sustain Ratio (h/7)
+;			     vvvv - Velocity
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+macro CLR_DSV()
+	!CURR_DUR = $00
+	!CURR_SUS = $00
+	!CURR_VEL = $00
+
+	!DUR_CHANGED = 0
+	!SUS_CHANGED = 0
+	!VEL_CHANGED = 0
+endmacro
+
+; - - - - - - - - - -
+
+macro duration(dur)
+	; check duration validity
+	if <dur> < $01 || <dur> > $7F
+		error "Duration parameter must be between $01-$7F. Given duration: <dur>"
+	endif
+
+	if !OPTIMIZE_DSV == 1
+		if <dur> != !CURR_DUR
+			!DUR_CHANGED = 1
+		endif
+	else
+		!DUR_CHANGED = 1
+	endif
+
+	!CURR_DUR = <dur>
+endmacro
+
+; - - - - - - - - - -
+
+macro sustain(sus)
+	; check sustain validity
+	if <sus> < 0 || <sus> > 7
+		error "Sustain parameter must be between 0-7. Given sustain: <sus>"
+	endif
+	
+	; TODO: optimize with checking maybe?
+	!SUS_CHANGED = 1
+
+	!CURR_SUS = <sus>
+endmacro
+
+; - - - - - - - - - -
+
+macro velocity(vel)
+	; check velocity validity
+	if <vel> < 0 || <vel> > 15
+		error "Velocity parameter must be between 0-15. Given velocity: <vel>"
+	endif
+
+	; TODO: optimize with checking maybe?
+	!VEL_CHANGED = 1
+
+	!CURR_VEL = <vel>
+endmacro
+
+; - - - - - - - - - -
+
+macro susvel(susvel)
+	; check susvel validity
+	if <susvel> < $01 || <susvel> > $7F
+		error "Combined Sustain+Velocity parameter must be between $01-$7F. Given Sustain+Velocity: <susvel>"
+	endif
+
+	; VCMD data
+	%sustain((<susvel>>>4)&7)
+	%velocity(<susvel>&$0F)
+endmacro
+
+; - - - - - - - - - -
+
+macro set_note_params(...)
+	;print "PARAM ARGS: ",dec(sizeof(...))
+	
+	!size #= sizeof(...)
+
+	if !size == 0
+
+	elseif !size == 1
+		; only set new duration
+		%duration(<...[0]>)
+	elseif !size == 2
+		; new duration, and new susvel value
+		%duration(<...[0]>)
+		%susvel(<...[1]>)
+	elseif !size == 3
+		; new duration, new sustain, new velocity
+		%duration(<...[0]>)
+		%sustain(<...[1]>)
+		%velocity(<...[2]>)
+	else
+		; invalid number of parameters :(
+		error "Invalid number of parameters for set_note_params. Given: !size"
+	endif
+
+	; VCMD data
+	if !SUS_CHANGED == 0 && !VEL_CHANGED == 0
+		if !DUR_CHANGED != 0
+			db	!CURR_DUR
+
+			!DUR_CHANGED = 0
+		else
+			if !size != 0
+				warning "looks like we got a repeeee"
+			endif
+		endif
+	else
+		db	!CURR_DUR, (((!CURR_SUS)<<4)|!CURR_VEL)
+
+		!DUR_CHANGED = 0
+		!SUS_CHANGED = 0
+		!VEL_CHANGED = 0
+	endif
+
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[80h-C7h] - Play Note
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro _convert_to_note(name)
+	!name1 = ""
+	!name1 += <name>
+
+	;print "!name1"
+	;print "_NOTE_!{name1}"
+
+	; check validity of note name
+	if defined("!name1")
+		%set_note_params()
+		; VCMD data
+		db	!{<name>}
+	;elseif defined("_NOTE_!{name1}")
+	;		%set_note_params()
+	;		; VCMD data
+	;		db	!{_NOTE_!{name1}}
+	else
+		error "Note name <name> not found"
+	endif
+endmacro
+
+macro play(name, ...)
+	;print "NOTE ARGS: ",dec(sizeof(...))
+
+	!size #= sizeof(...)
+	;!note := <...[0]>
+
+	if !size == 0
+		%set_note_params()
+	elseif !size == 1
+		%set_note_params(<...[0]>)
+	elseif !size == 2
+		%set_note_params(<...[0]>, <...[1]>)
+	elseif !size == 3
+		%set_note_params(<...[0]>, <...[1]>, <...[2]>)
+	else
+		; invalid number of parameters :(
+		error "Invalid number of parameters for note. Given: !size"
+	endif
+
+
+	%_convert_to_note(<name>)
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[C8h] - Tie Note
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro tie(...)
+	;print "TIE ARGS: ",dec(sizeof(...))
+	!size #= sizeof(...)
+	if !size == 0
+		%play(_TIE_CMD)
+	elseif !size == 1
+		%play(_TIE_CMD, <...[0]>)
+	elseif !size == 2
+		%play(_TIE_CMD, <...[0]>, <...[1]>)
+	elseif !size == 3
+		%play(_TIE_CMD, <...[0]>, <...[1]>, <...[2]>)
+	else
+		; invalid number of parameters :(
+		error "Invalid number of parameters for tie. Given: !size"
+	endif
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[C9h] - Rest Note
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro rest(...)
+	;print "REST ARGS: ",dec(sizeof(...))
+	!size #= sizeof(...)
+	if !size == 0
+		%play(_REST_CMD)
+	elseif !size == 1
+		%play(_REST_CMD, <...[0]>)
+	elseif !size == 2
+		%play(_REST_CMD, <...[0]>, <...[1]>)
+	elseif !size == 3
+		%play(_REST_CMD, <...[0]>, <...[1]>, <...[2]>)
+	else
+		; invalid number of parameters :(
+		error "Invalid number of parameters for rest. Given: !size"
+	endif
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[CAh-DFh] - Percussion Note
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro percussion(name, ...)
+	
+	!size #= sizeof(...)
+
+	if !size == 0
+		%set_note_params()
+	elseif !size == 1
+		%set_note_params(<...[0]>)
+	elseif !size == 2
+		%set_note_params(<...[0]>, <...[1]>)
+	elseif !size == 3
+		%set_note_params(<...[0]>, <...[1]>, <...[2]>)
+	else
+		; invalid number of parameters :(
+		error "Invalid number of parameters for percussion note. Given: !size"
+	endif
+	
+
+
+
+	!name1 = ""
+	!name1 += <name>
+
+	; check validity of note name
+	if defined("!name1")
+		!note #= !{<name>}
+	else
+		!note #= <name>
+	endif
+
+	
+	if !note < $00 || !note > $DF
+		error "Percussion Note must be between $CA-$DF, or $00-$15. Given note: !note"
+	elseif !note > $15 && !note < $CA
+		error "Percussion Note must be between $CA-$DF, or $00-$15. Given note: !note"
+	endif
+	
+
+	if !note >= $CA && !note <= $DF
+		!note #= <name>-$CA
+	endif
+
+	; VCMD data
+	db	!note+$CA
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[E0h] - Set Instrument
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro instrument(instr)
+	; VCMD data
+	db	$E0, <instr>-1
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[E1h] - Pan Value
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro pan(pan_val, ...)
+	!size #= sizeof(...)
+
+	if !size == 0
+		!pan_rev = $00
+	elseif !size == 1
+		!pan_rev = <...[0]>
+	elseif !size == 2
+		!pan_rev = (<...[0]><<1)|<...[1]>
+	else
+		error "Invalid number of arguments for pan command"
+	endif
+
+	; VCMD data
+	db	$E1, <pan_val>|(!pan_rev<<6)
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[E2h] - Pan Fade
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro fade_pan(len, dest)
+	; VCMD data
+	db	$E2, <len>, <dest>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[E3h] - Set Vibrato
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro vibrato(delay, rate, depth)
+	; VCMD data
+	db	$E3, <delay>, <rate>, <depth>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[E4h] - Disable Vibrato
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro vibrato_OFF()
+	; VCMD data
+	db	$E4
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[E5h] - Set Music Volume
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro music_volume(vol)
+	; VCMD data
+	db	$E5, <vol>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[E6h] - Fade Music Volume
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro fade_music_volume(len, dest)
+	; VCMD data
+	db	$E6, <len>, <dest>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[E7h] - Set Tempo
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro tempo(tempo)
+	; VCMD data
+	db	$E7, <tempo>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[E8h] - Fade Tempo
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro fade_tempo(len, dest)
+	; VCMD data
+	db	$E8, <len>, <dest>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[E9h] - Global Transpose
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro transpose_all(semitones)
+	; VCMD data
+	db	$E9, <semitones>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[EAh] - Voice Transpose
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro transpose_voice(semitones)
+	; VCMD data
+	db	$EA, <semitones>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[EBh] - Set Tremolo
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro tremolo(delay, rate, depth)
+	; VCMD data
+	db	$EB, <delay>, <rate>, <depth>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[ECh] - Disable Tremolo
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro tremolo_OFF()
+	; VCMD data
+	db	$EC
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[EDh] - Set Voice Volume
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro voice_volume(vol)
+	; VCMD data
+	db	$ED, <vol>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[EEh] - Fade Voice Volume
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro fade_voice_volume(len, dest)
+	; VCMD data
+	db	$EE, <len>, <dest>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[EFh] - Call Subroutine
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro CALL(subroutine, ...)
+	
+	!size #= sizeof(...)
+
+	if !size == 0
+		!SUBRTCALLAMT = $00
+	elseif !size == 1
+		!SUBRTCALLAMT #= <...[0]>-1
+	else
+		error "Incorrect number of arguments for subroutine call"
+	endif
+
+	; VCMD data
+	db	$EF
+	dw	<subroutine>
+	db	!SUBRTCALLAMT
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[F0h] - Fade Vibrato
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro fade_vibrato(len)
+	; VCMD data
+	db	$F0, <len>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[F1h] - Bend Pitch Out
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro bend_out(delay, len, offset)
+	; VCMD data
+	db	$F1, <delay>, <len>, <offset>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[F2h] - Bend Pitch In
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro bend_in(delay, len, offset)
+	; VCMD data
+	db	$F2, <delay>, <len>, <offset>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[F3h] - Disable Pitch Bend
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro bend_OFF()
+	; VCMD data
+	db	$F3
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[F4h] - Instrument Fine Tuning
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro tune(cents)
+	; VCMD data
+	db	$F4, <cents>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[F5h] - Echo Volume and Enable
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro echo_set(eon, voll, volr)
+	; VCMD data
+	db	$F5, <eon>, <voll>, <volr>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[F6h] - Disable Echo
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro echo_OFF()
+	; VCMD data
+	db	$F6
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[F7h] - Set Echo Parameters
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro echo_settings(delay, feedback, filter)
+	; VCMD data
+	db	$F7, <delay>, <feedback>, <filter>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[F8h] - Echo Volume Fade
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro fade_echo(len, voll, volr)
+	; VCMD data
+	db	$F8, <len>, <voll>, <volr>
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[F9h] - Portamento
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro portamento(delay, len, dest)
+	; VCMD data
+	db	$F9, <delay>, <len>
+
+	%_convert_to_note(<dest>)
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+; - - - - - - - - - - - - - - - - - - - - - - - -
+;	[FAh] - Set Percussion Base
+; - - - - - - - - - - - - - - - - - - - - - - - -
+macro set_percussion_base(base)
+	; VCMD data
+	db	$FA, <base>-1
+endmacro
+; - - - - - - - - - - - - - - - - - - - - - - - -
+
+;================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+!srcn_skid					#= $00+1	; (00) Road Skid
+!srcn_splash				#= $01+1	; (01) Water Splash
+!srcn_engine_1				#= $02+1	; (02) M/L Engine 
+!srcn_engine_2				#= $03+1	; (03) B/D Engine
+!srcn_hihat					#= $04+1	; (04) Closed Hi-Hat
+!srcn_snare					#= $05+1	; (05) Reverb Snare Drum (Also Explosion)
+!srcn_kick					#= $06+1	; (06) Synth Kick
+!srcn_orch_hit				#= $07+1	; (07) KOOL Orchestra Hit (Doubles as "Yoshi")
+!srcn_brass					#= $08+1	; (08) Synth Brass
+!srcn_clarinet				#= $09+1	; (09) Clarinet
+!srcn_e_guitar				#= $0A+1	; (0A) Electric Guitar
+!srcn_piano					#= $0B+1	; (0B) Piano
+!srcn_bass					#= $0C+1	; (0C) Synth Slap Bass
+!srcn_marimba				#= $0D+1	; (0D) Marimba
+!srcn_drawbar				#= $0E+1	; (0E) Drawbar Organ
+!srcn_whistle				#= $0F+1	; (0F) Whistle
+!srcn_bongo					#= $10+1	; (10) Bongos
+!srcn_guitar				#= $11+1	; (11) Acoustic Nylon Guitar
+!srcn_water					#= $12+1	; (12) Underwater
+!srcn_gravel				#= $13+1	; (13) Gravel Skid
+!srcn_organ					#= $14+1	; (14) Synth Organ
+!srcn_cowbell				#= $15+1	; (15) Cowbell
+!srcn_timbale				#= $16+1	; (16) Timbale
+!srcn_engine_3				#= $17+1	; (17) P/Y Engine
+!srcn_engine_4				#= $18+1	; (18) K/T Engine
+!srcn_shrill				#= $19+1	; (19) Shrill Whistle

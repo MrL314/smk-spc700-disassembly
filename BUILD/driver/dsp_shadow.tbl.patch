@@ -1,0 +1,27 @@
+i70global r5614n220t2i171db!DSPREG_EVOLL,d121710i212R,d9210i39FB,d9310i49ONd1147i511FLGd1157i411KON,d10482i210F,d8210i8Nd11191i211PMd14291n414d740r5671n222t2d417i84evol_LH,d68152i46RH,!d5446d9558d9974d5990i65zero,!d56114d65126i56KOF
+nt1n4t1nt1nt1n2t1n4t1n
+16
+;=======================================================================;
+;		Super Mario Kart SPC700 DSP Shadow Registers					;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		Tables relating to the upload of the DSP regsiters from			;
+;		their shadows in ARAM.											;
+;=======================================================================;
+4
+; -----------------------------------------------------------------------
+2
+; 3fec - DSP write registers
+3
+; note: 2 KOFs because of SPC700 register weirdness :p
+;	The first KOF gets set to all zero, the second one gets sets to
+;	the KOF ram mirror
+1
+2
+; 3ff6 - DSP shadow register RAM mirrors
+4
+1
+; -----------------------------------------------------------------------

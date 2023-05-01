@@ -1,0 +1,168 @@
+;=======================================================================;
+;		Super Mario Kart SPC700 DSP Registers Map						;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		This file holds defines for the SPC700 DSP registers so they	;
+;		can be called by name in the disassembly.						;
+;=======================================================================;
+
+
+
+
+
+includeonce		; help avoid redefinition mistakes
+
+
+; ----------------------------
+;	DSP registers
+; ----------------------------
+!VOICE0   = $00	; Voice 0
+!V0VOLL   = $00	; Voice 0 Volume Left
+!V0VOLR   = $01	; Voice 0 Volume Right
+!V0PITCHL = $02	; Voice 0 Pitch (Low)
+!V0PITCHH = $03	; Voice 0 Pitch (High)
+!V0SRCN   = $04	; Voice 0 Source Number
+!V0ADSR1  = $05	; Voice 0 ADSR (1)
+!V0ADSR2  = $06	; Voice 0 ADSR (2)
+!V0GAIN   = $07	; Voice 0 Gain
+!V0ENV    = $08	; Voice 0 Envelope
+!V0OUT    = $09	; Voice 0 Out Waveform
+
+!VOICE1   = $10	; Voice 1
+!V1VOLL   = $10	; Voice 1 Volume Left
+!V1VOLR   = $11	; Voice 1 Volume Right
+!V1PITCHL = $12	; Voice 1 Pitch (Low)
+!V1PITCHH = $13	; Voice 1 Pitch (High)
+!V1SRCN   = $14	; Voice 1 Source Number
+!V1ADSR1  = $15	; Voice 1 ADSR (1)
+!V1ADSR2  = $16	; Voice 1 ADSR (2)
+!V1GAIN   = $17	; Voice 1 Gain
+!V1ENV    = $18	; Voice 1 Envelope
+!V1OUT    = $19	; Voice 1 Out Waveform
+
+!VOICE2   = $20	; Voice 2
+!V2VOLL   = $20	; Voice 2 Volume Left
+!V2VOLR   = $21	; Voice 2 Volume Right
+!V2PITCHL = $22	; Voice 2 Pitch (Low)
+!V2PITCHH = $23	; Voice 2 Pitch (High)
+!V2SRCN   = $24	; Voice 2 Source Number
+!V2ADSR1  = $25	; Voice 2 ADSR (1)
+!V2ADSR2  = $26	; Voice 2 ADSR (2)
+!V2GAIN   = $27	; Voice 2 Gain
+!V2ENV    = $28	; Voice 2 Envelope
+!V2OUT    = $29	; Voice 2 Out Waveform
+
+!VOICE3   = $30	; Voice 3
+!V3VOLL   = $30	; Voice 3 Volume Left
+!V3VOLR   = $31	; Voice 3 Volume Right
+!V3PITCHL = $32	; Voice 3 Pitch (Low)
+!V3PITCHH = $33	; Voice 3 Pitch (High)
+!V3SRCN   = $34	; Voice 3 Source Number
+!V3ADSR1  = $35	; Voice 3 ADSR (1)
+!V3ADSR2  = $36	; Voice 3 ADSR (2)
+!V3GAIN   = $37	; Voice 3 Gain
+!V3ENV    = $38	; Voice 3 Envelope
+!V3OUT    = $39	; Voice 3 Out Waveform
+
+!VOICE4   = $40	; Voice 4
+!V4VOLL   = $40	; Voice 4 Volume Left
+!V4VOLR   = $41	; Voice 4 Volume Right
+!V4PITCHL = $42	; Voice 4 Pitch (Low)
+!V4PITCHH = $43	; Voice 4 Pitch (High)
+!V4SRCN   = $44	; Voice 4 Source Number
+!V4ADSR1  = $45	; Voice 4 ADSR (1)
+!V4ADSR2  = $46	; Voice 4 ADSR (2)
+!V4GAIN   = $47	; Voice 4 Gain
+!V4ENV    = $48	; Voice 4 Envelope
+!V4OUT    = $49	; Voice 4 Out Waveform
+
+!VOICE5   = $50	; Voice 5
+!V5VOLL   = $50	; Voice 5 Volume Left
+!V5VOLR   = $51	; Voice 5 Volume Right
+!V5PITCHL = $52	; Voice 5 Pitch (Low)
+!V5PITCHH = $53	; Voice 5 Pitch (High)
+!V5SRCN   = $54	; Voice 5 Source Number
+!V5ADSR1  = $55	; Voice 5 ADSR (1)
+!V5ADSR2  = $56	; Voice 5 ADSR (2)
+!V5GAIN   = $57	; Voice 5 Gain
+!V5ENV    = $58	; Voice 5 Envelope
+!V5OUT    = $59	; Voice 5 Out Waveform
+
+!VOICE6   = $60	; Voice 6
+!V6VOLL   = $60	; Voice 6 Volume Left
+!V6VOLR   = $61	; Voice 6 Volume Right
+!V6PITCHL = $62	; Voice 6 Pitch (Low)
+!V6PITCHH = $63	; Voice 6 Pitch (High)
+!V6SRCN   = $64	; Voice 6 Source Number
+!V6ADSR1  = $65	; Voice 6 ADSR (1)
+!V6ADSR2  = $66	; Voice 6 ADSR (2)
+!V6GAIN   = $67	; Voice 6 Gain
+!V6ENV    = $68	; Voice 6 Envelope
+!V6OUT    = $69	; Voice 6 Out Waveform
+
+!VOICE7   = $70	; Voice 7
+!V7VOLL   = $70	; Voice 7 Volume Left
+!V7VOLR   = $71	; Voice 7 Volume Right
+!V7PITCHL = $72	; Voice 7 Pitch (Low)
+!V7PITCHH = $73	; Voice 7 Pitch (High)
+!V7SRCN   = $74	; Voice 7 Source Number
+!V7ADSR1  = $75	; Voice 7 ADSR (1)
+!V7ADSR2  = $76	; Voice 7 ADSR (2)
+!V7GAIN   = $77	; Voice 7 Gain
+!V7ENV    = $78	; Voice 7 Envelope
+!V7OUT    = $79	; Voice 7 Out Waveform
+; - - - - - - - - - -
+!COEF0 = $0F
+!COEF1 = $1F
+!COEF2 = $2F
+!COEF3 = $3F
+!COEF4 = $4F
+!COEF5 = $5F
+!COEF6 = $6F
+!COEF7 = $7F
+; - - - - - - - - - -
+!DSPREG_MVOLL = $0C
+!DSPREG_MVOLR = $1C
+!DSPREG_EVOLL = $2C
+!DSPREG_EVOLR = $3C
+!DSPREG_KON   = $4C
+!DSPREG_KOF   = $5C
+!DSPREG_FLG   = $6C
+!DSPREG_ENDX  = $7C
+!DSPREG_EFB   = $0D
+!DSPREG_1D    = $1D		; UNUSED
+!DSPREG_PMON  = $2D
+!DSPREG_NON   = $3D
+!DSPREG_EON   = $4D
+!DSPREG_DIR   = $5D
+!DSPREG_ESA   = $6D
+!DSPREG_EDL   = $7D
+; - - - - - - - - - -
+!DSPREG_0A    = $0A		; UNUSED
+!DSPREG_0B    = $0B		; UNUSED
+!DSPREG_0E    = $0E		; UNUSED
+!DSPREG_1A    = $1A		; UNUSED
+!DSPREG_1B    = $1B		; UNUSED
+!DSPREG_1E    = $1E		; UNUSED
+!DSPREG_2A    = $2A		; UNUSED
+!DSPREG_2B    = $2B		; UNUSED
+!DSPREG_2E    = $2E		; UNUSED
+!DSPREG_3A    = $3A		; UNUSED
+!DSPREG_3B    = $3B		; UNUSED
+!DSPREG_3E    = $3E		; UNUSED
+!DSPREG_4A    = $4A		; UNUSED
+!DSPREG_4B    = $4B		; UNUSED
+!DSPREG_4E    = $4E		; UNUSED
+!DSPREG_5A    = $5A		; UNUSED
+!DSPREG_5B    = $5B		; UNUSED
+!DSPREG_5E    = $5E		; UNUSED
+!DSPREG_6A    = $6A		; UNUSED
+!DSPREG_6B    = $6B		; UNUSED
+!DSPREG_6E    = $6E		; UNUSED
+!DSPREG_7A    = $7A		; UNUSED
+!DSPREG_7B    = $7B		; UNUSED
+!DSPREG_7E    = $7E		; UNUSED
+; ----------------------------

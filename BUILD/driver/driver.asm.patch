@@ -1,0 +1,1192 @@
+i400if !JPN_VER == 1!end_ram300 = $DCelsed4400i34USAd2737i227Bd8236i38PALd3037i530ndifn65n95r15196i542$0200n33r1070i528$0300r440d113518i11n12n122r4166i1531!srcn_engine_1n102n74n49n74n74r4371i1214!ONE_PLAYERn78r4122i1453!DSPREG_MVOLLr440d1250171i212Rn25r364i1838high(SAMPLE_TABLE)r217i32!r3d62173i46DIRn27t198n133t21n60t21t20r3437i59DSP_Ri46GS_Ti35L-1t6t27r546d413228i124MIRROR_TBL-1t15t15t17n27t21n42n35i231+0r4185i319+1i247+0r462i416+1n72i10129skip_updatr2201i511_audir103n26t22t89t322n20t21n23t1n141t21t22t23t14t27r7382i46MAINr98i65LOOPt26n23r665r210i2400n35t47t67t228n19n72r7297d436282r98d55286n26t21i282_0i221_0n69n427t4r225r30i233!Vr22i173MD_PERCUSS_BEGINn42t31t26i11Sr261i142T_INSTRUMENTt331n21r50i214!Vr22i43MD_Td44160i124RANGE_END+1i253Ln327n242t21n106t21n112t1n59i291!note        = !temp_work+0d529364i65L   = d56364d95389i49H   d84402i681!basd226368i3224d53432d75398d47433d54389d45433d74418d57473i1551!pitch       d1315377i3136d63500i56L  = d65500d56389d55501i35H  d93538i291r41125d645413i6r470d767570n59t1n43t1i236nor7135i215nor720n9t1n20r473d743570r590i1293NOTE_PITCH+1r317d624481r341d644461r19d1122595r32r529d1138595i112r332d528432i219nor819i24Lr364d558432r313d615481r327d630481r313d616461n33t1r458d629481i6n23t21n61r3115d631461i47Lr459d716674r325d628500i37Lr449d616461i6r469d766702r329d632500r313d616500r450d753674r354d657500r313d616500n11r4105d798529i7r457d754550n27i72undef "d47365i24"d112762i11Ld131773i13Hd91773d49433d134801d1013786d510482d95773d59501d145842d1014786d610551i26"r3198r4195r348r646r10i4790r42i442SONGd64210i6-r32r532d1131889i112r470r476n181r354i80Sr276i62T_PANn261r3472i12222!pblock_ptr d1512513i642port0_r640n10r420i1515!SIG_stop_songn35r437d514952i95fade_outn36r444d514952i65uploadd66961n29d641946r771n10n19r658r210i2380n107n134t31t19t319n20n110r3424d1125919t33r356d1132919n73t63n130i32Sr2288d132327i13t1n237t82n136t1i524{t26n15r43513t22i2.d4119i404or_return:MOV  A, !vX_call_amt+Xt65t23t21r37138n29t51d1251069d6121056i66_addrLd461089t44i34MOVr1746i1212L+X, Ad7121069r341t31i31MOVt19n29t21t17n22t21t316t22t27t24n22t31t19t12t12r21245t22d511069i35Y, d1431129r338t31i31MOVr731t31i81POP  Ar2128t29d2211146r338t39i31MOVt28t220n20t21t23r95i1010!VCMD_CTRLd510350r22d76319i7n21t21t17t21n25t21i32}t3t174t12r268n48t1n41t1n41t1n86n69t80r382i26dr22i52st-1n45n73t155i219_Lr292i8dr22d521231i5t22n71n74t85r274i25dr22d521231n76n70t1t290d895844d98921i29"r39390i280+1t46d1241069d512394d451089t34d531069d125379i412, Ai612!inv  d136377i2132d52379i5 d151445r493d4451314i4n15r324n33r335r3134d41381314r135i6.r327d515379r440d542379i5r311d714762i37invd93773d49380i24"r27i214Ln57i44Li34Li23Ln67n38r473n95i881\n26t1n138t21n59t21n56t1n96t53n56r640n177i40Ln57i47Li34Li26Ln70n41r488n37i121!pan        d1512377i167Ls12d411418i64, YAd86844i48an"d1341418r5190d624546i26and42398s44d44538i24and821481d48418s44d741493i1471!vol_reg    d15141320r383d8931520n12n20t1r350d5251503r516i318PANd63210i26+1r354r64i452anLr444d5421503i5n34t1n77t1r3179d8671520n21t31t21t38n216t2n53t31t19t14t312r2159n316t3r430d8291520i8r382r54i280anr316r54i214anr319d8161520r313d8181520n27r329d12141456i12d1011456i10Ld1311628d1013800d7101521d471466i224_adjust     = $13!t_vd422927s64d461688i444!td941080s39d431688i247n154r3209d11491708i34Lr462r310d7431694r436r314d7501694n47r453r345d7521694n29r435r14i221!Vr22d43343i34IE_d43595i4r430d7291204i47ALLr36d15361204r22d716319n27r278d5571205i105NUM_ARGS-$r23i110n37r461d11241708i11r433d12301821n41t1i93Ln33t1i90Ln33r3314d7371694r342d7461694n54r4102d853171i48KOFn34r472d9391674i9n171r4202d10291873n63i63Ln61i44Li36Li21Ln67n38d81751406n163i634vX_vibr743i37a_fi5er24i42timer23i55-$100t86n58n149d81844d781676d1071387d5101696d1151939d8111081i28"d621314s86d481688i342d2031674r3312d4441314t48t318n96t21n59t21n54t21n10t1r4358r445r310d91321674d19331377d10191931i1210!val        d1512377i15!d1311677d1113379i2113n21r475d7302077i7d71251406n24t1t19n23t1n20i92Lr9308i314valn68t1i96Lt4n27t1n23r3249d7302077n24t31t21r2350i413VOLt34n220r469d8312104i238Lt4n27t1n20d71391406n18d81371658i28ald92773d992042d591315s85d881981d1181677s211d821688d481337s84d681702r3594d7332077r313d4171314r380d581379i25+0r16d6152232r2r463d6691371i6d912050d159377r953i364valr920i314vald12162151d12122077s212d621688r449d8332104n121d1512163n54t31t13t314n11n79i16215!SPC_WRITE_ADDR d1516445r4492i295_0n47r138i323_0n31n23n17r89i323_0r51i353_0i265_0r377d15162335r55d15672335i15+r22n2n26r86i360_0n28n16r398d15582335r29i341_0i245_0r256i1515.TransferData
+n7t8nt7nt5nt6nt1nt8nt5nt6nt5nt5nt7nt1nt8nt6nt5nt7nt7nt1nt8nt5nt7nt3nt7nt1nt7nt6nt7nt4nt7nt7nt5nt7nt1nt8nt3nt3nt3nt2nt4nt5nt3nt3nt4nt5nt2nt4nt5nt3nt3nt4nt5nt3nt3nt4nt3nt3nt3nt6nt4nt6nt5nt3nt4nt3nt4nt4nt6nt2nt3nt4nt4nt5nt3nt5nt3nt5nt5nt3nt10nt7nt5nt7nt5nt2nt4nt3nt4nt4nt4nt1nt4nt6nt1nt2nt1nt5nt5nt2nt4nt6nt3nt1nt5nt5nt1nt8nt5nt5nt7nt7nt7nt6nt6nt1nt8nt3nt4nt1nt8nt7nt5nt7nt7nt3nt3nt3nt2nt6nt5nt3nt4nt3nt5nt4nt5nt2nt5nt5nt7nt7nt7nt5nt5nt3nt1nt6nt3nt4nt3nt4nt4nt5nt1nt6nt5nt1nt4nt5nt2nt6nt4nt4nt2nt6nt4nt7nt7nt4nt3nt4nt5nt5nt7nt4nt8nt3nt4nt4nt4nt4nt4nt6nt4nt3nt4nt12nt12nt12nt8nt2nt1nt3nt4nt4nt1nt4nt4nt4nt1nt7nt5nt3nt7nt6nt5nt7nt4nt7nt3nt4nt2nt4nt1nt7nt5nt7nt2nt5nt1nt1nt2nt1nt1nt2nt1nt7nt1nt1nt3nt1nt1nt1nt5nt3nt7nt4nt7nt1nt4nt3nt7nt1nt7nt4nt2nt2nt6nt8nt3nt4nt1nt3nt3nt1nt3nt3nt1nt3nt3nt9nt5nt5nt7nt5nt3nt5nt7nt5nt3nt2nt6nt7nt7nt2nt6nt5nt5nt2nt6nt1nt7nt7nt5nt7nt5nt5nt6nt6nt3nt5nt3nt5nt3nt7nt3nt7nt5nt5nt7nt6nt5nt5nt5nt7nt6nt5nt4nt2nt6nt6nt7nt7nt3nt6nt5nt3nt1nt7nt5nt7nt2nt5nt7nt5nt2nt5nt7nt7nt2nt5nt7nt5nt5nt2nt5nt7nt6nt7nt5nt5nt1nt7nt6nt7nt7nt5nt6nt5nt2nt7nt5nt4nt9nt9nt9nt9nt9nt9nt9nt9nt9nt5nt7nt3nt5nt7nt6nt7nt3nt3nt8nt7nt5nt3nt5nt7nt3nt5nt6nt7nt8nt4nt6nt1nt5nt7nt6nt3nt6nt3nt4nt3nt5nt5nt5nt8nt5nt2nt4nt5nt3nt5nt4nt2nt2nt3nt1nt1nt1nt7nt7nt4nt6nt4nt3nt3nt3nt4nt4nt2nt2nt4nt8nt6nt9nt4nt4nt3nt5nt4nt3nt3nt4nt2nt4nt4nt3nt4nt5nt1nt7nt5nt3nt4nt5nt1nt1nt8nt4nt4nt6nt5nt5nt4nt4nt6nt3nt5nt4nt4nt4nt4nt4nt4nt1nt8nt3nt5nt6nt3nt4nt7nt3nt1nt8nt5nt2nt8nt4nt2nt2nt2nt4nt5nt2nt4nt5nt5nt3nt2nt2nt7nt2nt7nt7nt4nt5nt1nt9nt5nt4nt2nt6nt4nt4nt5nt3nt4nt2nt7nt11nt5nt5nt3nt7nt3nt4nt4nt4nt3nt5nt2nt4nt2nt4nt3nt3nt8nt3nt3nt7nt6nt2nt5nt3nt5nt6nt7nt7nt5nt6nt4nt2nt7nt5nt6nt4nt2nt5nt6nt3nt7nt1nt5nt3nt8nt5nt3nt3n2t2nt8nt5nt2nt2nt6nt2nt7nt6nt7nt6nt3nt5nt2nt7nt3nt2nt8nt3nt2nt8nt7nt7nt4nt3nt1nt8nt3nt3nt4nt2nt5nt3nt1nt5nt7nt4nt7nt3nt3nt4nt2nt4nt4nt2nt4nt3n2t3nt1nt4nt7nt4nt7nt3nt3nt4nt2nt3nt3nt1nt3nt3nt7nt1nt6nt5nt2nt4nt6nt4nt5nt3nt7nt7nt7nt4nt3nt8n3t8nt4nt3nt4nt3nt8nt7nt7nt10nt7nt6nt6nt4nt5nt7nt4nt5nt6nt7nt5nt6nt7nt4nt9nt4nt5nt5nt5nt8nt10nt9nt8nt8nt2nt3nt1nt3nt5nt5nt3nt2nt5nt1nt9nt7nt3nt1nt3nt3nt1nt1nt9nt3nt1nt7nt8nt1nt4nt1nt8nt2nt1nt2nt2nt7nt1nt2nt4nt7nt4nt2nt6nt5nt3nt3nt6nt7nt2nt2nt6nt2nt4nt3nt1nt7nt2nt7nt5nt4nt1nt7nt8nt2nt3nt1nt3nt5nt4nt5nt2nt2nt5nt1nt9nt7nt2nt1nt2nt2nt1nt1nt9nt2nt1nt7nt9nt4nt1nt7nt3nt4nt6nt2nt6nt2nt5nt4nt10nt1nt2nt2nt1nt9nt7nt6nt7nt7nt4nt1nt7nt2nt8nt5nt3nt7nt4nt5nt7nt6nt5nt7nt4nt2nt6nt6nt2nt7nt2nt6nt3nt7nt2nt4nt5nt6nt6nt4nt2nt7nt6nt4nt4nt6nt4nt6nt5nt4nt2nt7nt4nt2nt5nt5nt5nt5nt5nt1nt1nt8nt10nt8nt8nt9nt2nt2nt2nt8nt3nt6nt4nt5nt5nt1nt1nt9nt3nt4nt4nt4nt4nt5nt4nt5nt5nt4nt7nt5nt4nt5nt4nt3nt6nt4nt5nt1nt5nt1nt10nt7nt6nt7nt2nt6nt5nt1nt9nt4nt5nt4nt2nt1nt5nt2nt7nt2nt7nt5nt1nt5nt2nt7nt2nt7nt5nt1nt9nt7nt4nt7nt7nt4nt6nt7nt5nt1nt9nt3nt3nt2nt1nt10nt7nt5nt1nt5nt1nt3nt1nt5nt1nt7nt5nt2nt4nt1nt9nt2nt4nt1nt5nt1nt8nt7nt4nt1nt4nt4nt1nt1nt9nt4nt1nt9nt7nt3nt1nt5nt2nt1nt4nt1nt1nt4nt2nt4nt1nt8nt7n2t7nt6nt5nt1nt8nt7nt1nt1nt8nt1nt2nt7nt2nt2nt4nt8nt9nt8nt2nt6nt2nt9nt5nt7nt7nt5nt4nt6nt6nt1nt5nt6nt3nt7nt5nt7nt6nt3nt8nt7nt6nt5nt3nt8nt2nt8nt4nt8nt4nt2nt1nt8nt10nt8nt1nt1nt8nt1nt7nt5nt1nt3nt2nt1nt3nt2nt7nt2nt2nt6nt1nt6nt2nt6nt2nt5nt2nt2nt2nt7nt1nt6nt1nt2nt2nt5nt1nt7nt1nt4nt5nt4nt5nt4nt1nt7nt5nt3nt1nt3nt1nt3nt1nt6nt1nt2nt2nt6nt1nt7nt1nt5nt2nt1nt5nt1nt5nt2nt7nt6nt7nt2nt4nt10nt9nt2nt6nt2nt2nt8nt5nt5nt4nt7nt5nt7nt5nt4nt5nt7nt7nt5nt4nt1nt9nt4nt5nt5nt8nt10nt2nt8nt5nt5nt2nt7nt6nt7nt2nt4nt9nt9nt7nt6nt4nt7nt4nt7nt4nt1nt7nt6nt5nt4nt9nt3nt7nt2nt7nt3nt7nt6nt7nt6nt2nt8nt5nt1nt5nt4nt5nt4nt4nt4nt5nt7nt4nt4nt1nt8nt1nt4nt7nt7nt4nt5nt4nt4nt2nt7nt3nt3nt3nt1nt9nt3nt4nt3nt1nt8nt1nt4nt4nt2nt4nt4nt4nt4nt1nt5nt3nt8n
+11
+;=======================================================================;
+;		Super Mario Kart SPC700 Main Driver Code						;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 30, 2023								;
+;																		;
+;		Main common driver code for the SPC700. 						;
+;=======================================================================;
+9
+6
+1
+; ==============================================;
+;	CODE_ENTRY (global)							;
+;												;
+;	Entry point for the SPC700 program			;
+; ==============================================;
+;
+; SPC700 starts with page flag set, so clear it.
+;
+; Stack is at $01CF
+; - - - - - - - - - - - - - - - - - - - - - ;
+; clear RAM from $0000 - $00EF
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+; clear RAM from $0200 - $02FF
+4
+; - - - - - - - - - - - - - - - - - - - - - ;
+; clear RAM from $0300 - $03DB (C if J version)
+4
+; - - - - - - - - - - - - - - - - - - - - - ;
+; Reset notes per voice
+7
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; \ Engine SRCN is Engine 1 (standard)
+; |
+; /
+;				 				;
+;
+; \ P1/P2 Engine Pitch Base is 4700h (?)
+; / 
+;				 				;
+; \ Enemy Engine Pitch Base is 0E00h (?)
+; /
+;				 				;
+;
+; \ P1/P2 Engine Pitch Scale Factor = 22h
+; /
+;				 				;
+;
+; \ P1/P2 Engine Volume Base is 1100h
+; / 
+;				 				;
+; \
+; / Set 1-player mode
+; set EDL to 1
+; Disable Echo in FLG register
+; - - - - - - - - 				;
+;	
+2
+; Reset Master Volume Left to 60h
+;
+; Reset Master Volume Right to 60h
+; - - - - - - - - 				;
+3
+; Set source directory table to SAMPLE_TABLE (MUST be aligned on start of page!!) 
+; - - - - - - - - 				;
+;
+; Clear Ports and Disable Timers
+;
+; Set Timer 0 to tick every 2ms (500Hz)
+; Reset Tempo to 10h
+2
+10
+; = = = = = = = = = = = = = = = = = = = = = = = ; vvv ... continue to MAIN_LOOP ... vvv
+6
+; ==============================================;
+;	MAIN_LOOP
+; ==============================================;
+5
+; FLG register
+; non-echo registers (KON, KOF(?), NON, PMON, KOF)
+;
+; don't set echo registers unless echo is finished
+; - - - - - - - - 				;
+;
+; skip if previous echo is active
+; - - - - - - - - 				;
+;
+; \ DSP_REG
+; | 
+; | PTR
+; | 
+; | 
+; / DSP_REG = (PTR) 
+; - - - - - - - - 				;
+;	
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+; Clear KON
+; Clear KOF 
+; - - - - - - - - - - - - - - - - - - - - - ;
+8
+; - - - - - - - - - - - - - - - - - - - - - ;
+; sync operation to tick (should be every 2ms from above [500Hz])
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; Y = number of ticks since last update
+3
+; \
+; | update every 8 ticks (every 16ms)
+; /
+; - - - - - - - - - - - - - - - - - - - ;
+;	
+; Update audio main routine
+2
+; increment echo timer if echo not finished
+;
+; - - - - - - - - 				;
+;
+; - - - - - - - - - - - - - - - - - - - ;
+8
+; - - - - - - - - - - - - - - - - - - - - - ; Update music and communication when !clock overflows ...
+; ... aka when !clock + (tempoH * TICKS) > FFh
+; Update Music Main Control
+; \
+; / read next command from SNES via port 0
+; then loop to next update
+; - - - - - - - - 				;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - 				;
+;
+; current channel = voice 0
+2
+; skip if phrase has no code in voice
+; Call Main Voice Sync/Update Routine
+;
+; - - - - 						;			
+2
+; next channel
+;
+; - - - - - - - - 				;
+;
+; loop
+11
+; ----------------------------------------------;
+5
+; ==============================================;
+;	TRANS_PORT_X (global)						;
+;												;
+;	Read data from communication port X			;
+; ==============================================;
+;
+; - - - - - - - - 				;
+;
+; \
+; / upload port X from internal ports
+; \
+; / echo port 0 to SNES (gotcha)
+; \
+; | If the SNES *just so happened* to write between this interval,
+; / redo transfer sequence.
+; - - - - - - - - 				;
+;
+;RET							; NOTE: this return is shared between this and the next function,
+; so I commenting this one so it's understood that this is the return
+; point for this function, even though the one below reuses it, and it's
+; just cleaner to put it in there :p 
+12
+; ==============================================;
+6
+; ==============================================;
+;	NOTE_INIT									;
+;												;
+;	Handle proper initialization of new note	;
+; ==============================================;
+;
+1
+2
+; - - - - - - - - 				;
+4
+; - - - - - - - - 				;
+;
+; return if non-note VCMD
+; \ return if SFX enabled on current channel
+; |
+; /
+; \
+; |
+; | Note Base (High) = 7Fh + global transpose + voice transpose
+; |
+; |
+; |
+; /
+; \
+; / Note Base (Low) = voice tuning offset value
+; \
+; | 
+; | vibrato clock = 80h * (vibrato fade length % 2) ... okay I guess to sync?
+; |
+; /
+; \
+; | Reset vibrato and tremolo timers
+; |
+; |
+; /
+; set current channel as "music" channel
+; enable channel
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \
+; / reset pitch bend timer
+; > skip pitch bend stuff if bend timer is 0
+; \
+; / reset pitch bend delay timer
+2
+; - - - - - - - - - - - - - - - - - ;	
+;			
+4
+; - - - - - - - - - - - - - - - - - ;
+5
+; - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+2
+;JMP  ADJUST_PITCH				; NOTE: this isnt the actual code, but for clarity sake I put it here.
+17
+; ==============================================;
+6
+; ==============================================;
+;	ADJUST_PITCH								;
+;												;
+;	Run process of adjusting pitch based on		;
+;	the given input pitch, and the instrument	;
+;	tuning parameters							;
+;												;
+;		args:									;
+;			$10.W : Note 						;
+; ==============================================;
+;(W) Voice Note		;
+; (B) Low byte	;
+; (B) High byte	;
+;(W) Base Pitch		;
+; (B) Low byte	;
+; (B) High byte	;
+;(W) Out Pitch		;
+; (B) Low byte	;
+; (B) High byte	;
+1
+; ----------------------------------------------;
+;
+; \
+; |
+; | if note < 1300h:
+; |     note = (129/128)*note - 26h
+; | else if note < 3400h:
+; |     note = note
+; | else:
+; |     note = (257/256)*note - 34h
+; |
+; - - - - - - - - - - - - - - - - - - - ; |
+; |
+; |
+; |
+; - - - - - - - - - - - - - - - - - - - ; |
+; |
+; |
+; |
+; - - - - - - - - - - - - - - - - - - - ; |
+; |
+; - - - - - - - - - - - - - - - - - - - - - ; /
+;
+; >>> voice number
+; \
+; |
+; | 
+; | X = octave
+; | Y = offset in octave
+; /
+; \ \ get value for start of interval (base)
+; | |
+; | |
+; | /
+; | \ get value for end of interval (next)
+; | |
+; | |
+; | /
+; | A = diff between note range (diff = next - base)
+; | \
+; | | adjust = diff * noteL (lerp adjustment between base and next)
+; | /
+; |
+; / YA = base + adjust = base + (next - base)*noteL
+; \
+; |
+; | base pitch = YA * 2
+; /
+;
+; - - - - - - - - - - - - - - - - - - - ;
+;		
+; \ Scale base pitch down by half for each octave down
+; | 
+; | 
+; - - - - - - - - - - - - - - - - - ; |
+; | base pitch >>= 6 - octave 
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \ 16x16 bit multiply base pitch by !vX_tune_coeff+X (instrument tuning, NOT VOICE TUNING)
+; | <<< voice
+; |
+; |
+; |
+; | pitch = (coeff.L * base.H)
+; |
+; |
+; |
+; | pitch += (coeff.L * base.L) / 256
+; |
+; |
+; |
+; | pitch += (coeff.H * base.L)
+; |
+; |
+; |
+; |
+; | pitch += ((coeff.H * base.H) & 0xFF) * 256
+; |
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \
+; | Set PITCH Flags for Voice
+; |
+; |
+; |
+; |
+; |
+; |
+; /
+; JMP WRITE_DSP_IF_NOT_SFX		; NOTE: this isnt the actual code, but for clarity sake I put it here.
+1
+; ----------------------------------------------;
+9
+23
+; ==============================================;
+8
+; ==============================================;
+;	Write DSP Register							;
+; ----------------------------------------------;
+;	WRITE_DSP_IF_NOT_SFX (global)				;
+;												;
+;	Runs WRITE_DSP_REG IFF SFX not enabled on	;
+;	given channel								;
+; ----------------------------------------------;
+;	WRITE_DSP_REG (global)						;
+;												;
+;	Write DSP register directly					;
+;	Y = Register								;
+;	A = Value									;
+; ==============================================;
+;	
+; \ If current channel is SFX channel, skip.
+; | Otherwise write DSP reg with value
+; |
+; |  > POP doesn't set Z flag!
+; / exits in code below
+4
+12
+; ==============================================;
+6
+; ==============================================;
+;	GET_SONG_CMD (global)						;
+;												;
+;	Get next Song Block command					;
+; ==============================================;
+10
+21
+; ==============================================;
+6
+; ==============================================;
+;	DOWNLOAD_SONG								;
+;												;
+;	Download Song Data from the SNES			;
+; ----------------------------------------------;
+;	SET_SONG									;
+;												;
+;	Set the current song						;
+;		args: A = song num						;
+; ----------------------------------------------;
+;	MUTE_MUSIC									;
+;												;
+;	Mute all non-sfx voices						;
+; ==============================================;
+;
+; last PORT_1 value? This value looks unused... ?
+1
+; ----------------------------------------------;
+;
+; either PORT_1 or just whatever A was previously?
+; \
+; |
+; | get song pointer from SONG_TABLE
+; |
+; |
+; / 
+; 1 "cycle" to reset song params, then zero after
+1
+; ----------------------------------------------;
+; \
+; |
+; / Mute all non-sfx voices
+;
+10
+; ==============================================;
+5
+; ==============================================;
+;	RESET_VOICES								;
+;
+; ==============================================;
+; TODO: maybe rename this? ^^;
+; channel 7
+; - - - - - - - - 				;
+3
+; Reset Pan Value
+8
+; next channel
+;
+; - - - - - - - - 				;
+9
+11
+; ==============================================;
+6
+; ==============================================;
+;	UPDATE_MUSIC
+;
+; ==============================================;
+; pointer to current phrase block
+1
+; ----------------------------------------------;
+2
+; - - - - - - - - 				;
+; \ if "stop song" signal
+; / 
+; - - - - - - - - 				;
+; \ if "fade out song" signal
+; / TODO: understand this better...
+; - - - - - - - - 				;
+; \ if "upload song from SNES" signal
+; /
+; - - - - - - - - 				;
+; \ branch if "play song" signal
+; | NOTE: THIS IS WHERE port0_read TRANSFERS TO port0 
+; / 
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; return TODO: maybe rename this? ^^;
+2
+; TODO: maybe rename this? ^^;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; get phrase instruction (Z flag set by high byte)
+2
+; END SONG instruction (0000h)
+2
+; - - - - - - - - 				;
+;
+; low byte is loop count (-1)
+;
+; - - - - - - - - 				;
+; get phrase block
+;
+; if high byte == 0, loop
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+;	
+; \
+; | set voice pointers
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; channel 0
+5
+; - - - - - - - - 				;
+; reset instrument for voice
+;
+; - - - - - - - - 				;
+9
+; next channel
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; set all channels to non-music initially (so proper routines can set flag if so)
+; channel 0
+;		
+2
+; end voice if pointer is "null"
+; dec timer for current note
+;
+;  -  -  -  -  -  -  -  -  -  -  -  -  -;
+2
+; Get VCMD byte
+;
+; - - - - - - - - - - - - - - - - - - - ; - - - - - - - - - - - -
+; if END or RETURN CMD
+;
+; 	END (not RET)
+;  set return address
+;  dec call amount
+;
+; - - - - 						;   RETURN CMD (not END)
+; \
+; | jump to return address
+; | (couldve just used CALL EXIT_SUBROUT but whatever :p)
+; /
+;
+; - - - - - - - - - - - - - - - - - - - ; - - - - - - - - - - - -
+; not END or RETURN byte
+;
+; - - - - - - - - - - - - - - - - - - - ; - - - - - - - - - - - -
+;
+;					
+; note length
+; get next byte
+; only note param if < 80h
+; - - - - 						;
+; note sustain and velocity
+;
+; \
+; | note sustain value
+; |
+; |
+; /
+;
+; \
+; |
+; | note velocity value
+; /
+2
+; - - - - - - - - - - - - - - - - - - - ; - - - - - - - - - - - -
+; not a note length, sustain, or velocity parameter...
+; ... so check if it's a VCMD control byte
+;
+; - - - - - - - - - - - - - - - - - - - ; - - - - - - - - - - - -
+; is VCMD "control" byte (not note or note parameter, etc.)
+2
+; - - - - - - - - - - - - - - - - - - - ; - - - - - - - - - - - -
+1
+;  -  -  -  -  -  -  -  -  -  -  -  -  -;
+9
+; duration is 1 tick if result is zero.
+2
+;  -  -  -  -  -  -  -  -  -  -  -  -  -;
+; note is currently active, so process note
+;
+;  -  -  -  -  -  -  -  -  -  -  -  -  -;
+; always check for pitch slide
+;
+;  -  -  -  -  -  -  -  -  -  -  -  -  -;
+; end of process for voice
+2
+; next channel
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+; Update Tempo Fade Effect
+2
+; - - - - 		 				;
+6
+; - - - - - - - - 				;
+; Update Echo Volume Fade Effect
+2
+; - - - - 		 				;
+5
+; \
+; | clip to exact destination
+; |
+; |
+; /
+;
+; - - - - - - - - 				;
+; Update Music Volume Fade Effect
+2
+; - - - - 		 				;
+5
+; set all channels to music
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+; Play music on proper music channels
+;
+; channel 0
+; - - - - - - - - 				;
+3
+; Handle playing music on this channel if able to
+3
+; next channel
+2
+1
+; ----------------------------------------------;
+1
+14
+; ==============================================;
+5
+; ============================================================================================
+; ============================================================================================
+3
+; ==============================================;
+;	INCLUDE VCMD CODE							;
+; ==============================================;
+1
+16
+; ==============================================;
+4
+; ============================================================================================
+; ============================================================================================
+3
+; ==============================================;
+;	LOADW_NOTE_TEMP								;
+;												;
+;	Loads voice note into !temp_work+0 (W)		;
+;		($20.W)									;
+; ==============================================;
+;			
+5
+18
+; ==============================================;
+4
+; ==============================================;
+;	CALC_DELTA									;
+;		calculate rate to update value by 		;
+;		per update 								;
+;												;
+;	Inputs:										;
+;		YA: (W) difference value 				;
+;		X : (B) number of cycles 				;
+; ----------------------------------------------;
+;	CHECK_INVERT								;
+;												;
+;	Invert input value if !inv.7 set			;
+; ==============================================;
+2
+1
+; ----------------------------------------------;
+4
+; - - - - - - - - 				;
+2
+; - - - - - - - - 				;
+7
+1
+; ----------------------------------------------;
+2
+; \
+; | invert (*= -1) if !inv.7 set
+; /
+;
+1
+; ==============================================;
+2
+14
+; ==============================================;
+5
+; ==============================================;
+;	HANDLE_MUSIC_VOL							;
+;												;
+;	Handle current channel as a music channel	;
+;	and update internal timers for volume		;
+;	effects, and set the DSP Register Volumes	;
+;	if current voice is a music channel			;
+; ==============================================;
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;				
+2
+; set current channel as music channel
+4
+; Set destination of fade when done
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; \
+; |
+; | Add "fade rate" to Voice Volume
+; |
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; \ split in two lines. CBNE !__tick, .wait
+; /
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; set current channel as music channel
+4
+; - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; \
+; / Full tremolo depth
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;		
+2
+; set current channel as music channel
+2
+;  -  -  -  -  -				;
+2
+; Set destination of fade when done
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+; \
+; |
+; | Add "fade rate" to voice pan
+; |
+; |
+; / 
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;
+;JMP  OUTPUT_MUSIC				; NOTE: this isnt the actual code, but for clarity sake I put it here.
+12
+; ==============================================;
+8
+; ==============================================;
+;	OUTPUT_MUSIC (global)						;
+; ==============================================;
+;(W) 				;
+1
+; ----------------------------------------------;
+;
+; \
+; | exit if current channel is not a music channel
+; /			NOTE: .exit is in OUTPUT_VOL
+4
+; BRA OUTPUT_VOL				; NOTE: this isnt the actual code, but for clarity sake I put it here.
+1
+; ----------------------------------------------;
+;
+16
+; ==============================================;
+6
+; ==============================================;
+;	OUTPUT_VOL									;
+;												;
+;	Write the final output volume registers		;
+;	for voice X, factoring in the pan value		;
+;	and the phase reverse bits for voice		;
+;		args: 									;
+;			X: voice offset						;
+; ==============================================;
+;(W) 				;
+;(W) Low		;
+;(W) High		;
+;(B) voc vol dspreg	;
+1
+; ----------------------------------------------;
+;
+; \
+; |
+; | vol_reg = voice volume register
+; | (v0->$00, v1->$10, ... , v6->$60, v7->$70)
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; - - - - - - - - - - - - - - - - - - - ;
+; Scale pan value to pan table range
+; \
+; | pan_diff = PAN_TABLE[panH+1] - PAN_TABLE[panH]
+; |
+; /
+5
+; A = PAN_VOL = panH + ((pan_diff * panL) // 256)
+; - - - - - - - - - - - - - - - - - - - ;
+3
+; Y = OUT_VOL = (output_vol * PAN_VOL) // 256
+; - - - - - - - - - - - - - - - - - - - ;
+; \ This will set up the carry flag below for checking
+; | the phaseRev bit for the voice. pan_byte value is
+; | LR_ppppp, where L and R are the phaseRev bits for
+; | the left and right channels. The carry flag will
+; - - - - - - - - 				; | be set for the BCC below if the channel's phaseRev
+; | bit is set
+; |
+; /
+; - - - - - - - - 				;
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; A = OUT_VOL 
+; check phaseRev bit from above
+; - - - - - - - - 				; \
+; | if phaseRev, invert
+; |
+; |
+; /
+; - - - - - - - - 				;
+; - - - - - - - - - - - - - - - - - - - ;
+2
+; set volume for channel
+; \
+; |
+; | PAN R = 1400h - PAN L
+; /
+; \ if finished left channel, do right channel.
+; / if finished right channel, done.
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+4
+12
+; ==============================================;
+5
+; ==============================================;
+;	MUSIC_PLAY_NOTE								;
+;												;
+;	Handle regular processing of note during	;
+;	normal song flow on current voice			;
+; ==============================================;
+; (B) adjust pitch		;
+; (W) voice pointer		;
+; (B) temp call amount	;
+1
+; ----------------------------------------------;
+7
+; - - - - - - - - - - - - - - - - - - - - - ;
+5
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+5
+;  -  -  -  -  -				;
+; \
+; | pass over Note Parameter bytes
+; |
+; /
+;  -  -  -  -  -				;
+; \ TIE NOTE
+; /
+; \
+; / call cmd
+; \
+; / if "note" commands
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \ 
+; |
+; | skip over command if VCMD command
+; |
+; /
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+5
+; return from call
+; - - - - - - - - - - - - - - - - - - - - - ;
+5
+; call subroutine again
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \
+; |
+; |
+; |
+; | jump to call address
+; |
+; /
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+8
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - - - - - - - - - - - - - - ;
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; \
+; |
+; |
+; | Add bend rate to note
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+;
+; - - - - - - - - - - - - - - - - - - - - - ;  
+;
+1
+; ----------------------------------------------;
+5
+; \ split in two lines. CBNE !__tick, WAIT
+; /
+5
+; - - - - - - - - - - - - - - - - - - - - - ;  
+2
+; dp set, so actually vX_vibra_fade_timer+X
+;
+; > DOESNT SET Z FLAG!
+; \
+; | init vibrato fade at full depth
+; /
+2
+; - - - - - - - - - - - - - - - - - - - - - ;  
+6
+; JMP  APPLY_VIBRATO			; NOTE: this isnt the actual code, but for clarity sake I put it here.
+1
+; ----------------------------------------------;
+3
+27
+; ==============================================;
+5
+; ==============================================;
+;	APPLY_VIBRATO								;
+;												;
+;	Apply vibrato effect to pitch for voice		;
+;		args:									;
+;			A: Vibrato clock					;
+;												;
+;												;
+;	Note: Vibrato clock -> Vibrato Level		;
+;												;
+;	+depth|       #                         	;
+;	      |     #   #                       	;
+;	      |   #       #                     	;
+;	      | #           #                   	;
+;	  0   #---------------#---------------#-	;
+;	      |                 #           #   	;
+;	      |                   #       #     	;
+;	      |                     #   #       	;
+;	-depth|                       #         	;
+;	      00h                            FFh	;	
+; ==============================================;
+; (B) invert value if 	;
+;	high bit set		;
+; (B) adjust pitch		;
+1
+; ----------------------------------------------;
+;
+; invert vibrato phase if clock > 7Fh
+9
+; - - - - - - - - - - - - - - - - - ;
+; Values F1-FF are semitone offsets
+; offset = (depth * sawtooth(clock & 7Fh))
+2
+; - - - - - - - - - - - - - - - - - ;
+; Values 00-F0 are cent offsets
+; offset = (depth * sawtooth(clock & 7Fh)) // 256
+2
+; - - - - - - - - - - - - - - - - - ;
+;
+; - - - - - - - - - - - - - - - - - - - ;
+4
+1
+; ----------------------------------------------;			
+3
+1
+; ----------------------------------------------;
+2
+16
+; ==============================================;
+9
+; ==============================================;
+;	SYNC_VOICE_ADJUST							;
+;												;
+;	Sync voice pitchand volume adjustments to 	;
+;	the internal clock. 						; TODO: meh this probably is different but makes sense for now...	
+; ==============================================;
+;(W) base val		;
+;(B) adjust bool	;
+1
+; ----------------------------------------------;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+5
+; \ split in two lines. CBNE !__tick, SKIP
+; /
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; Sync tremolo to clock
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; val is PAN
+2
+; - - - - - - - - - - - - - - - - - - - ;
+5
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+;  -  -  -  -  -				;
+3
+;  -  -  -  -  -				;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; now val is NOTE
+8
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; \ split in two lines. CBNE !__tick, SKIP
+; / 
+; - - - - - - - - - - - - - - - - - - - - - ;
+; ... is this for "syncing"???
+6
+1
+; ----------------------------------------------;
+2
+17
+; ==============================================;
+5
+; ==============================================;
+;	SYNC_DELTA_CLOCK							;
+;												;
+;	Sync value given by delta and convert to	;
+;	actual offset in phase given the current	;
+;	clock value. Then apply given offset to 	;
+;	the current value in $10.W (val)			;
+;												;
+;		args:									;
+;			YA: delta							;
+; ==============================================;
+; (B) invert value if 	;
+;	high bit set		;
+; (B) adjust bool		;
+; (W) 					;
+1
+; ----------------------------------------------;
+13
+; JMP  CALC_OFFSET		 		; NOTE: this isnt the actual code, but for clarity sake I put it here.
+13
+; ==============================================;
+4
+; ==============================================;
+;	CALC_OFFSET									;
+;												;
+;	Apply the given offset to the base value,	;
+;	inverted if necessary						;
+;		args:									;
+;			A: pitch offset						;
+; ==============================================;
+;(W) base val			;
+1
+; ----------------------------------------------;
+5
+1
+; ----------------------------------------------;
+;
+13
+; ==============================================;
+7
+; ==============================================;
+;	SYNC_TREMO_CLOCK							;
+;												;
+;	Sync tremolo to clock and apply tremolo		;
+; ==============================================;
+; (B) adjust bool		;
+1
+; ----------------------------------------------;
+8
+; JMP  APPLY_TREMO				; NOTE: this isnt the actual code, but for clarity sake I put it here.
+1
+; ----------------------------------------------;
+;
+24
+; ==============================================;
+4
+; ==============================================;
+;	APPLY_TREMO									;
+;												;
+;	Apply Tremolo effect to volume				;
+;		args:									;
+;			A: Tremolo clock					;
+;												;
+;	Note: Tremolo clock -> Tremolo % graph		;
+;												;
+;	depth#                           #			;
+;		 | #                       #  			;
+;		 |   #                   #    			;
+;		 |     #               #      			;
+;		 |       #           #       			;
+;		 |         #       #          			;
+;		 |           #   #            			;
+;	  0  --------------#--------------			;
+;	     00h                       FFh          ;
+; ==============================================;
+3
+;  -  -  -  -  -				;
+3
+;  -  -  -  -  -				;
+3
+; Tremolo Depth
+; JMP  CALC_VVOL_BASE			; NOTE: this isnt the actual code, but for clarity sake I put it here.
+14
+; ==============================================;
+4
+; ==============================================;
+;	CALC_VVOL_BASE								;
+;												;
+;	Calculates voice output base volume before	;
+;	appplying pan effect						;
+;												;
+;		args:									;
+;			A: Tremolo Depth					;
+; ==============================================;
+10
+; Voice Output Volume = (Tremolo Depth * Music Volume * Note Velocity * Note Volume)**2
+;
+9
+; ==============================================;
+3
+; ==============================================;
+;	SPC_DOWNLOAD								;
+;												;
+;	Download Data Block from SNES				;
+; ==============================================;
+; Write address for SPC_DOWNLOAD
+1
+; ----------------------------------------------;
+5
+; - - - - - - - - 				;
+3
+; - - - - - - - - 				;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+; wait until PORT_0 written
+2
+; check for data 
+;
+; read byte of data
+; echo to SNES ("you can write now!")
+; write data to memory
+; addr++
+; LOOP!
+; handle overflow, then ...
+; ... LOOP!
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; make sure this wasn't an issue of ...
+; ... transferring to $8000 or higher
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; set write address to PORT_2.W
+2
+; echo PORT_0
+; Start transfer if PORT_1 == 0
+; - - - - - - - - - - - - - - - - - - - - - ;
+; Clear all ports, disable timer 1 and 2, restart timer 0
+2
+1
+; ==============================================;

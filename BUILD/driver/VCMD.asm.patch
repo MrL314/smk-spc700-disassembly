@@ -1,0 +1,588 @@
+r257i956VCMD_TABLr3i410+1-$i50r228d9270r23i610+0-$C0r567d5710i125NUM_ARGS-$60n30r334r437r51i293+1n5r311i2028!ptr = !temp_work+4n148t31t21t10r187i210!Vr22i183MD_PERCUSS_BEGINt31t326n21r365r339d44448r326d42748i24+0r36i155low(INSTR_PRMS)r13d52592r2r44i49highd124101i12n62r3173d410948n25n115r4147n50r351r314d41948n8r416n113r3131d42548r361d46248i31Ln7r343i1214undef "ptr"i154Li235Ln1488r42004i14133!ENV_BEND_OUTn39r479d1051166i410INi408Li241Li186Li121Li28Lr41053i97Li20Lr2521i3476+1r2158i3159+1n369r3375n139r2215i82!r3i102SPREG_EDLn105t78t14t21n37t37r3314i537DSP_Ri46GS_Ti35L-1n109r4158i248!Dd62208i46FLGr257i57!r3d102208n33r2132i109!r3d72208i37SAr4209i211!d510i115PORTAMENTOi489Lr3545
+t8nt7nt6nt2nt7nt2nt7nt6nt7nt6nt2nt6nt1nt4nt5nt6nt4nt4nt6nt8nt8nt7nt9nt2nt7nt6nt3nt4nt5nt6n2t6nt1nt4nt4nt5nt7nt5nt7nt1nt1nt5nt3nt6nt1nt7nt6nt7nt7nt5nt6nt5nt4nt5nt4nt5nt5nt5nt2nt6nt5nt4nt3nt5nt4nt4nt4nt3nt3nt7nt7nt5nt6nt4nt7nt4nt2nt7nt4nt2nt1nt8nt10nt9nt9nt3nt5nt2nt5nt2nt8nt9nt9nt2nt7nt5nt2nt7nt2nt7nt5nt1nt6nt1nt8nt8nt9nt2nt5nt2nt5nt7nt9nt1nt2nt5nt1nt8nt8nt9nt1nt7nt5nt1nt7nt6nt4nt1nt8nt7nt9nt5nt3nt8nt7nt9nt3nt5nt3nt7nt3nt3nt5nt2nt8nt9nt9nt5nt5nt8nt8nt9nt3nt5nt2nt7nt5nt3nt5nt2nt8nt7nt9nt4nt8nt7nt9nt3nt8nt8nt9nt2nt5nt2nt5nt1nt7nt9nt1nt8nt7nt9nt3nt3nt1nt7nt9nt3nt1nt8nt1nt6nt1nt5nt1nt5nt1nt8nt6nt9nt1nt8nt7nt9nt3nt5nt3nt8nt7nt9nt2nt7nt5nt2nt7nt3nt7nt5nt1nt6nt1nt8nt8nt9nt2nt8nt10nt9nt2nt5nt2nt5nt3nt4nt2nt4nt2nt2nt4nt2nt4nt8nt7nt9nt3nt5nt3nt5nt5nt5nt4nt5nt5nt4nt6nt8nt7nt9nt3nt5nt2nt7nt4nt3nt5nt2nt5nt2nt7nt4nt3nt5nt2nt8nt8nt9nt4nt4nt6nt8nt7nt9nt3nt5nt5nt5nt5nt7nt6nt5nt4nt2nt4nt7nt6nt7nt5nt6nt6nt4nt4nt8nt8nt5nt3nt3nt3nt5nt3nt1nt9nt5nt5nt2nt6nt3nt8nt4nt4nt7nt5nt5nt2nt3nt5nt3nt1nt4nt5nt5nt3nt4nt5nt3nt4nt1nt7nt7nt7nt7nt5nt7nt5nt3nt4nt6nt9nt2nt8nt8nt1nt6nt4nt2nt6nt5nt5nt8nt8nt1nt5nt1nt5nt7nt4nt3nt5nt5nt1nt7nt4nt1nt7nt7nt5nt1nt6nt1nt8n
+51
+;=======================================================================;
+;		Super Mario Kart SPC700 VCMD Control							;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		Code for the VCMD instructions for the N-SPC Song Format.		;
+;		Note that this version of the N-SPC code is slightly			;
+;		different than the standard, but the control codes are the		;
+;		same as the "standard" version.									;
+;=======================================================================;
+6
+; ====================================================================================================================
+3
+; ==============================================;
+;	PARSE_VCMD (global)							;
+;		Parse given VCMD number					;
+;												;
+;	Inputs:										;
+;		A = VCMD number							;
+;												;
+;	Returns:									;
+;		Stack     - (W) VCMD routine ptr		;
+;		A (and Y) - (B) First parameter, or 0	;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	GET_PARAM									;
+;		Get next parameter for VCMD				;
+;												;
+;	Inputs:										;
+;		X = voice number (*2)					;
+;												;
+;	Returns:									;
+;		A (and Y) - Next VCMD parameter			;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SKIP_PARAM									;
+;		Skip next byte when reading parameters	;
+;												;
+;	Inputs:										;
+;		X = voice number (*2)					;
+;												;
+;	Returns:									;
+;		garbage									;
+; ==============================================;
+3
+; \
+; | Push VCMD routine ptr to stack
+; |
+; /
+3
+; number of args
+; if no args, return with Y = A = 0, else ...
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \
+; | increment voice pointer
+; /
+; - - - - - - - - 				;
+2
+23
+; ==============================================;
+7
+; ==============================================;
+;	VCMD [E0h] - Set Instrument					;
+;		args: [xx]								;
+;			xx : Instrument ID (SRCN)			;
+;												;
+;	Set Instrument for voice					;
+; ----------------------------------------------;
+;	SET_VOICE_SRCN (global)						;
+;												;
+;	Set SRCN as A for voice X					;
+;												;
+;		args:									;
+;			A : Instrument ID (SRCN)			;
+;			X : voice number (x2)				;
+; ==============================================;
+; Pointer to Instrument Parameters Table
+1
+; ----------------------------------------------;
+; Set instrument VCMD
+2
+1
+; ----------------------------------------------;
+3
+; - - - - - - - - 				;
+;
+; \ get percussion note (input CA-DF)
+; |
+; |
+; /
+;
+; - - - - - - - - 				;
+;
+; instrument * 6 is offset in table
+3
+; now holds ptr to line in table
+; \
+; / Exit if current channel has SFX active
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \
+; |
+; |
+; | DSP_REG = VoiceX SRCN (set source for voice X)
+; /
+;
+; entry 0: instrument number
+;
+; - - - - - - - - 				;
+;
+; \
+; / Disable Echo
+; Enable Noise on Current Channel
+2
+; - - - - - - - - 				;
+;
+; Disable Noise on Current Channel
+; - - - - - - - - 				;
+; \
+; - - - - - - - - 				; |
+; |
+; | Upload SRCN, ADSR1+2, and Gain to DSP regs for channel
+; |
+; |
+; |
+; /
+; - - - - - - - - 				;
+6
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+; asar thing, so I can reuse "ptr" as a variable
+16
+; ==============================================;
+6
+; ==============================================;
+;	VCMD [E1h] - Set Pan Value					;
+;		args: [xx]								;
+;			xx : LR_ppppp						;
+;			     LR       - PhaseRev (L,R)		;
+;			        ppppp - Pan Value			;
+;												;
+;	Set Pan Location for voice					;
+; ==============================================;
+; Set Pan VCMD
+7
+15
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [E2h] - Fade Pan Value					;
+;		args: [xx yy]							;
+;			xx : Fade Length					;
+;			yy : Fade Destination				;
+;												;
+;	Fade Pan Value from current value to		;
+;	yy (destination) over xx (length) ticks		;
+; ==============================================;
+; Fade Pan VCMD
+13
+20
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [E3h] - Set Vibrato					;
+;		args: [xx yy zz]						;
+;			xx : Vibrato Start Delay			;
+;			yy : Vibrato Rate					;
+;			zz : Vibrato Depth					;
+;												;
+;	Set Vibrato Parameters						;
+; ----------------------------------------------;
+;	VCMD [E4h] - Disable Vibrato				;
+;		args: none								;
+;												;
+;	Disable Vibrato for voice					;
+; ==============================================;
+; Set Vibrato VCMD
+5
+1
+; ----------------------------------------------;
+; Disable Vibrato VCMD
+6
+14
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [F0h] - Fade Vibrato					;
+;		args: [xx]								;
+;			xx : Fade Length					;
+;												;
+;	Fade In Vibrato	from 0 to Current Depth		;
+;	over xx ticks.								l
+; ==============================================;
+; Fade Vibrato VCMD
+10
+13
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [E5h] - Set Music Volume				;
+;		args: [xx]								;
+;			xx : Music Volume					;
+;												;
+;	Set Global Base Music Volume				;
+; ==============================================;
+; Set Music Volume VCMD
+4
+15
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [E6h] - Fade Music Volume				;
+;		args: [xx yy]							;
+;			xx : Fade Length					;
+;			yy : Fade Destination				;
+;												;
+;	Fade Music Volume to yy (destination)		;
+;	over xx (length) ticks						;
+; ==============================================;
+; Fade Music Volume VCMD
+10
+13
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [E7h] - Set Tempo						;
+;		args: [xx]								;
+;			xx : Tempo							;
+;												;
+;	Set Tempo for song							;
+; ==============================================;
+; Set Tempo VCMD
+4
+15
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [E8h] - Fade Tempo						;
+;		args: [xx yy]							;
+;			xx : Fade Length					;
+;			yy : Fade Destination				;
+;												;
+;	Fade Tempo to yy (destination) over 		;
+;	xx (length) ticks							;
+; ==============================================;
+; Fade Tempo VCMD
+10
+13
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [E9h] - Global Transpose				;
+;		args: [xx]								;
+;			xx : Transpose (Semitones, Signed)	;
+;												;
+;	Transpose All voices by xx semitones		;
+; ==============================================;
+; Transpose Global VCMD
+3
+13
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [EAh] - Voice Transpose				;
+;		args: [xx]								;
+;			xx : Transpose (Semitones, Signed)	;
+;												;
+;	Transpose current voice by xx semitones		;
+; ==============================================;
+; Transpose Voice VCMD
+3
+20
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [EBh] - Set Tremolo					;
+;		args: [xx yy zz]						;
+;			xx : Tremolo Start Delay			;
+;			yy : Tremolo Rate					;
+;			zz : Tremolo Depth					;
+;												;
+;	Set Tremolo Parameters						;
+; ----------------------------------------------;
+;	VCMD [ECh] - Disable Tremolo				;
+;		args: none								;
+;												;
+;	Disable Tremolo for voice					;
+; ==============================================;
+; Set Voice Tremolo VCMD
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+; Disable Tremolo VCMD
+3
+35
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [F1h] - Bend From Pitch				;
+;		args: [xx yy zz]						;
+;			xx : Bend Delay						;
+;			yy : Bend Length					;
+;			zz : Bend Offset (signed)			; TODO: verify?
+;												;
+;	Play current note for xx (delay) ticks,		;
+;	then slide to note+zz (destination) over	;
+;	yy (length) ticks, then keep pitch at		;
+;	note+zz until end of duration				;
+;												;
+;	(Note: this applies for ALL notes in voice	;
+;	until disabled)								;
+; ----------------------------------------------;
+;	VCMD [F2h] - Bend To Pitch					;
+;		args: [xx yy zz]						;
+;			xx : Bend Delay						;
+;			yy : Bend Length					;
+;			zz : Bend Offset (signed)			; TODO: verify?
+;												;
+;	Play note+zz (destination) for xx (delay)	;
+;	ticks, then slide to note over yy (length)	;
+;	ticks, then keep pitch at note until end	;
+;	of duration									;
+;												;
+;	(Note: this applies for ALL notes in voice	;
+;	until disabled)								;
+; ==============================================;
+; Post-Pitch Bend VCMD
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+; Pre-Pitch Bend VCMD
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+9
+12
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [F3h] - Disable Pitch Bend				;
+;		args: none								;
+;												;
+;	Disable pitch bending for current voice		;
+; ==============================================;
+; Disable Pitch Bend VCMD
+;
+; A = 0
+;
+13
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [EDh] - Set Voice Volume				;
+;		args: [xx]								;
+;			xx : Volume							;
+;												;
+;	Set volume percentage for voice				;
+; ==============================================;
+; Set Voice Volume VCMD
+5
+15
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [EEh] - Fade Voice Volume				;
+;		args: [xx yy]							;
+;			xx : Fade Length					;
+;			yy : Fade Destination				;
+;												;
+;	Fade Voice volume level to yy (destination)	;
+;	over xx (length) ticks						;
+; ==============================================;
+; Fade Voice Volume VCMD
+13
+13
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [F4h] - Set Voice Tuning				;
+;		args: [xx]								;
+;			xx : Tuning Value					;
+;												;
+;	Raises pitch for voice by xx/256 semitones	;
+; ==============================================;
+; Set Voice Tuning VCMD
+3
+18
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [EFh] - Call Subroutine				;
+;		args: [yyxx zz]							;
+;			yyxx : Subroutine Address			;
+;			zz   : Call amount (+1)				; TODO: verify
+;												;
+;	Call the subroutine at $yyxx (address)		;
+;	zz+1 (call amount) times.					;
+;												;
+;	(NOTE: Subroutines cannot be nested. Only	;
+;	one layer deep)								;
+; ==============================================;
+; Call Subroutine VCMD
+10
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+5
+19
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [F5h] - Set Echo Volume				;
+;		args: [xx yy zz]						;
+;			xx : EON bitfield					;
+;			yy : Left Channel Echo Volume		;
+;			zz : Right Channel Echo Volume		;
+;												;
+;	Sets the echo volume for left and right		;
+;	channels, and enables/disables echo on the	;
+;	voices given in the EON bitfield. 1 = on,	;
+;	0 = off. Voice order for bitfield is		;
+;	7654 3210									;	
+; ==============================================;
+; Set Echo Channels and Volume VCMD
+;
+; \
+; | Only set EON bits for non-SFX channels
+; |
+; /
+8
+16
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [F8h] - Echo Volume Fade				;
+;		args: [xx yy zz]						;
+;			xx : Fade Length					;
+;			yy : Left Echo Volume Destination	;
+;			zz : Right Echo Volume Destination	;
+;												;
+;	Fade Left and Right echo volumes to yy and	;
+;	zz over xx ticks							;
+; ==============================================;
+; Fade Echo Volume VCMD
+5
+; high byte
+6
+; high byte 
+4
+12
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [F6h] - Disable Echo					;
+;		args: none								;
+;												;
+;	Disable echo for all voices					;
+; ==============================================;
+; Disable Echo VCMD
+5
+18
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [F7h] - Set Echo Parameters			;
+;		args: [xx yy zz]						;
+;			xx : Echo Delay						;
+;			yy : Echo Feedback					;
+;			zz : Echo Filter Index				;
+;												;
+;	Set Echo parameters for all channels. XX	;
+;	sets the echo delay, YY sets the feedback	;
+;	level, ZZ selects the echo filter table		;
+;	(0-3) at ECHO_FIR_COEFFS					;
+; ==============================================;
+; Set Echo Parameters VCMD
+;
+; Set Echo Delay
+7
+; - - - - - - - - 				;
+; Write Filter Coeffs to DSP registers
+7
+; - - - - - - - - 				;
+2
+12
+; ==============================================;
+5
+; ==============================================;
+;	UPDATE_ECHO_DELAY							;
+;		Update the Echo Delay value properly	;
+;	Inputs:										;
+;		A - New EDL value	 					;
+; ==============================================;
+2
+; \
+; | Get Echo Delay on the DSP side
+; /
+;
+; if new EDL value not different than EDL value in DSP register
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; \
+; / "add" EDL to active echo time
+2
+; - - - - - - - - 				;
+3
+; \ Clear DSP registers: EVOLL, EVOLR, EFB, EON
+; |
+; |
+; |
+; /
+; - - - - - - - - 				;
+; \
+; | Set "Disable Echo" bit in FLG register
+; |
+; /
+; \
+; | Write DSP EDL register
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \
+; | Write DSP ESA flag (address for echo buffer).
+; | formula is 
+; |		echo buffer address = 100h * (0FFh - (8 * EDL))
+; |	and takes up
+; | 	800h * EDL bytes in ARAM
+; |
+; /
+16
+; ==============================================;
+5
+; ==============================================;
+;	VCMD [FAh] - Set Percussion Base			;
+;		args: [xx]								;
+;			xx : Percussion Set Base SRCN		;
+;												;
+;	Set the base for the percussion set indexed	;
+;	by commands CA-DF for quick notes without	;
+;	having to change the current instrument 	;
+;	for the current voice						; TODO: verify
+; ==============================================;
+; Set Percussion Base VCMD
+3
+21
+; ==============================================;
+4
+; ==============================================;
+1
+; ----------------------------------------------;
+;	VCMD [F9h] - Pitch Slide Immediately		;
+;		args: [xx yy zz]						;
+;			xx : Slide Delay					;
+;			yy : Slide Length					;
+;			zz : Destination Note				;
+;												;
+;	Like the other pitch bend commands, except	;
+;	this takes effect immediately, and instead	;
+;	of specifying a slide offset, you specify	;
+;	the destination note						;
+; ----------------------------------------------;
+1
+; ==============================================;
+; Check if next instruction is a Pitch Slide Immediate
+; If so, then run VCMD F9 as normal
+2
+; VCMD F9 is Pitch Slide Immediate
+;
+; skip over instruction
+; get next param
+3
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; Pitch Slide Immediate VCMD
+;		
+7
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;		
+12
+6
+; ==============================================;
+4
+; ====================================================================================================================

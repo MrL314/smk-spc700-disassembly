@@ -1,0 +1,64 @@
+i70global r219n25n79d710r299n26d7790r299n26d7790r297n24n40d710r258n24
+t9nt3nt3nt15nt9nt3nt3nt9nt3nt3nt9nt3nt15nt9nt3n
+41
+;=======================================================================;
+;		Super Mario Kart SPC700 - Dopper Engine Effect Data				;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last Revision: March 17, 2023								;
+;																		;
+;		This file holds tables related to the control for the Doppler	;
+;		Effect for Enemy Engines.										;
+;=======================================================================;
+5
+;=======================================================================;
+;		Super Mario Kart SPC700 Doppler Data							;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		Data relating to the Doppler Effect of Enemy Engines.			;
+;=======================================================================;
+6
+; ==========================================================;
+;	Doppler Engine Pitch									;
+; ----------------------------------------------------------;
+;	DOPPLER_PITCH_LOW (global)								;
+;															;
+;	Low byte for Doppler Engine Effect Pitch				;
+; ----------------------------------------------------------;
+;	DOPPLER_PITCH_HIGH (global)								;
+;															;
+;	High byte for Doppler Engine Effect Pitch				;
+; ==========================================================;
+7
+10
+; ==========================================================;
+3
+; ==========================================================;
+;	DOPPLER_DIST_RATIO (global)								;
+;															;
+;	Doppler Engine Volume Damping Ratio. Output volume gets	;
+;	divided by value from this table (Out = Vol / value)	;
+; ==========================================================;
+3
+15
+; ==========================================================;
+3
+; ==========================================================;
+;	Doppler Engine Pan Volume								;
+; ----------------------------------------------------------;
+;	DOPPLER_PANVOL_L (global)								;
+;															;
+;	Left Channel Volume Base for Doppler Engine Pan Effect	;
+; ----------------------------------------------------------;
+;	DOPPLER_PANVOL_R (global)								;
+;															;
+;	Right Channel Volume Base for Doppler Engine Pan Effect	;
+; ==========================================================;
+5
+4
+; ==========================================================;
+2

@@ -1,0 +1,28 @@
+i70global r612n218r359r35n687t6i31dwr818c20
+nt1n3t1nt1nt1nt1nt1n2
+15
+;=======================================================================;
+;		Super Mario Kart SPC700 Pitch Table								;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		Table relating to Note -> Pitch Conversion.						;
+;=======================================================================;
+4
+; -----------------------------------------------------------------------
+2
+; Base Pitch per Note
+2
+1
+1
+; THIS LOWER PART IS UNUSED! This is actually a part of the same curve as 
+;	NOTE_PITCH above, but this spans another octave above. There are 3 
+;	missing values that slot between the table above, and this table. 
+;	Those values are $11BD, $12CB, $13E9. I have no idea *why* this happened,
+;	but you can just remove this part of the table to save space
+1
+2
+1
+; -----------------------------------------------------------------------

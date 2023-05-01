@@ -1,0 +1,2042 @@
+i6229port0_r7234n10r437i1731!SIG_upload_songd6470r738n10d6300r740n10r429i1423!SONG_CMD_ENDn31r329d6340r632n14r419r3166d61830r718n10n32n15r474i423!SFXd5440i65BEGINn21r455d93761d4945n19r339n258r347n136n62d6850r6279r128i12.r476i865!PAUSEDn39t1n98t1n170t1n115t1i15111!temp        = d515104i95_buffA+0r6559r210i2470r432i1632!PLAY_fast_normr437d1149135i711castler437d1140135i611obaket25r3457r418r210d5456104i5+r437r210d642186r555i459+0, r36r216d618186r756i360+0i750undef "d47105i24"t91t225n25t22n115r3289n13r316n50t1r73i229!Vr22i53VOLLt25n170r6219r10i540i5653if !USA_VER == 1!MVOL_BACK_CHECK = !mvol_backupelsed2056250d420251d44256i74endifn28t41d184232r49104t48i91CMP  A, #d8996t58i155BEQ  .retd1515341i715_UPDATIr50i108GBNEt29r2050t31d101341i910SWITCH_UNd4997i24INd82395i28EQt418d64282t46i274MOV  A, !pause_statusd627358i216check_lightningd1721341t517d155358d1615446i1116witchd3711473d737415d167424s216i2.d61275i6_d41270i194BRA  .restored1019626d610317n26r464d430251r75d105256i10n123t41d124232i12!d51245t45d84446i108#$01d510446d165250i816, Ad68317i6n9r4232d496251r65d105256n22r471i454!sfxd114484n132n16n91n122t41d184232t29r4372d411251r65d105256t414d74746r1031n28t41i34dbd53767i125coin,       d512767i155spin_jump,     d515767i135poof,        d513767i35fald63630d86821i128lava,       d512767i65ballood146832i1314hititem_sad, d513767i25myd52941i5ud41284t34d83821i128flattened,  d612951i146ushroom,      d514767i135danger,      d513767d65941i6ed141887i1214shrink,     d11121047i911_engine, d59767i135grow,        d9131084d791075i57d85821i58enemyd751088d57767i55resetd951075i9 d61879i76inish_ld1071079i1510super_rampd815821i128mole_repel, d6121084i26hod42177d84832d1281221i12fd51869d55767i55objhid45160i84r_Md1481123d414846i24, d1521284r12711c16s31d1631259i916Ldbr51141n23t41d84821d1281321i212, d1721259i317,  d53767i135taunt_yoshi, d6131143i66ank_oud66366d2061044s220d7921064s279d2521143d12251209i12 d2811181d13281168i13 d1311026i713,      d97879i99,        d169933i516d951201d139994d43131221d943976i59d951201d99957i49,   d1741284s317d1531284r8253s17d141841i514d85821d148918d514767i251ud921195r295r25n45t41i34dbi11393Cdb$r441r37n48t41i34dbd634104d166117r487d16711163i16r435d1532767n33r456d17351886r434d1547767n32n17r446n63r365r435d16411181n41t21r483d756896i7nd4116i44lidr435d10351966i710liquidr435d1038879r435d941896i9r435d632824i26ard421267i54woodr435d12362019i412icer435d12352019i412carr435d12352019i512pipen23r465s44n2118r3170r539c87s1r46n2r742n39n37t1n70t1r7164n53n16t1n84t1r4112n56r4117d11661008i11n26t31t21t14t27t327n21n69n51n51t31t21r4325d12102085i12t322n20n138t31t27t320n26n91t31t22t14t28t327n22d1317211r4533d1391382i313NGr467d1666595r470d682861d46456i4n22t1n62t1r4143d12582085n40t31t28t14t328n24t70n17t1n69n157t1n109n336r4949i1280!KEYSTAT_ATTd412313n21r434d9142178i99CONTINUEn32t31t18t311r66n17r415d16152178n55t1r480d9382178i59NULLn30t1n169t31t19t15n5t31t18t15n88n182n168r3702n46n97r3144n125n72n56d640479i36paur3286i4er114d72461i7n49n54d9702242r3182i10er114d822252n131t2182n21r4448d811596r434d16382123t241n22r4233i8185!ENGINE_d68415d46428n47r4162d81162302i38ONr440d18392302n47r4115d9832320i39FFn83r4115d18322302n108r4124d18312302n108r4123d11302320n102t21n48t21n32t21n98t21n44t21n27t1r4342r4147d181522302r483d12972349t92r87n126n115n72n56d9402242r3403i10er114d822252n56n54d9702242r3182i10er114d822252n131t2182n21r4448d811596r434d16382123t241n22r4233d181852302n61r4162d111162320r440d18472302n47r4115d12832349n92r4115d18322302n108r4124d18312302n108r4123d11302320n102t21n48t21n32t1r4178n93t21n44t21n27t1r4164r4147d181522302r483d12972349n192n106n63n28r4432d85596n25r434d16142123n41t21r247n220n71n53r4164i842!DOPPLERd482327n25r438d9142658d1092310n32r460d12352658n61r481d19292670n55r4124d18852302n61r4112d11662320r440d18472302n42r455d10282658i310FFn39r4111d12722349n81r4104d18322302n97r4113d18312302n97r4126d11442320n94t21n48t21n32t1r4170n36r3119n94r438d18302302n73n77t21n46t21r4200d12232349n222n59r4311d84096n25r434d16142123r36r265i2112skr3i3pn8r421i914!EX_INITn29t1r451d4282896i64READYn54t1r478d4272896i54LOADn32t1t15r59r265i279skr3i3pn8r421d9142896n229t2r451d10282905n58t1r478d9272915n36t1t15n107n44n45t1t74r4317n12t1n39t1n110t1r266r581d5191261r36d462900r24i65EXSFXr2r487d1892414t38r2484i4461!EXSr3i125X_NUM_CLEARn35t1r549d526261r36d462900r24d652964t6n108t21n128n34n34n51t21n109n34n34n59r4591r510d516261r36d462900r24d652964i6r310r532d538261r36d462900r24d652964n42r346r436d9422896r540d545261r36d462900r24d652964n42r346r532d538261r36d462900r24d753028r310r436d9482896r540d545261r36d462900r24d652964n388t21n68n9t21n69r2664d41402988r3d1252992r2165d41762988r3d1252992t86r78n186r273i291str22i3pn26n131n131r417n145r15r37r39r414n108r24r414r46r415r47r414n146r24r414r46r415r47r414n145r23r414r45r415r495d41602988i4Fd612992i116DRIFT_WOODr432d11393149i411WARNd44428n84r4143d16602178n33t1r459d16392178n60t1r485d14382228n43n86t77t315n22r4334d221083149r432d19503171n99r4143d16602178n33t1r459d16392178n60t1r485d14382228n43n86t77t315n22r2676d44502988r3d1252992n35n152n65n104r3411r2124d41912988r3d1252992n35n152n65n104r3411r489d91562915n38t31t24t29t324n25r137d511842i25idr22c3s1i61#!SIDEr123i57LEFTr4161d91542915n38t31t24t29t324n25r137d7113364r22c8s1d613371r123i67RIGHTr390d9133104d169117r362r515c38s1r46n2r773n70d139211t31d171232t68d61282t36d53446i145X, !player_modd6141117d66358i46loudd442106i74.mul:d57446i185Y, #$A0MUL  Yd618740d86446i128YRETd7123501i67:d1063517i710B8d67637i56muld65317d2261864r5116c54s1r46n2n72n98r7206n35n138t1n131t1n80r7383n31d149211d21141865r547c53s1r46n2n72r7206n132n138t1n133t1n80r7385n31d1993635s319d1731870d417105i44A   d2143689i421B   d144117i2141r4183d111703149i1111UNDERWATERt26t312n11r578n116r19185r525i3112B, d633554d56446r6c6s1d613705i6r422d6223730i6n17t21n79r5136n42t70t327n13n47r213i256!Vr22d53226r87i290!Vr22i53VOLRn44r68i228!Vr22d53226r38i241!Vr22d533814n28r585d461198r46n5r241d638186r791n95n64r479r615i221+0n69n41r3120n49n26r2128d660186r725n29r31i225!Vr22i3Pd41417i24Lr38i238!Vr22d533853i25Hn36r49i214!Vr22i53SRCNn81r91i214!Vr22i63ADSR1r55i259!Vr22d433878i242d1342211d1113211i11Ad1313903i13Bd813646s38d6633689r4210d222343755t37t312n11r578n116r19185r525d141123777r6c15s1d713791r422d7283798n23t21n79r5136n42t70t327n13r168i257!Vr22d533814r87i290!Vr22d53226n28r576d452198r46n5r241d638186r791n95n64r479r615i221+0n69n41r3120n49n26r2128d660186r725n29r31i225!Vr22d733853r38i243!Vr22d733862n41r49i214!Vr22d533871n81r91i214!Vr22d633878r55i259!Vr22d633886d41463892r235i2234!Vr22d53226n28r199i2175!Vr22d533814n28r96i272!Vr22d733853n189r4193n70n44r3114n52n29r136i262!Vr22d733862n30r38i214!Vr22d533871n84r94i214!Vr2d533878r215d5193878i75(1,7,$0r3i28)r37i238!Vr2d533886r215d5193886i45(7,$r3i350)i626!volLd1761870i517volRd1653739n83r10205d41154249r323d5174270r1017d4194249r323d5174270n24r973d4524249i24, r410n3r1060d4574249r921d6154310r410n27r339d5374270r362d5644270r313d5154270n9r314r14i219!Vr2d43226r1115d4184249i4r47i237!Vr2d433814r414d5174270i5n24r40i214!Vr22d733853r66i271!Vr22d733862n58r66i214!Vr22d533871n79r89i214!Vr22d633878r65i269!Vr22d633886d756211d474249d943903d494271i24"d4424248n111r10233d41154249r323d5174270n24r973d6524310r410n7r1060d4574249r921d6154310r410n27r339d5374270r362d5644270r313d5154270n9r314r14i219!Vr2d43226r1115d5184347r47i241!Vr2d433814r414d6174358n29r40i214!Vr22d733853r66i271!Vr22d733862n58r66i214!Vr22d533871n79r89i214!Vr22d633878r65i269!Vr22d633886d26564405r84i258!Vr22d53226r60i263!Vr22d533814n50r60i214!Vr22d733853r62i267!Vr22d733862n31r62i237!Vr22d533871n75r85i214!Vr22d633878r61i265!Vr22d633886r460n183n41n27r3196r4111n235n41n27r3196r3110n235n41n27r3196r3110n235n41n27r3196n235n41n27r3303
+t8nt4nt5nt4nt4nt2nt4nt2nt6nt4nt5nt2nt5nt4nt6nt4nt7nt3nt5nt4nt5nt4nt4nt8nt4nt5nt4nt4nt7nt2nt8nt4nt5nt6nt4nt6nt4nt7nt3nt6nt4nt6nt7nt3nt6nt4nt6nt4nt5nt4nt4nt5nt6n2t9nt4nt5nt4nt4nt4nt5nt4nt4nt4nt5nt4nt9nt1nt8nt3nt4nt2nt2nt6nt5nt3nt3nt8nt2nt5nt5nt3nt3nt8nt9nt3nt2nt2nt4nt5nt3nt7nt3nt8nt2nt5nt5nt3nt7nt3nt8nt1nt7nt5nt5nt2nt5nt2nt5nt2nt5nt9nt5nt4nt8nt9nt4nt5nt5nt5nt6nt5nt8nt9nt4nt5nt5nt5nt6nt5nt8nt9nt4nt5nt5nt5nt6nt5nt8nt4nt5nt4nt9nt5nt5nt5nt7nt6nt7nt5nt5nt5nt8nt9nt9nt4nt6nt3nt7nt3nt8nt4nt4nt3nt5nt6nt5nt6nt4nt8nt1nt5nt3nt4nt7nt4nt8nt5nt4nt7nt4nt6nt7nt5nt6nt5nt6nt4nt5nt4nt5nt3nt6nt8nt8nt4nt11nt4nt11nt7nt4nt4nt2nt3nt5nt1nt2nt2nt1nt3nt7nt2nt2nt3nt5nt2nt2nt1nt3nt3nt7nt4nt1nt8nt2nt6nt3nt3nt5nt7nt3nt4nt4nt4nt1nt7nt4nt8nt1nt8nt3nt3nt5nt2nt8nt1nt7nt4nt3nt6nt4nt5nt3nt5nt4nt1nt10nt8nt1nt7nt5nt2nt4nt1nt8nt2nt4nt5nt2nt4nt4nt6nt1nt7nt4nt8n6t4n3t3n9t3n9t1nt2nt4nt2nt5nt3nt5nt4nt4nt2nt5nt3nt5nt4nt6nt1nt5nt4nt5nt1nt4nt2nt3nt4nt5nt4nt2nt5nt2nt5nt4nt5nt4nt5nt2nt5nt2nt5nt2nt5nt2nt5nt1nt7nt5nt4nt3nt5nt7nt3nt6nt4nt1nt6nt5nt4nt5nt4nt5nt6nt4nt4nt7nt5nt4nt6nt4nt7nt4nt5nt6nt4nt7nt4nt4nt4nt4nt7nt4nt6nt1nt9nt7nt4nt3nt3nt4nt5nt4nt2nt2nt4nt1nt6nt4nt4nt4nt3nt4nt4nt3nt4nt4nt5nt2nt3nt5nt1nt6nt3nt2nt3nt2nt4nt4nt3nt3nt1nt7nt3nt5nt3nt4nt5nt4nt2nt2nt4nt1nt10nt8ns1nt10nt2nt3nt2nt4nt3nt2nt5nt4nt9nt4nt4nt2nt7nt4nt4nt2nt5nt4nt3nt3nt4nt4nt4nt2nt4nt4nt3nt4nt4nt7nt2nt6nt4nt3nt4nt5nt4nt5nt5nt4nt5nt5nt5nt2nt8nt4nt3nt5nt2nt4nt6nt8nt6nt5nt7nt5nt4nt4nt4nt3nt3nt8nt9nt4nt5nt4nt4nt5nt4nt3nt3nt6nt2nt5nt2nt2nt4nt4nt6nt5nt5nt4nt2nt3nt6nt2nt8nt6nt3nt3nt2nt9nt8nt9nt5nt6nt4nt5nt4nt2nt5nt4nt6nt5nt7nt4nt6nt5nt7nt9nt4nt5nt3nt1nt7nt4nt5nt7nt4nt4nt5nt7nt4nt6nt1nt7nt4nt5nt7nt4nt4nt5nt7nt4nt1nt3nt6nt4nt4nt5nt7nt4nt4nt4nt8nt9nt10nt4nt5nt5nt3nt4nt4nt5nt2nt4nt3nt2nt4nt2nt2nt4nt3nt5nt4nt3nt3nt1nt9nt5nt2nt2nt1nt6nt5nt2nt3nt2nt1nt7nt3nt3nt3nt3nt2nt3nt5nt1nt6nt3nt3nt3nt4nt5nt2nt3nt5nt1nt7nt3nt3nt5nt3nt2nt4nt2nt4nt5nt1nt7nt2nt4nt2nt4nt4nt2nt4nt8nt1nt9nt2nt2nt3nt2nt4nt2nt1nt7nt2nt2nt5nt6nt2nt1nt8nt2nt2nt5nt6nt2nt1nt8nt4nt2nt6nt3nt5nt3nt6nt5nt6nt3nt7nt5nt3nt8nt3nt9nt2nt5nt3nt7nt6nt6nt3nt7nt6nt3nt2nt6nt3nt2nt8nt8nt2nt2nt6nt8nt8nt3nt2nt4nt2nt4nt9nt4nt5nt5nt2nt4nt3nt7nt10nt4nt5nt3nt4nt4nt5nt2nt4nt3nt2nt4nt2nt2nt4nt3nt5nt4nt3nt3nt1nt9nt5nt2nt2nt1nt6nt5nt2nt3nt2nt1nt7nt3nt3nt3nt3nt2nt3nt5nt1nt6nt3nt3nt3nt4nt5nt2nt3nt5nt1nt7nt3nt3nt5nt3nt2nt4nt2nt4nt5nt1nt7nt2nt4nt2nt4nt4nt2nt4nt8nt1nt9nt2nt2nt3nt2nt4nt2nt1nt7nt2nt2nt5nt6nt2nt1nt8nt2nt2nt5nt6nt2nt1nt8nt4nt2nt6nt3nt5nt3nt6nt5nt6nt3nt7nt5nt3nt3nt9nt2nt5nt3nt7nt6nt6nt3nt7nt6nt3nt2nt6nt3nt2nt8nt8nt2nt2nt6nt8nt8nt3nt2nt4nt2nt9nt4nt5nt5nt3nt4nt5nt5nt7nt7nt7nt7nt3nt4nt5nt5nt3nt4nt3nt1nt8nt3nt4nt5nt4nt2nt3nt4nt5nt1nt8nt3nt3nt4nt3nt3nt4nt3nt3nt4nt4nt2nt4nt1nt7nt3nt3nt4nt1nt8nt2nt3nt8nt1nt8nt1nt4nt2nt4nt5nt1nt7nt1nt4nt4nt2nt4nt1nt8nt3nt3nt8nt1nt9nt1nt6nt3nt1nt4nt6nt1nt7nt2nt1nt5nt6nt6nt1nt8nt2nt1nt5nt6nt6nt1nt8nt6nt4nt1nt2nt5nt3nt6nt5nt6nt3nt7nt5nt3nt2nt1nt9nt6nt3nt3nt8nt1nt8nt2nt1nt6nt8nt1nt8nt3nt5nt6nt3nt7nt4nt8nt3nt8nt3nt1nt4nt5nt3nt6nt9nt4nt5nt5nt4nt1nt5nt5nt4nt1nt3nt4nt5nt4nt2nt2nt6nt3nt4nt4nt4nt5nt2nt7nt4nt3nt4nt2nt8nt4nt3nt2nt7nt7nt6nt3nt4nt4nt4nt5nt4nt2nt7nt4nt3nt4nt2nt8nt4nt3nt2nt7nt7nt8nt3nt4nt4nt4nt5nt3nt4nt5nt3nt2nt4nt4nt4nt8nt2nt7nt4nt2nt6nt4nt1nt6nt4nt2nt6nt4nt1nt6nt4nt10nt5nt4nt4nt3nt7nt3nt4nt2nt5nt8nt3nt3nt3nt3nt1nt3nt1nt3nt4nt3nt4nt3nt5nt3nt3nt5nt4nt2nt4nt2nt7nt3nt8nt3nt4nt3nt4nt3nt3nt3nt1nt1nt4nt5nt6nt4nt5nt6nt4nt5nt1nt3nt3nt3nt1nt5nt4nt5nt6nt4nt5nt6nt4nt5nt1nt8nt1nt3nt1nt4nt3nt1nt1nt4nt4nt3nt3nt1nt1nt4nt3nt1nt4nt4nt3nt3nt9nt5nt4nt4nt4nt5nt1nt8nt9nt5nt4nt4nt4nt5nt1nt8nt8nt3nt3nt3nt6nt3nt4nt4nt8nt3nt5nt3nt4nt4nt4nt4nt8nt8nt4nt5nt4nt2nt4nt5nt3nt8nt8nt4nt5nt4nt2nt4nt5nt3nt2nt8nt9nt1nt5nt5nt5nt5nt5nt5nt5nt1nt9nt1nt1nt5nt4nt4nt1nt9nt1nt4nt5nt4nt4nt1nt9nt1nt4nt5nt4nt4nt1nt9nt1nt4nt5nt4nt4nt1nt4nt1nt4nt1nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt9nt4nt1nt6nt2nt6nt1nt5nt6nt1nt8nt2nt2nt5nt2nt8nt6nt2nt2nt6nt2nt8nt6nt3nt2nt1nt10nt2nt4nt4nt4nt1nt5nt3nt5nt4nt4nt5nt1nt8nt9nt4nt1nt6nt2nt6nt1nt5nt6nt1nt8nt2nt2nt5nt2nt8nt6nt2nt2nt6nt2nt8nt6nt3nt2nt1nt10nt2nt4nt4nt4nt1nt5nt3nt5nt4nt4nt5nt1nt8nt9nt5nt1nt3nt3nt5nt9nt5nt1nt3nt3nt5nt9nt5nt3nt4nt4nt2nt4nt1nt8nt5nt1nt5nt6nt5nt2nt8nt1nt8nt1nt6nt4nt5nt1nt2nt4nt4nt6nt5nt2nt8nt9nt5nt3nt4nt4nt2nt4nt1nt8nt5nt1nt5nt6nt5nt2nt8nt1nt8nt1nt6nt4nt5nt1nt2nt4nt4nt6nt5nt2nt8nt9nt4nt3nt4nt2nt4nt5nt2nt2nt3nt4nt2nt4nt5nt3nt9nt4nt3nt4nt2nt4nt5nt2nt2nt3nt4nt1nt4nt5nt3nt5nt7nt6nt8nt1nt5nt5nt7nt6nt7nt5nt8nt9nt8nt7nt5nt7nt6nt8nt10nt3nt5nt5nt7nt6nt8nt8nt5nt6nt10nt7nt8nt5nt4nt5nt2nt4nt5nt2nt2nt5nt1nt8nt5nt5nt7nt6nt8nt7nt2nt1nt2nt5nt2nt2nt5nt2nt2nt4nt2nt4nt1nt9nt5nt8nt9nt7nt8nt5nt4nt5nt2nt4nt5nt2nt2nt5nt8nt5nt5nt7nt6nt8nt7nt2nt1nt2nt4nt2nt2nt5nt2nt2nt4nt2nt4nt1nt9nt5nt8nt9nt1nt1nt1nt7nt3nt5nt5nt6nt7nt3nt4nt1nt6nt6nt7nt4nt3nt5nt4nt5nt2nt1nt6nt2nt5nt5nt7nt5nt5nt7nt5nt6nt4nt6nt5nt2nt6nt1nt6nt5nt1nt10nt8nt3nt5nt2nt6nt4nt3nt4nt1nt6nt5nt4nt4nt5nt5nt6nt4nt4nt6nt1nt8nt4nt4nt4nt4nt1nt10nt7nt5nt5nt3nt5nt3nt3nt7nt5nt7nt3nt6nt1nt4nt3nt5nt6nt4nt3nt6nt1nt3nt6nt4nt3nt1nt10nt8nt3nt5nt5nt7nt4nt4nt4nt7nt4nt4nt4nt3nt7nt6nt4nt4nt4nt5nt4nt4nt5nt4nt9nt9nt9nt1nt1nt1nt7nt3nt5nt5nt6nt7nt3nt4nt1nt6nt6nt7nt4nt3nt5nt4nt5nt2nt1nt6nt2nt5nt5nt7nt5nt5nt7nt5nt6nt4nt6nt5nt2nt6nt1nt6nt5nt1nt10nt8nt3nt5nt2nt6nt1nt6nt5nt4nt4nt5nt5nt6nt4nt4nt1nt7nt5nt5nt3nt5nt3nt3nt7nt5nt7nt3nt6nt1nt4nt3nt5nt6nt4nt3nt6nt1nt3nt6nt4nt3nt1nt10nt8nt3nt5nt5nt7nt4nt4nt4nt7nt4nt4nt4nt3nt7nt6nt4nt4nt4nt5nt4nt4nt5nt4nt9nt9nt9nt8nt3nt1nt6nt3nt2nt5nt6nt4nt4nt4nt3nt1nt6nt3nt2nt5nt6nt4nt4nt4nt3nt2nt4nt4nt3nt1nt7nt2nt8nt2nt6nt1nt2nt5nt6nt4nt3nt6nt1nt2nt6nt4nt3nt1nt10nt7nt2nt4nt4nt4nt4nt2nt7nt6nt4nt4nt4nt3nt4nt4nt3nt4nt1nt1nt8nt3nt4nt1nt8nt3nt7nt3nt5nt7nt5nt5nt5nt5nt6nt1nt8nt3nt5nt5nt7nt6nt5nt5nt4nt3nt5nt5nt7nt6nt5nt5nt1nt4nt5nt4nt4nt5nt4nt4nt4nt3nt4nt4nt3nt4nt4nt4nt3nt7nt6nt4nt4nt4nt3nt4nt4nt3nt4nt9nt9nt1nt1nt8nt3nt4nt1nt8nt3nt7nt3nt5nt7nt5nt5nt6nt1nt8nt3nt5nt5nt7nt6nt5nt5nt4nt3nt5nt5nt7nt6nt5nt5nt1nt4nt5nt4nt4nt5nt4nt4nt4nt3nt4nt4nt3nt4nt4nt4nt3nt7nt6nt4nt4nt4nt3nt4nt4nt3nt4nt9nt9nt8nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt4nt7nt6nt4nt4nt4nt4nt4nt4nt4nt4nt5nt5nt2nt4nt1nt1nt9nt6nt6nt1nt9nt6nt1nt5nt5nt4nt5nt4nt5nt5nt2nt4nt1nt1nt9nt6nt6nt1nt9nt6nt1nt5nt5nt4nt5nt4nt5nt5nt2nt4nt1nt1nt9nt6nt6nt1nt9nt6nt1nt5nt5nt4nt5nt4nt5nt5nt2nt4nt1nt1nt9nt6nt6nt1nt9nt6nt1nt5nt5nt4nt5nt4nt10nt5nt5nt2nt4nt1nt1nt9nt6nt6nt1nt9nt6nt1nt5nt5nt4nt5nt4n
+23
+;=======================================================================;
+;		Super Mario Kart SPC700 SMK-Control Code						;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 30, 2023								;
+;																		;
+;		Main driver code specificaly for Super Mario Kart. 				;
+;=======================================================================;
+9
+; ==============================================;
+;	AUDIO_MAIN (global)							;
+;												;
+;	Main Audio Handline Entry Point				;
+; ==============================================;
+8
+8
+; ==============================================;
+4
+; ==============================================;
+;	CHECK_SONG_SIGNAL (global)					;
+; ==============================================;
+;
+; > get port0 command (cmd)
+; if cmd == 0: return 0
+;
+; if cmd == "upload song": return "upload song"
+;
+; if cmd > 7Fh: return 0
+3
+; if cmd >= 20h: return 0
+; - - - - - - - - 				;
+2
+; - - - - - - - - 				;
+;
+12
+; ==============================================;
+5
+; ==============================================;
+;	RESET_SONG_SPECIAL_PARAMS (global)			;
+;												;
+;	Resets special song control parameters,		;
+;	usually for song init.						;
+; ==============================================;
+2
+; clear fast forward delay
+; clear "fade out" flag
+;
+; Set Lightning Inactive
+;
+13
+; ==============================================;
+6
+; ==============================================;
+;	HANDLE_SFX									;
+;												;
+;	Handles port0 input if the input			;
+;	is a valid immediate SFX number				;
+; ==============================================;
+; \
+; | get port0 command (cmd)
+; /
+; - - - - - - - - 				;
+; if cmd == 0 (null): Null SFX number
+; - - - - - - - - 				;
+2
+; if cmd < 20h (song): Null SFX number
+; - - - - - - - - 				;
+3
+; if cmd >= 70h (.... ?): Null SFX number
+; - - - - - - - - 				;
+; else set new SFX number as cmd
+2
+; - - - - - - - - 				;
+; - - - - - - - - 				;
+2
+13
+; ==============================================;
+3
+; ============================================================================================
+; ============================================================================================
+4
+; ==============================================;
+;	SFXCTRL (For engine control)				;	
+; ==============================================;
+1
+27
+; ==============================================;
+5
+; ============================================================================================
+; ============================================================================================
+12
+; ==============================================;
+;	HANDLE_PORT123								;
+;												;
+;	Handles Execution for ports 1, 2, and 3,	;
+;	and communicates with SNES to transfer		;
+;	data.										;
+; ==============================================;
+4
+;				 				;
+3
+;				 				;
+3
+17
+; ==============================================;
+9
+; ==============================================;
+;	CHECK_PAUSE									;
+;												;
+;	Sets the relevant flags for pausing or		;
+;	unpausing, and when current pause status 	;
+;	is maintained for more than one tick.		;
+; ==============================================;
+2
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - - - - - - - - - - - - ;
+2
+; pause_switch = SWITCH_UNPAUSING
+; pause_status = PAUSE_UPDATING
+;
+; - - - - - - - - - - - - - - - - - - - ;
+2
+; pause_switch = NOT_SWITCHING
+; pause_status = UNPAUSED
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;		
+2
+; - - - - - - - - - - - - - - - - - - - ;
+2
+; pause_switch = NOT_SWITCHING
+;
+; pause_status = PAUSED
+;
+; - - - - - - - - - - - - - - - - - - - ;
+2
+; pause_switch = SWITCH_PAUSING
+;
+; pause_status = PAUSE_UPDATING
+;
+16
+; ==============================================;
+10
+; ==============================================;
+;	HANDLE_FAST_FORWARD							;
+;												;
+;	Handle commands for fast forwarding song	;
+; ==============================================;
+;(W)			;
+1
+; ----------------------------------------------;
+3
+; Last lap version of normal song
+;
+; Last lap version of Bowser Castle
+;
+; Last lap version of Ghost Valley
+;
+1
+; ----------------------------------------------;
+4
+1
+; ----------------------------------------------;
+; Fast forward normal song
+7
+1
+; ----------------------------------------------;
+; Fast forward Bowser Castle song
+7
+1
+; ----------------------------------------------;
+7
+1
+; ----------------------------------------------;
+;
+1
+; ----------------------------------------------;
+; Fast forward by 133%
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; Fast forward by 160%
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+11
+1
+; ----------------------------------------------;
+;
+13
+; ==============================================;
+7
+; ==============================================;
+;	CHECK_FADE_OUT								;
+;												;
+;	Handles Fade Out effect if flag set			;
+; ==============================================;
+;		
+4
+; > decrement music volume twice as fast if unpaused
+;
+;  -  -  -  -  -				;
+; > decrement music volume (fade out????)
+; \ double check since can fade out twice as fast when unpaused
+; |
+; |
+; |
+; /
+;  -  -  -  -  -				;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; Set music volume to 0
+;  -  -  -  -  -				;
+4
+; VxVOLL = 0
+;
+; VxVOLR = 0
+; \
+; | next channel
+; |
+; |
+; /
+;
+;  -  -  -  -  -				;
+; \
+; | clear fade out flag
+; / and port0 value (sent back to the SNES)
+; \
+; | wtf... both branches are returns :p
+; /
+16
+; ==============================================;
+9
+; ==============================================;
+;	HANDLE_MUSIC_VOLUME							;
+;												;
+;	Handle Music Volume control based on the	;
+;	current pause and lightning status			;
+; ==============================================;
+5
+1
+; ----------------------------------------------;
+;		
+; - - - - - - - - - - - - - - - ;
+3
+; > Skip if paused
+9
+; > Skip if paused
+6
+; - - - - - - - - - - - - - - - ;
+; - - - - - - - - - - - - - - - - - - - - - ;
+5
+; \
+; | set music volume to 55% 
+; /
+; - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - - - - - - - - ;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+6
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+2
+; > skip if not lightning
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; Set Lightning active
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; If lightning was active, just restore...
+; ... but if it was inactive, set it inactive again (???? wtf?)
+;
+; - - - - - - - - - - - - - - - ;
+2
+; clear music volume backup
+;
+; - - - - - - - - - - - - - - - ;
+;
+25
+; ==============================================;
+2
+; ============================================================================================
+8
+; ============================================================================================
+;	Sound Effect Priorities
+; ============================================================================================
+2
+; ==============================================;
+;	PRIORITY_SFX								;
+;												;
+;	Table of SFX numbers that have HIGH			;
+;	priority when new (but not over the 		;
+;	"Finish Line" or "Lightning" effects, which	;
+;	have MAX priority)							;
+; ==============================================;
+5
+; TODO: finish line is in here? okay...
+2
+; end list
+18
+; ==============================================;
+4
+; ==============================================;
+;	SFX Priority Timing							;
+; ----------------------------------------------;
+;	TIMED_SFX									;
+;												;
+;	SFX numbers that only have priority when	;
+;	within "running time"						;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SFX_TIME									;
+;												;
+;	Time window that corresponding SFX has		;
+;	priority for								;  
+; ==============================================;
+8
+; end list
+1
+9
+13
+; ==============================================;
+7
+; ==============================================;
+;	HANDLE_SFX_PRIORITY							;
+;												;
+;	Handle the priority of the newest SFX		;
+; ==============================================;
+; temp work address		;
+1
+; ----------------------------------------------;
+1
+; \
+; | "Finish Line" and "Lightning" SFX
+; | have highest priority, so always
+; | override current SFX.
+; /
+; - - - - - - - - 				;	
+; \
+; | No SFX have priority over
+; | "Finish Line" and "Lightning",
+; | so don't set new SFX.
+; /
+; - - - - - - - - 				;	
+; > Neither current nor previous is Finish Line or Lightning
+; - - - - - - - - - - - - - - - - - - - - - ;
+; \
+; / Override: NO NEW SFX
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - 				;	
+; \			
+; |
+; | 
+; | These SFX have specific priority over the super ramp effect,
+; | but not priortiy over other SFX.
+; |
+; |
+; |
+; |
+; |
+; |
+; |
+; |
+; |
+; |
+; |
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ; 			
+;	
+; 	
+;
+; does the new SFX have priority? (yes if in this table (?))
+4
+; - - - - - - - - 				;	
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+7
+; - - - - - - - - 				;	
+;
+; \
+; / OVERRIDE: NO NEW SFX
+; ... should probably be "exit" here, no?
+; - - - - - - - - 				;	
+;		
+3
+; - - - - - - - - 				;	
+4
+; - - - - - - - - 				;	
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+;
+; \ Reset danger timer and ??? if ...
+; | ... new signal is danger SFX
+; |
+; - - - - - - - - 				; |
+; |
+; |
+; |
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \ Set SFX to danger if ...
+; |  ... 1. No other SFX playing
+; - - - - - - - - 				; |
+; |
+; |  ... 2. Danger Timer active
+; - - - - - - - - 				; |
+; |
+; |  ... 3. Game is not paused
+; - - - - - - - - 				; |
+; |
+; | 
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+; \ Increment danger timer if ...
+; |
+; | ... 1. Danger SFX active
+; |
+; | ... 2. Game is not paused
+; - - - - - - - - 				; |
+; |
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+; \	Stop danger effect if ...	
+; | 
+; | ... Danger Timer == E1h (length of danger SFX)
+; | 
+; - - - - - - - - 				; |
+; |
+; |
+; |
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+1
+; ----------------------------------------------;
+; undefine local "temp" variable	;
+27
+; ==============================================;
+3
+; ============================================================================================
+9
+; ============================================================================================
+; ============================================================================================
+6
+; ==============================================;
+;	SFX_MAIN									;
+;												;
+;	Main handler for SFX						;
+; ==============================================;
+9
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;		
+2
+; - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - 				;
+;
+; \
+; / Set Danger SFX active
+;
+; - - - - - - - - 				;
+;
+; \
+; / set SFX number
+;
+; - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - 				;
+8
+; - - - - - - - - - - - - - - - - - - - ;
+5
+; - - - - - - - - 				;
+; disable voice 3 
+;
+1
+; ----------------------------------------------;
+;		
+; stop sfx
+1
+; ----------------------------------------------;
+4
+; reset "ended" flag
+; reset attack status for SFX voice
+; reset end delay
+;
+1
+; ----------------------------------------------;
+;
+; \
+; / Play SFX
+; > get instrument from end of SFX routine
+2
+; - - - - - - - - 				;
+; Write DSP registers for SFX
+4
+; - - - - - - - - - - - - - - - - - - - ; not in attack state, check if release or no release
+; \
+; |
+; - - - - - - - - 				; |
+; |
+; | > release SFX voice note
+; |
+; - - - - - - - - 				; | If "release", next status will restart envelope to attack. 
+; | If "continue", note won't be released so current envelope will continue
+; /
+;
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; enable voice 3
+; \
+; / ADSR status is "done"
+; - - - - - - - - - - - - - - - - - - - ;
+2
+1
+; ----------------------------------------------;
+;		
+; voice 3 is now an SFX channel .. (TODO: better name for this?)
+; disable voice 3
+; \
+; / Play SFX
+3
+; - - - - - - - - 				;
+;
+; disable echo on voice 3
+;
+; - - - - - - - - 				;
+;
+; enable echo on voice 3
+;
+14
+; ==============================================;
+6
+; ==============================================;
+;	SFX_VOL_HANDLE								;
+;												;
+;	Handles proper setting of Left and Right	;
+;	volume based on number of players and when	;
+;	engine A has priority						;
+; ==============================================;
+4
+; - - - - - - - - - - - - - - - - - - - - - ;
+10
+; - - - - - - - - - - - - - - - - - - - - - ;
+9
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - 				;
+5
+; - - - - - - - - 				;
+;
+14
+; ==============================================;
+8
+; ==============================================;
+;	HANDLE_PORT2/P1_ENGINE						;
+;												;
+;	Read Port2 data as controls for P1's engine	;
+; ==============================================;
+2
+; \
+; / THIS IS WHERE port2_read TRANSFERS TO upload_port_2
+2
+; - - - - - - - - 				;
+2
+; Set "Engine Muffle" Flag for P1
+; - - - - - - - - 				;
+2
+; - - - - - - - - 				;
+2
+; - - - - - - - - 				;
+; ... okay why did you need to use the word address rather than the dp address?
+;
+; - - - - - - - - 				;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; 0% output volume
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; 100% output volume
+; \
+; / Set P1 Engine Level
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+4
+; \
+; / Load P1 Engine Level if "Use Old Engine"
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+9
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+2
+; \ Unless enabled later, use old engine level
+; /
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+8
+; - - - - - - - - - - - - - - - - - - - - - ;
+5
+; stop SFX on voice 7 (set back to "music mode")
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; voice 7 is now Engine channel
+; release voice 7
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+; \
+; |
+; | voice 7 is now Engine channel
+; | release voice 7
+; / ... NOTE: This is the same exact thing as above... :p
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; enable voice 7
+2
+; - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - - - - - - - - - - ;
+2
+1
+; ----------------------------------------------;
+;	
+2
+; - - - - - - - - - - - - - - - - - ;
+;
+; disable echo on voice 7
+;
+; - - - - - - - - - - - - - - - - - ;
+;
+; enable echo on voice 7
+; - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+4
+1
+; ----------------------------------------------;
+3
+; disable voice 7
+;
+1
+; ----------------------------------------------;
+3
+; stop sfx on voice 7
+;
+13
+; ==============================================;
+6
+; ==============================================;
+;	HANDLE_PORT_3								;
+;												;
+;	Check which mode port3 data is in, then		;
+;	execute proper port3 handler				;
+; ==============================================;
+;
+1
+; ----------------------------------------------;
+;
+; \
+; / THIS IS WHERE port3_read TRANSFERS TO port3
+; \
+; / Enable echo if engine updating
+; - - - - - - - - 				;
+; \
+; / Switch to proper port3 read mode: Player or Enemy
+10
+; ==============================================;
+4
+; ==============================================;
+;	P2_ENGINE									;
+;												;
+;	Read Port3 data as controls for P2's engine	;
+; ==============================================;
+4
+; - - - - - - - - 				;
+2
+; Set "Muffle Engine" Flag for P2
+; - - - - - - - - 				;
+2
+; - - - - - - - - 				;
+2
+; - - - - - - - - 				;
+; ... okay why did you need to use the word address rather than the dp address?
+;
+; - - - - - - - - 				;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; 0% output volume
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; 100% output volume
+; \
+; / Set P2 Engine Level
+; - - - - - - - - - - - - - - - - - - - - - ;
+5
+; \
+; / Load P2 Engine Level if "Use old level"
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+8
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+2
+; \ Unless enabled later, use old engine level
+; / 
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+9
+; - - - - - - - - - - - - - - - - - - - - - ;
+5
+; stop SFX on voice 6 (set back to "music mode")
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; voice 6 is now Engine channel
+; release voice 6
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+; \
+; |
+; | voice 6 is now Engine channel
+; | release voice 6
+; / ... NOTE: This is the same exact thing as above... :p
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; enable voice 6
+2
+; - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+3
+; - - - - - - - - - - - - - - - - - ;
+;
+; disable echo on voice 6
+;
+; - - - - - - - - - - - - - - - - - ;
+;
+; enable echo on voice 6
+; - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+4
+1
+; ----------------------------------------------;
+3
+; disable voice 6
+;
+1
+; ----------------------------------------------;
+3
+; stop sfx on voice 6
+;
+15
+; ==============================================;
+8
+; ==============================================;
+;	ENEMY_ENGINE								;
+;												;
+;	Read Port3 data as controls for enemy's		;
+;	doppler engine effect						;
+; ==============================================;
+;
+; \ \
+; | / THIS IS ALSO WHERE port3_read TRANSFERS TO port3
+; | Get Doppler Distance
+; /
+;				 				;
+; \
+; |
+; |
+; | Get Doppler Pan value
+; |
+; |
+; /
+;				 				;
+; \
+; |
+; / Save Raw Doppler Data
+;				 				;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - 				;
+2
+; - - - - - - - - 				;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+2
+; - - - - - - - - 				;
+2
+; - - - - - - - - 				;
+3
+; - - - - - - - - 				;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+3
+; - - - - - - - - - - - - - - - - - - - - - ; 				
+;	
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+4
+; stop sfx on voice 6
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+2
+; voice 6 is now Engine channel
+; release voice 6
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+; \
+; |
+; | voice 6 is now Engine channel
+; | release voice 6
+; / ... NOTE: This is the same exact thing as above... :p
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+; enable voice 6
+4
+; - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - - - - - - - - - - ;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+; enable echo on voice 6
+; 		NOTE: This is useless :p (technically UNUSED)
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+2
+; disable voice 6
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+3
+; - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - ;
+3
+; stop engine effect on voice 6
+3
+29
+; ==============================================;
+18
+; ==============================================;
+;	HANDLE_PORT1								;
+;												;
+;	Handle data from port1 as controls for the	;
+;	Extra SFX.									;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	CHECK_INIT_EXSFX
+2
+; ==============================================;
+;	
+; \
+; / THIS IS WHERE port1_read TRANSFERS TO port1
+;
+; Special "Extra" SFX number
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; Set Extra SFX Enable Bits
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - 				;
+2
+2
+; ----------------------------------------------;
+; ----------------------------------------------;
+3
+;  -  -  -  -  -				;
+2
+; - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - - - ;
+2
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+3
+;  -  -  -  -  -				;
+2
+;  -  -  -  -  -				;
+; - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - - - ;
+2
+2
+; ----------------------------------------------;
+; ----------------------------------------------;
+; 		
+2
+; > Don't init Extra SFX for Left or Right
+;  -  -  -  -  -				;
+;
+; > Init Extra SFX Left
+;  -  -  -  -  -				;
+;
+; > Init Extra SFX Left
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; \ Init Extra SFX Left and Right
+; /
+;
+; - - - - - - - - - - - - - - - - - - - ;
+; Don't init Extra SFX for Left or Right		
+;
+; - - - - - - - - - - - - - - - - - - - ; if only P1 engine disabled
+5
+; - - - - - - - - - - - - - - - - - - - ; if only P2 engine disabled
+5
+2
+; ----------------------------------------------;
+; ----------------------------------------------;
+; \ When paused...
+; | 
+; | Disable Extra SFX
+; / 
+;
+2
+; ----------------------------------------------;
+; ----------------------------------------------;
+; When pause status updating (not completely paused or unpaused... quasi-pause? :D)
+;
+; ... if NOT SWITCHING, (this can't really happen, but just in case I guess :p)
+2
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; When starting "Pausing"
+; \
+; / Backup P1 Extra SFX Internal Timer
+; \
+; / Backup P2 Extra SFX Internal Timer
+; \
+; / Backup Extra SFX Left Init Sequence Status
+; \
+; / Backup Extra SFX Right Init Sequence Status
+; \
+; / Backup P1 Extra SFX
+; \
+; / Backup P2 Extra SFX
+;
+; Disable Clear Extra SFX Left Flag
+; Disable Clear Extra SFX Right Flag
+;
+; \
+; | Clear Extra SFX for Left and Right
+; /
+; - - - - - - - - - - - - - - - - - - - ;
+2
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; When starting "Unpausing"		
+; \
+; / Restore P1 Extra SFX Number
+; \
+; / Restore P2 Extra SFX Number
+; - - - - - - - - - - - - - - - - - ;
+;
+; \  
+; / Restore Extra SFX Left Init Sequence Status
+;
+;  -  -  -  -  -				;
+2
+;  -  -  -  -  -				;
+2
+;  -  -  -  -  -				;
+2
+; - - - - - - - - - - - - - - - - - ;
+;
+; \
+; / Restore Extra SFX Left Init Sequence Status
+;
+;  -  -  -  -  -				;
+2
+;  -  -  -  -  -				;
+2
+;  -  -  -  -  -				;
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; - - - - - - - - - - - - - - - - - - - - - ; if D8 == 1
+3
+; - - - - - - - - - - - - - - - - - - - - - ; if D8 == 2
+5
+; - - - - - - - - - - - - - - - - - - - - - ; if D9 == 1
+2
+; - - - - - - - - - - - - - - - - - - - - - ; if D9 == 2
+4
+11
+; ==============================================;
+5
+; ==============================================;
+;	LOAD_EXSFX_L								;
+;												;
+;	Initialize Extra SFX as Extra SFX Left		;
+; ==============================================;
+2
+; Enable Extra SFX Left
+; \
+; / Load Extra SFX Left
+3
+10
+; ==============================================;
+4
+; ==============================================;
+;	LOAD_EXSFX_R								;
+;												;
+;	Initialize Extra SFX as Extra SFX Right		;
+; ==============================================;
+2
+; Enable Extra SFX Right
+; \
+; / Load Extra SFX Right
+3
+20
+; ==============================================;
+13
+; ==============================================;
+;	CHECK_CLEAR_EXSFX							;
+;												;
+;	Sets Channels to Clear Extra SFX playing	;
+;	if clear flag is set for that channel.		;
+; ==============================================;
+3
+; - - - - - - - - - - - - - - - - - ;
+2
+; Clear Right Extra SFX only
+;  -  -  -  -  -				;
+;
+; - - - - - - - - - - - - - - - - - ;
+2
+; Clear Left Extra SFX only
+;  -  -  -  -  -				;
+; Clear Left and Right (P1 and P2)
+2
+1
+; ----------------------------------------------;
+;
+; \
+; |
+; | Enable Extra SFX Left to clear it
+; |
+; / 
+;
+; Disable Clear Flag Left
+;
+1
+; ----------------------------------------------;
+;
+; \ 
+; |
+; | Enable Extra SFX Right to clear it
+; |
+; /
+;
+; Disable Clear Flag Right
+; RET is double-used below		;
+11
+; ==============================================;
+8
+; ==============================================;
+; ==============================================;
+;
+;		
+8
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+;
+; RET					;
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+5
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+5
+6
+; ----------------------------------------------;
+2
+; ----------------------------------------------;
+; 	Left Status is "None":						;
+; ----------------------------------------------;
+;								; Left Routine : None
+;								; Right Routine: None
+1
+; ----------------------------------------------;
+;								; Left Routine : None
+; Right Routine: Stop
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;								; Left Routine : None
+; Right Routine: Setup
+6
+; ----------------------------------------------;
+2
+; ----------------------------------------------;
+; 	Left Status is "Init"						;
+; ----------------------------------------------;
+; Left Routine : Setup
+;								; Right Routine: None
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; Left Routine : Setup
+; Right Routine: Stop
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; Left Routine : Setup
+; Right Routine: Setup
+6
+; ----------------------------------------------;
+2
+; ----------------------------------------------;
+;	Left Status is "Load"						;
+; ----------------------------------------------; \
+; | Left Routine : Setup
+;								; | Right Routine: None
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ; |
+; | Left Routine : Setup
+; | Right Routine: Stop
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ; |
+; | Left Routine : Setup
+; | Right Routine: Setup
+6
+; ----------------------------------------------; / .... this all is just a copy of the section above... :p
+2
+; ----------------------------------------------;
+;	Left Status is "Stop"						;
+; ----------------------------------------------;
+; Left Routine : Stop
+;								; Right Routine: None
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; Left Routine : Stop
+; Right Routine: Stop
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; Left Routine : Stop
+; Right Routine: Setup
+15
+; ----------------------------------------------;
+; ==============================================;
+8
+; ==============================================;
+3
+; ==============================================;
+9
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+3
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; release current voice 5
+;
+; next state = attack
+;
+; - - - - - - - - - - - - - - - - - - - ;
+;	
+; attack on voice 5
+;
+; next state = done
+; - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; \ Check if need to complete attack setup
+; /
+;
+; - - - - - - - - 				;
+3
+; Disable Echo for Voice 5
+;
+; - - - - - - - - 				;
+3
+7
+; ==============================================;
+4
+; ==============================================;
+; ==============================================;
+;		
+8
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; release current voice 5
+;
+; next state = attack
+;
+; - - - - - - - - - - - - - - - - - - - ;
+;	
+; attack on voice 4
+;
+; next state = done
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \ Check if need to complete attack setup
+; /
+;
+; - - - - - - - - 				;
+3
+; Disable Echo for Voice 4
+;
+; - - - - - - - - 				;
+3
+12
+; ==============================================;
+6
+; ==============================================;
+;	STOP_EXSFX_L								;
+;												;
+;	Stop and Reset Extra SFX Left				; TODO: ... meh
+; ==============================================;
+3
+; Reset Extra SFX Left Internal Timer
+; Reset Extra SFX Clear Flag Left
+; stop sfx on voice 5
+9
+; ==============================================;
+3
+; ==============================================;
+;	STOP_EXSFX_R								;
+;												;
+;	Stop and Reset Extra SFX Right				; TODO: ... meh
+; ==============================================;
+3
+; Reset Extra SFX Right Internal Timer
+; Reset Extra SFX Clear Flag Right
+; stop SFX on voice 4
+13
+; ==============================================;
+7
+; ==============================================;
+;	INIT_EXSFX_L								;
+;												;
+;	Initialize Extra SFX Left					;
+; ==============================================;
+2
+; Reset Extra SFX Left Internal Timer
+; \ 
+; / Set Extra SFX Left
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; Set Voice 5 as SFX voice
+; Interrupt Voice 5
+;
+; Set "Not clearing"
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - 				;
+3
+; If "Clearing", then do clear
+; - - - - - - - - 				;
+; Interrupt Voice 5
+;
+; Set "Clearing"
+;
+11
+; ==============================================;
+5
+; ==============================================;
+;	INIT_EXSFX_R								;
+;												;
+;	Initialize Extra SFX Right					;
+; ==============================================;
+2
+; Reset Extra SFX Right Internal Timer
+; \
+; / Set Extra SFX Right
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; Set Voice 4 as SFX voice
+; disable voice 4
+;
+; Set "Not clearing"
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - 				;
+3
+; If "Clearing", then do clear
+; - - - - - - - - 				;
+; disable voice 4
+;
+; Set "Clearing"
+;
+13
+; ==============================================;
+7
+; ==============================================;
+;	RESUME_EXSFX_L								;
+;												;
+;	Resume process of playing Extra SFX Left	; TODO: is it?
+; ==============================================;
+;
+; Increment timer for Extra SFX Left
+3
+; - - - - - - - - 				;
+;
+; \
+; / Load P1 Extra SFX Internal Timer
+;
+; - - - - - - - - 				;
+;
+; \
+; / Play Extra SFX Left
+;
+11
+; ==============================================;
+5
+; ==============================================;
+;	RESUME_EXSFX_R								;
+;												;
+;	Resume process of playing Extra SFX Right	; TODO: is it?
+; ==============================================;
+;
+; Increment timer for Extra SFX Right
+3
+; - - - - - - - - 				;
+;
+; \
+; / Load P2 Extra SFX Internal Timer
+;
+; - - - - - - - - 				;
+;
+; \
+; / Play Extra SFX Right
+;
+20
+; ==============================================;
+14
+; ==============================================;
+;	SCALE_62									;
+;												;
+;	Multiply A by ~0.62							;
+; ==============================================;
+; THIS IS COMPLETELY UNUSED!!
+3
+11
+; ==============================================;
+5
+; ==============================================;
+;	SCALE_120									;
+;												;
+;	Multiply A by 1.2							;
+; ==============================================;
+;(B) temp val		;
+1
+; ----------------------------------------------;
+7
+1
+; ----------------------------------------------;
+;
+11
+; ==============================================;
+5
+; ==============================================;
+;	SCALE_ENGINE_VOL							;
+;												;
+;	Scale Engine Volume by 0.6					;
+; ==============================================;
+13
+; \
+; | ... nice.
+; /
+;
+14
+; ==============================================;
+6
+; ==============================================;
+;	MUFFLE_P1_ENGINE							;
+;												;
+;	Handle if P1 Engine Needs to be reduced		;
+;	for any reason, returns scaled engine		;
+;	level if applicable							;
+; ==============================================;
+;
+1
+; ----------------------------------------------;
+5
+; - - - - - - - - 				;
+;
+; Use NEW engine level value
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \
+; | Scale Engine Level by ~56%
+; |
+; /
+;
+1
+; ----------------------------------------------;
+3
+; - - - - - - - - - - - - - - - - - - - ;
+3
+; \ Unless next cycle disables, next cycle will use old engine level
+; /
+; - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+1
+; ----------------------------------------------;
+;
+15
+; ==============================================;
+7
+; ==============================================;
+;	MUFFLE_P2_ENGINE							;
+;												;
+;	Handle if P2 Engine Needs to be reduced		;
+;	for any reason, returns scaled engine		;
+;	level if applicable							;
+; ==============================================;
+;
+1
+; ----------------------------------------------;
+5
+; - - - - - - - - 				;
+;
+; Use NEW engine level value
+2
+1
+; ----------------------------------------------;
+;		
+; \
+; | Scale Engine Level by ~56%
+; |
+; /
+;
+1
+; ----------------------------------------------;
+; UNUSED!!! (most likely due to a routine naming bug (?) oh well!)
+; ... so USE_OLD_ENGINE_R is unused maybe??
+;
+; - - - - - - - - - - - - - - - - - - - ;
+;
+; ... and MUFFLE_ENGINE_R?
+;
+; \ Unless next cycle disables, next cycle will use old engine level
+; /
+; - - - - - - - - - - - - - - - - - - - ;
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+1
+; ----------------------------------------------;
+;
+17
+; ==============================================;
+10
+; ==============================================;
+;	WRITE_P1_ENGINE_REGS						;
+;												;
+;	Calculates the pitch and volume for P1's	;
+;	engine effect, and writes DSP registers		;
+; ==============================================;
+;(W) temp val		;
+;(B) temp val		;
+;(B) temp val		;
+1
+; ----------------------------------------------;
+;
+; \
+; |
+; |
+; |
+; | A = (!engine_lvl_L / 9) + ???
+; / 
+; \
+; |
+; |
+; | Divide result by 2 if underwater
+; /
+; - - - - - - - - 				;
+; Muffle P1 engine level is applicable
+4
+; - - - - - - - - - - - - - - - - - - - - - ; 	if P1 engine level is 0		
+;	
+; \
+; |
+; | Multiply engine volume by the decay rate (eh technically)
+; | 
+; |
+; | In reality, the formula is roughly this: (with less precision :p)
+; |   vol = L - (1/4)(255 - D)
+; |     where D is the decay level, and L is the input level.
+; |   
+; - - - - - - - - 				; |
+; |
+; | If vol < 0, then set decay to zero, and volume to zero
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+3
+; volume *= 0.6 (0.625 if JPN or PAL)
+;
+; - - - - - - - - 				;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+; when in 2-player mode
+2
+; VOLL = volume * 1.2
+4
+; VOLR = volume * 1.2 / 28h
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;		
+4
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+;
+; \
+; |
+; |
+; |
+; |
+; | YA = (engine level * pitch scale) + pitch base
+; |
+; /
+1
+; ----------------------------------------------;
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - 				;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - 				;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+;
+; \ Write Engine Pitch
+; |
+; |
+; |
+; |
+; |
+; |
+; |
+; /
+;  -  -  -  -  -				;
+; \
+; | Write P1's Engine SRCN
+; |
+; |
+; /
+;  -  -  -  -  -				;
+; \
+; |
+; | Write Engine ADSR
+; |
+; |
+; /
+1
+; ----------------------------------------------;
+3
+13
+; ==============================================;
+6
+; ==============================================;
+;	WRITE_P2_ENGINE_REGS						;
+;												;
+;	Calculates the pitch and volume for P2's	;
+;	engine effect, and writes DSP registers		;
+; ==============================================;
+;(W) temp val		;
+;(B) temp val		;
+;(B) temp val		;
+1
+; ----------------------------------------------;
+;
+; \
+; |
+; |
+; |
+; | A = (!engine_lvl_R / 9) + ???
+; /
+; \
+; |
+; |
+; | Divide result by 2 if underwater
+; /
+; - - - - - - - - 				;
+; Muffle P2 engine level if applicable
+4
+; - - - - - - - - - - - - - - - - - - - - - ; 	if P2 engine level is 0		
+;	
+; \
+; |
+; | Multiply engine volume by the decay rate (eh technically)
+; |
+; |
+; | In reality, the formula is roughly this: (with less precision :p)
+; |   vol = L - (1/4)(255 - D)
+; |     where D is the decay level, and L is the input level.
+; |
+; - - - - - - - - 				; |
+; |
+; | If vol < 0, then set decay to zero, and volume to zero
+; |
+; /
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+3
+; volume *= 0.6 (0.625 if JPN or PAL)
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+3
+; VOLR = volume * 1.2
+3
+; VOLL = volume * 1.2 / 0x28
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \
+; |
+; |
+; |
+; |
+; | YA = (engine level * pitch scale) + pitch base
+; |
+; /
+1
+; ----------------------------------------------;
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+4
+; - - - - - - - - 				;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - 				;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+1
+; ----------------------------------------------;
+;
+; \ Write Engine Pitch
+; |
+; |
+; |
+; |
+; |
+; |
+; |
+; / 
+;  -  -  -  -  -				;
+; \
+; | Write P2's Engine SRCN
+; |
+; |
+; /
+;  -  -  -  -  -				;
+; \
+; |
+; | Write Engine ADSR
+; |
+; |
+; /
+1
+; ----------------------------------------------;
+3
+16
+; ==============================================;
+9
+; ==============================================;
+;	DO_DOPPLER_ENGINE							;
+;												;
+;	Calculate Doppler Effect and Size Effect	;
+;	for Enemy Engine							;
+; ==============================================;
+;
+; \
+; | Set Doppler Left Volume
+; |
+; |
+; |
+; |
+; |
+; |
+; /
+; - - - - - - - - 				;
+; \
+; | Set Doppler Right Volume
+; |
+; |
+; |
+; |
+; |
+; |
+; /
+; - - - - - - - - 				;
+; \
+; |
+; | Set Doppler Base Pitch
+; |
+; |
+; |
+; |
+; /
+1
+; ----------------------------------------------;
+; Shift pitch based on size of enemy
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; max pitch offset for enemy engine
+;
+; - - - - - - - - 				;
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; - - - - - - - - 				;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; \ 
+; | Add Shifted Pitch
+; | 
+; /
+;				 				;
+; \
+; | Set Enemy Engine SRCN
+; |
+; |
+; /
+;				 				;
+; \ Set Enemy Engine ADSR
+; | ADSR1 - attack:   6ms, decay:  37ms
+; | 
+; |
+; | ADSR2 - sus ratio: 8/8, sustain: Infinite
+; /
+19
+; ==============================================;
+13
+; ==============================================;
+;	WRITE_EXSFX_L_REGS							;
+;												;
+;	Write Extra SFX Left Related Registers		;
+; ==============================================;
+;(B) left vol			;
+;(B) right vol			;
+1
+; ----------------------------------------------;
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; add vols, multiply by --
+;
+;  
+4
+; \
+; / wtf????
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; multiply each vol by --
+6
+; - - - - - - - - 				;
+7
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; vol L (after operation)
+2
+; vol R (after operation)
+;
+; - - - - - - - - 				;
+6
+; - - - - - - - - 				;
+5
+; - - - - - - - - 				;
+6
+1
+; ----------------------------------------------;
+2
+9
+; ==============================================;
+3
+; ==============================================;
+;	WRITE_EXSFX_R_REGS							;
+;												;
+;	Write Extra SFX Right Related Registers		;
+; ==============================================;
+;(B) left vol			;
+;(B) right vol			;
+1
+; ----------------------------------------------;
+3
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; add vols, multiply by --
+7
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; multiply each vol by --
+6
+; - - - - - - - - 				;
+7
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; vol L (after operation)
+2
+; vol R (after operation)
+;
+; - - - - - - - - 				;
+3
+;  
+2
+; - - - - - - - - 				;
+5
+; - - - - - - - - 				;
+6
+1
+; ----------------------------------------------;
+2
+10
+; ==============================================;
+3
+; ==============================================;
+;	WRITE_SFX_DSPREGS							;
+;												;
+;	Writes Volume, Pitch, SRCN, and ADSR		;
+;	registers for SFX voice (voice 3)			;
+; ==============================================;
+7
+; - - - - - - - - 				;
+5
+; - - - - - - - - 				;
+6
+; - - - - - - - - 				;
+6
+17
+; ==============================================;
+10
+; ==============================================;
+;	MUSIC_ON_V7									;
+;												;
+;	Clears voice 7 from active SFX, sets back	;
+;	to "song" mode								;
+; ==============================================;
+;
+; \
+; | Reload voice 7 instrument from song
+; /
+; if echo disabled on voice 7 for song
+; - - - - - - - - - - - - - - - - - - - - - ;
+; enable echo for voice 7
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+; disable echo for voice 7
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; \ Set Current Channel to Voice 7 ...
+; / ... and set channel 7 as music channel
+;
+10
+; ==============================================;
+3
+; ==============================================;
+;	MUSIC_ON_V6									;
+;												;
+;	Clears voice 6 from active SFX, sets back	;
+;	to "song" mode								;
+; ==============================================;
+;
+; \
+; | Reload voice 6 instrument from song
+; /
+; if echo disabled on voice 6 for song
+; - - - - - - - - - - - - - - - - - - - - - ;
+; enable echo for voice 6
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+; disable echo for voice 6
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; \ Set current channel to voice 6
+; / ... and set channel 6 as music channel
+;
+10
+; ==============================================;
+3
+; ==============================================;
+;	SFX_OFF_V5									;
+;												;
+;	Clears voice 5 from active SFX, sets back	;
+;	to "song" mode								;
+; ==============================================;
+;
+; \
+; | Reload voice 5 instrument from song
+; /
+; if echo disabled on voice 5 for song
+; - - - - - - - - - - - - - - - - - - - - - ;
+; enable echo for voice 5
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+; disable echo for voice 5
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; \ Set current channel to voice 5
+; / ... and set channel 5 as music channel
+;
+10
+; ==============================================;
+3
+; ==============================================;
+;	SFX_OFF_V4									;
+;												;
+;	Clears voice 4 from active SFX, sets back	;
+;	to "song" mode								;
+; ==============================================;
+;
+; \
+; | Reload voice 4 instrument from song
+; /
+; if echo disabled on voice 4 for song
+; - - - - - - - - - - - - - - - - - - - - - ;
+; enable echo for voice 4
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+; disable echo for voice 4
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; \ Set current channel to voice 4
+; / ... and set channel 4 as music channel
+;
+10
+; ==============================================;
+3
+; ==============================================;
+;	SFX_OFF										;
+;												;
+;	Clears SFX voice (voice 3) from active SFX,	;
+;	sets back to "song" mode					;
+; ==============================================;
+2
+; \
+; | Reload voice 3 instrument from song
+; /
+; if echo disabled on voice 3 for song
+; - - - - - - - - - - - - - - - - - - - - - ;
+; enable echo for voice 3
+2
+; - - - - - - - - - - - - - - - - - - - - - ;
+; disable echo for voice 3
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+2
+; \ Set current channel to voice 3
+; / ... and set channel 3 as music channel
+;
+31
+; ==============================================;
+29

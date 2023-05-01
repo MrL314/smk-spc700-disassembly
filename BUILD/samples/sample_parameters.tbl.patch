@@ -1,0 +1,52 @@
+i70global r2612n718t7i191db$00,$FF,$80,$B8,r2833n26t1d517i251,d5214i5Ed6120d4629r6231n7t1d517i252,d13233i81327,$F0d587i253,d16233i216$2d5274r86n29t1i31dbr208c10d10137i2107,r23n5t1i31dbr1216c18d4129r5615n7t1d517d4570d15486i15Bd8174i288,d14233i4143,$Ed6474r2463c13d131168i131d6174r1239c21d4152r3115n7t1d517i45B,$8d4435i24E,d82114d78200r55n31t1i31dbr168c10i41$F8,d4422r5223n11t1d517i25E,d62219d116170i110d8174i28F,d14233i2142,r5757d477i41d7112d127169d81273i81d16131i2163,r5260n5t1d51304d15554d41553i48d81329d16882i2160,r557i27dbr29n26t1i31dbr248c10d10137i210B,d72100i7r3639c16d5152i53d81329d168134i2168,r3041d57304d155162i152d4131d6474r1637c13d8137n16
+t1nt1nt1nt1nt1nt1nt1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1nt1n
+14
+;=======================================================================;
+;		Super Mario Kart SPC700 Sample Parameter Tables					;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		Parameter tables for each of the samples.						;
+;=======================================================================;
+3
+; -----------------------------------------------------------------------
+2
+; byte 1: SRCN
+; byte 2: ADSR (1) 
+; byte 3: ADSR (2) 
+; byte 4: Gain
+; byte 5: Tuning Coefficient (High)
+; byte 6: Tuning Coefficient (Low)
+; Road Skid
+; Water Splash
+; M/L Engine
+; B/D Engine
+; Closed Hi-Hat
+; Reverb Snare Drum
+; Synth Kick
+; KOOL Orchestra Hit
+; Synth Brass
+; Clarinet
+; Electric Guitar
+; Piano
+; Synth Bass
+; Marimba
+; Drawbar Organ
+1
+1
+; Human Whistle
+; Bongos
+; Acoustic Nylon Guitar
+; Underwater
+; Gravel Skid
+; Synth Organ
+; Cowbell
+; Timbale
+; P/Y Engine
+; K/T Engine
+; Shrill Whistle
+1
+1
+; -----------------------------------------------------------------------

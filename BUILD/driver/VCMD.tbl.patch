@@ -1,0 +1,55 @@
+i70global r4212n218t2i121dwVCMD_E0d9127i391d937i392d937i693dwr49n13t1i31dwr8n10t1i31dwr8n10t1i31dwr510i212dwr13n10t1i31dwr8n10t1i31dwr8n10t1i31dwr728n10t1d917i39Cd937i39Dd937i39Ed937i39Fd837i8Fd11116i11Fd11128i11Fd11140i11Fd6152r79n13t1i31dwr8n10t1i31dwr8n10t1i31dwr510i212dwr13n10t1i31dwr8n10t1i31dwn11d710r523n221r359i1061,1,2,3,0,d410203i441,2r3539d48201d84207i683,1,3r5139d610207d46207i943,3,3,1
+nt1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1ns1nt1n2t1ns1ns1ns1nt1n
+15
+;=======================================================================;
+;		Super Mario Kart SPC700 VCMD Tables								;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		VCMD Routine Pointers and Argument Length tables. 				;
+;=======================================================================;
+4
+; -----------------------------------------------------------------------
+2
+; Routines for NSPC Voice Instructions
+; 0xE0: Set Instrument
+; 0xE1: Set Pan Value
+; 0xE2: Fade Pan
+; 0xE3: Set Vibrato
+; 0xE4: Disable Vibrato
+; 0xE5: Set Music Volume
+; 0xE6: Fade Music Volume
+; 0xE7: Set Tempo
+; 0xE8: Fade Tempo
+1
+1
+; 0xE9: Transpose Global
+; 0xEA: Transpose Voice
+; 0xEB: Set Tremolo
+; 0xEC: Disable Tremolo
+; 0xED: Set Voice Volume
+; 0xEE: Fade Voice Volume
+; 0xEF: Call Subroutine
+; 0xF0: Fade Vibrato
+; 0xF1: Post-Note Bend Pitch
+1
+1
+; 0xF2: Pre-Note Bend Pitch
+; 0xF3: Disable Pitch-Bending
+; 0xF4: Tune
+; 0xF5: Set Echo Channels and Volume
+; 0xF6: Disable Echo
+; 0xF7: Set Echo Parameters
+; 0xF8: Fade Echo Volume
+; 0xF9: Pitch-Slide Immediate
+; 0xFA: Set Percussion Base
+2
+; 3fd1 - Number of arguments for NSPC Voice Instruction
+; commands E0 - E8
+; commands E9 - F1
+; commands F2 - FA
+1
+1
+; -----------------------------------------------------------------------

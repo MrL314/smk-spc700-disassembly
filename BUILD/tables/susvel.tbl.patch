@@ -1,0 +1,24 @@
+i70global r611n217d7380r652n217r841c37n33
+nt1n2t1nt1n2t1n
+16
+;=======================================================================;
+;		Super Mario Kart SPC700 Sustain/Velocity Tables					;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		Tables for conversion from Sustain and Velocity to Hold			;
+;		length and volume.												;
+;=======================================================================;
+4
+; -----------------------------------------------------------------------
+2
+; Note sustain -> hold length value
+1
+2
+3
+; Note velocity -> volume value
+2
+1
+; -----------------------------------------------------------------------

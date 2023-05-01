@@ -1,0 +1,278 @@
+i120!srcn = $20i648port0_r741n10r437i1831!PLAY_upload_normr433i1547!SIG_stop_songr437d54836i95fade_outn28r434r423i1931!SFXCTRL_CMD_BEGINn89r484n16r317n48r454r628r10i410n68r479n48r451r213d42211i34, #d530i5_r22i52nginer123i261r106d139685r22d51498r123i262r106d139685r22d51498r123i264r106d139685r22d51498r123i263r318r1198d41031i4r142d1313285r22d51498r123i261r106d139685r22d51498r123i262r106d139685r22d51498r123i264r106d139685r22d51498r123i263r318r1198d5103165r4117d611192i6ed5198i35_1r470d1369255i2132r470d1368255i2134r470d1368255i2133r310r4122i5127!ONE_d4519i34ERr453i452!TWOd84319t8r411n30i7163undef "d471i24"
+t3nt7nt4nt5nt2nt6nt3nt5nt3nt5nt4nt7nt2nt5nt7nt6nt3nt1nt8nt1nt4nt5nt1nt5nt5nt4nt4nt5nt4nt5nt4nt4nt5nt3nt3nt7nt3nt8nt9nt8nt5nt5nt5nt2nt6nt8nt5nt5nt5nt2nt6nt8nt5nt5nt5nt2nt6nt8nt5nt5nt5nt2nt3nt3nt3nt5nt3nt8nt9nt8nt5nt5nt5nt2nt6nt8nt5nt5nt5nt2nt6nt8nt5nt5nt5nt2nt6nt8nt5nt5nt5nt2nt3nt3nt3nt5nt3nt8nt8nt7nt5nt3nt6nt7nt5nt3nt6nt7nt5nt3nt6nt7nt5nt3nt2nt2nt8nt8nt7nt3nt6nt7nt3nt3nt2nt7nt5nt2nt2nt2nt2nt8nt1n
+11
+;=======================================================================;
+;		Super Mario Kart SPC700 Engine Control Routines					;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		Routines for the Engine sound controls.							;
+;=======================================================================;
+2
+; temp storage variable (undefine later)
+7
+2
+; ==============================================;
+;	HANDLE_SFXCTRL (global)						;
+;												;
+;	Handle SFX control commands 70h - 7Fh		;
+; ==============================================;
+;
+; \
+; / get port0 command (cmd)
+; \ if "play uploaded song" signal, reset engines
+; /
+; \ if "stop song" signal 
+; /
+; \ if "fade out" signal
+; /
+; - - - - - - - - 				;
+6
+; - - - - - - - - - - - - - - - - - - - - - ;
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+; Silences Engines for P1 and P2, returns with A == 0
+;
+; - - - - - - - - - - - - - - - - - - - - - ;
+; \
+; / clear port0
+; clear "fade out" flag
+; clear fast forward delay
+;
+; - - - - - - - - 				;
+;
+; set "fade out" flag
+; - - - - - - - - 				;				
+;
+; \
+; / Stop Danger SFX
+;
+; Use engine level read from port2/3
+;
+33
+; ==============================================;
+10
+; ==============================================;
+;	SET_P1_ENGINE								;
+;												;
+;	Sets Parameters for P1 engine				;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_P1_ML [70h] (global)					;
+;												;
+;	Sets P1 engine as Mario/Luigi Engine		;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_P1_BD [71h] (global)					;
+;												;
+;	Sets P1 engine as Bowser/DK Jr Engine		;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_P1_KT [72h] (global)					;
+;												;
+;	Sets P1 engine as Koopa/Toad Engine			;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_P1_PY [73h] (global)					;
+;												;
+;	Sets P1 engine as Peach/Yoshi Engine		;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; ==============================================;
+;
+1
+; ----------------------------------------------;
+;	
+; Base Pitch = 4700h
+; Pitch Scale Factor = 22h
+; Base Volume = 1100h
+; M/L Engine
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; Base Pitch = 4800h
+; Pitch Scale Factor = 26h
+; Base Volume = 0F00h
+; B/D Engine
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; Base Pitch = 4600h
+; Pitch Scale Factor = 1Dh
+; Base Volume = 1900h
+; K/T Engine
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; Base Pitch = 4600h
+; Pitch Scale Factor = 13h
+; Base Volume = 2000h
+; P/Y Engine
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+4
+; Set P1 Engine SRCN
+;
+34
+; ==============================================;
+11
+; ==============================================;
+;	SET_P2_ENGINE								;
+;												;
+;	Sets Parameters for P2 engine				;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_P2_ML [74h] (global)					;
+;												;
+;	Sets P2 engine as Mario/Luigi Engine		;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_P2_BD [75h] (global)					;
+;												;
+;	Sets P2 engine as Bowser/DK Jr Engine		;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_P2_KT [76h] (global)					;
+;												;
+;	Sets P2 engine as Koopa/Toad Engine			;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_P2_PY [77h] (global)					;
+;												;
+;	Sets P2 engine as Peach/Yoshi Engine		;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; ==============================================;
+;
+1
+; ----------------------------------------------;
+;	
+; Base Pitch = 4700h
+; Pitch Scale Factor = 22h
+; Base Volume = 1100h
+; M/L Engine
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; Base Pitch = 4800h
+; Pitch Scale Factor = 26h
+; Base Volume = 0F00h
+; B/D Engine
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; Base Pitch = 4600h
+; Pitch Scale Factor = 1Dh
+; Base Volume = 1900h
+; K/T Engine
+;
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	
+; Base Pitch = 4600h
+; Pitch Scale Factor = 13h
+; Base Volume = 2000h
+; P/Y Engine
+1
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+4
+; Set P2 Engine SRCN
+;
+31
+; ==============================================;
+8
+; ==============================================;
+;	SET_ENEMY_ENGINE							;
+;												;
+;	Sets Parameters for Enemy engine			;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_ENEMY_ML [78h] (global)					;
+;												;
+;	Sets Enemy engine as Mario/Luigi Engine		;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_ENEMY_BD [79h] (global)					;
+;												;
+;	Sets Enemy engine as Bowser/DK Jr Engine	;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_ENEMY_KT [7Ah] (global)					;
+;												;
+;	Sets Enemy engine as Koopa/Toad Engine		;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_ENEMY_PY [7Bh] (global)					;
+;												;
+;	Sets Enemy engine as Peach/Yoshi Engine		;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+; ==============================================;
+;
+1
+; ----------------------------------------------;
+;	
+; Pitch Base = 0E00h
+; M/L Engine
+;
+1
+; ----------------------------------------------;
+;	
+; Pitch Base = 0E00h
+; B/D Engine
+;
+1
+; ----------------------------------------------;
+;	
+; Pitch Base = 0A00h
+; K/T Engine
+;
+1
+; ----------------------------------------------;
+;	
+; Pitch Base = 0600h
+; P/Y Engine
+1
+; ----------------------------------------------;
+3
+27
+; ==============================================;
+7
+; ==============================================;
+;	SET_PLAYER_MODE								;
+;												;
+;	Sets whether there are 1 or 2 active player	;
+;	engines.									;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_MODE_1P [7Ch] (global)					;
+;												;
+;	Set 1 Active Player Engine, 1 Enemy Engine	;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	SET_MODE_2P [7Dh] (global)					;
+;												;
+;	Set 2 Active Player Engines					;
+; - - - - - - - - - - - - - - - - - - - - - - - ;
+;	MUTE_ENGINES (global)						;
+;												;
+;	Sets the engine level and decay percentage	;
+;	to zero for P1 and P2.						;
+; ==============================================;
+;
+1
+; ----------------------------------------------;
+;	
+2
+1
+; ----------------------------------------------;
+;	
+;
+1
+; ----------------------------------------------;
+;
+; - - - - - - - - - - - - - - - - - - - ;
+2
+; \ P1 0% output volume 
+; / P1 0% output level
+; \ P2 0% output volume
+; / P2 0% output level
+;
+8
+; ==============================================;
+4
+;	Command 7E and 7F are in sfx.asm (:/)
+;
+1
+; undefine local temp variable :)
+1

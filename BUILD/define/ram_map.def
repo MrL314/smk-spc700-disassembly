@@ -1,0 +1,929 @@
+;=======================================================================;
+;		Super Mario Kart SPC700 Binary RAM Map							;
+;																		;
+;			By: MrL314													;
+;																		;
+;			Last revision: March 17, 2023								;
+;																		;
+;		This file holds defines for the variables used in the			;
+;		SPC700 driver program.											;
+;=======================================================================;
+
+
+includeonce		; help avoid redefinition mistakes
+
+
+
+!REG_PORT_CTRL = $00F1
+!REG_DSP_ADDR = $00F2
+!REG_DSP_DATA = $00F3
+!REG_PORT = $00F4
+!REG_PORT_0 = $00F4
+!REG_PORT_1 = $00F5
+!REG_PORT_2 = $00F6
+!REG_PORT_3 = $00F7
+!REG_TIMER_0 = $00FA
+!REG_TIMER_1 = $00FB
+!REG_TIMER_2 = $00FC
+!REG_COUNTER_0 = $00FD
+!REG_COUNTER_1 = $00FE
+!REG_COUNTER_2 = $00FF
+
+
+
+
+
+
+
+
+
+
+; NOTE: "delta value" is the amount that a certain value will be updated each update.
+;		... its "rate". I should've just called it "rate", but now I've made all the
+;		names and I'm too lazy to reformat them. :p 
+
+
+
+
+
+; ----------------------------
+;	RAM MAP
+; ----------------------------
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	APUIO Communication and Mirror Ports
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!read_ports           = $00  	; (4 Bytes) Read Ports SNES->SPC700 Direction
+    !port0_read           = $00  	; (B) Read Port 0
+    !port1_read           = $01  	; (B) Read Port 1
+    !port2_read           = $02  	; (B) Read Port 2
+    !port3_read           = $03  	; (B) Read Port 3
+!write_ports          = $04  	; (4 Bytes) Write Ports / Internal Ports SPC700->SNES Direction
+    !port0                = $04  	; (B) Internal Port 0
+    !port1                = $05  	; (B) Internal Port 1
+    !port2                = $06  	; (B) Internal Port 2
+    !port3                = $07  	; (B) Internal Port 3
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Free area, Unused/Unknown purpose (if any)
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    ;!UNKNOWN_08      = $08  	; (B) UNUSED IN SUPER MARIO KART (Written to, but never read from (?))
+    ;!FREE_09         = $09  	; (B) UNUSED IN SUPER MARIO KART
+    ;!FREE_0A         = $0A  	; (B) UNUSED IN SUPER MARIO KART
+    ;!FREE_0B         = $0B  	; (B) UNUSED IN SUPER MARIO KART
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	General Common RAM
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!mute_timer           = $0C  	; (B) timer for setting registers to "reset" song
+!zero                 = $0E  	; (W) Zero word, value should always be zero (SHOULD!!)
+; - - - - - - -
+!temp_work            = $10  	; (8 bytes) 8 bytes used for reusable temp vals
+                             	;	Usually used for small intermediate calculations
+; - - - - - - -
+!rng                  = $18  	; (W) RNG value 
+	!rng_lo               = $18  	; (B) low byte of RNG value
+	!rng_hi               = $19  	; (B) High byte of RNG value
+!sfx_on               = $1A  	; (B) SFX enabled channels (bitfield 76543210)
+!pause_switch         = $1B  	; (B) Pause Switching Direction
+                             	;	0 = Not Switching
+                             	;	1 = Switching from Unpaused to Paused
+                             	;	2 = Switching from Paused to Unpaused
+!p1_engine_size       = $1C  	; (B) Engine Pitch/Volume Base Addition for P1 for Size Change (multiply val by 256)
+!p2_engine_size       = $1D  	; (B) Engine Pitch/Volume Base Addition for P2 for Size Change (multiply val by 256)
+!enemy_engine_size    = $1E  	; (B) Engine Pitch/Volume Base Addition for Enemy for Size Change (multiply val by 256)
+!sfx_echo_enable      = $1F  	; (B) if non-zero set echo for voice 3 and 7 for non-music sounds
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Scratch Buffer A
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+; 20 - 2F are SFX scratch parameters, same with D0-D2
+!temp_buffA           = $20  	; (16 Bytes) Parameter Storage Buffer for SFX
+                             	; Also used for more scratch storage when needed
+
+; however one useful parameter that gets used is "SFX play side"
+!sfx_side             = $20  	; (B) Select which side to play SFX on (1 = left, 2 = right)
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Voice Instruction Pointers per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_ptr               = $30  	; (W) Pointer to (next) instruction data per voice
+	!vX_ptrL              = $30  	; (B) Low byte of ptr
+	!vX_ptrH              = $31  	; (B) High byte of ptr
+;
+!v0_ptr               = $30  	; (W) Voice 0 Instruction Pointer
+!v1_ptr               = $32  	; (W) Voice 1 Instruction Pointer
+!v2_ptr               = $34  	; (W) Voice 2 Instruction Pointer
+!v3_ptr               = $36  	; (W) Voice 3 Instruction Pointer
+!v4_ptr               = $38  	; (W) Voice 4 Instruction Pointer
+!v5_ptr               = $3A  	; (W) Voice 5 Instruction Pointer
+!v6_ptr               = $3C  	; (W) Voice 6 Instruction Pointer
+!v7_ptr               = $3E  	; (W) Voice 7 Instruction Pointer
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	General RAM
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!song_ptr             = $40  	; (W) Pointer to block data for song
+    !song_ptrL            = $40  	; (B) Low byte of block data pointer
+    !song_ptrH            = $41  	; (B) Low byte of block data pointer
+!loop_cnt             = $42  	; (B) Number of times to loop phrase
+!update_timer         = $43  	; (B) Timer that signals ????? to update every 16ms (increments by 20h each tick)
+!curr_voice           = $44  	; (B) Current Voice (*2) (for indexing vX tables)
+!KON                  = $45  	; (B) KON DSP register
+!KOF                  = $46  	; (B) KOF DSP register
+!curr_channel         = $47  	; (B) Bit set for current channel working with logically 
+!FLG                  = $48  	; (B) FLG DSP register
+                             	;	RMEN NNNN
+                             	;	R          RESET
+                             	;	 M         MUTE
+                             	;	  E        Echo Disabled (?) (0 = enabled, 1 = disabled)
+                             	;	   N NNNN  Noise Clock
+!NON                  = $49  	; (B) NON DSP register
+!EON                  = $4A  	; (B) EON DSP register
+!PMON                 = $4B  	; (B) PMON DSP register
+!echo_timer           = $4C  	; (B) Echo delay timer (makes sure echo parameters are only set once the previous echo is finished)
+                             	;	is < 0 when in still in "previous" echo, > 0 when in current echo
+!EDL                  = $4D  	; (B) EDL DSP register (kinda)
+!EFB                  = $4E  	; (B) Echo Feedback Value
+!echo_channels        = $4F  	; (B) Enabled Echo Channels (channel per bit)
+; - - - - - - -
+!transpose            = $50  	; (B) Global Transpose
+!clock                = $51  	; (B) Clock for keeping track of cycle timing
+!tempo                = $52  	; (W) Tempo
+    !tempoL               = $52  	; (B) Low byte of Tempo
+    !tempoH               = $53  	; (B) High byte of Tempo
+!tempo_fade_len       = $54  	; (B) Tempo Fade Length
+!tempo_fade_dest      = $55  	; (B) Tempo Fade Dest
+!tempo_fade_delta     = $56  	; (W) Tempo Fade delta value
+    !tempo_fade_deltaL    = $56  	; (B) Low byte of Tempo Fade delta
+    !tempo_fade_deltaH    = $57  	; (B) High byte of Tempo Fade delta
+!music_volume         = $58  	; (W) Music Volume
+    !music_volumeL        = $58  	; (B) Low byte of Music Volume
+    !music_volumeH        = $59  	; (B) High byte of Music Volume
+!mvol_fade_len        = $5A  	; (B) Music Volume Fade Length
+!mvol_fade_dest       = $5B  	; (B) Music Volume Fade Destination
+!mvol_fade_delta      = $5C  	; (W) Music Volume Fade delta value
+    !mvol_fade_deltaL     = $5C  	; (B) Low byte of Music Volume Fade delta
+    !mvol_fade_deltaH     = $5D  	; (B) High byte of Music Volume Fade delta
+!music_on             = $5E  	; (B) Bits Designating which channels have Music enabled (?)
+!percussion_base      = $5F  	; (B) Percussion Base Instrument Offset
+; - - - - - - -
+!evol_L               = $60  	; (W) Echo Volume Left
+    !evol_LL              = $60  	; (B) Low byte of Echo Volume Left
+    !evol_LH              = $61  	; (B) High byte of Echo Volume Left
+!evol_R               = $62  	; (W) Echo Volume Right
+    !evol_RL              = $62  	; (B) Low byte of Echo Volume Right
+    !evol_RH              = $63  	; (B) High byte of Echo Volume Right
+!evol_L_fade_delta    = $64  	; (W) Echo Volume Left Fade delta
+    !evol_L_fade_deltaL   = $64  	; (B) Low byte of Echo Volume Left Fade delta
+    !evol_L_fade_deltaH   = $65  	; (B) High byte of Echo Volume Left Fade delta
+!evol_R_fade_delta    = $66  	; (W) Echo Volume Right Fade delta
+    !evol_R_fade_deltaL   = $66  	; (B) Low byte of Echo Volume Right Fade delta
+    !evol_R_fade_deltaH   = $67  	; (B) High byte of Echo Volume Right Fade delta
+!evol_fade_len        = $68  	; (B) Echo Volume Fade Length
+!evol_L_fade_dest     = $69  	; (B) Echo Volume Fade Left Dest
+!evol_R_fade_dest     = $6A  	; (B) Echo Volume Fade Right Dest
+!fade_out             = $6B  	; (B) If Currently Fading Out
+!danger_active        = $6C  	; (B) If Danger SFX needs to be updated (?) TODO
+!spin_vibra_L         = $6D  	; (B) Pitch Vibrato Adjustment to add to Spinout Base Pitch for Extra SFX Left
+!spin_vibra_R         = $6E  	; (B) Pitch Vibrato Adjustment to add to Spinout Base Pitch for Extra SFX Right
+!doppler_dist         = $6F  	; (B) Distance used in Engine Doppler Effect
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Note Internal Timer and Real Duration per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_note_timer        = $70  	; (B) Timer for syncing note length per voice
+!vX_note_dur          = $71  	; (B) Timer for how long note actually plays per voice
+;
+!v0_note_timer        = $70  	; (B) Voice 0 Note Internal Timer
+!v0_note_dur          = $71  	; (B) Voice 0 Note Real Duration
+!v1_note_timer        = $72  	; (B) Voice 1 Note Internal Timer
+!v1_note_dur          = $73  	; (B) Voice 1 Note Real Duration
+!v2_note_timer        = $74  	; (B) Voice 2 Note Internal Timer
+!v2_note_dur          = $75  	; (B) Voice 2 Note Real Duration
+!v3_note_timer        = $76  	; (B) Voice 3 Note Internal Timer
+!v3_note_dur          = $77  	; (B) Voice 3 Note Real Duration
+!v4_note_timer        = $78  	; (B) Voice 4 Note Internal Timer
+!v4_note_dur          = $79  	; (B) Voice 4 Note Real Duration
+!v5_note_timer        = $7A  	; (B) Voice 5 Note Internal Timer
+!v5_note_dur          = $7B  	; (B) Voice 5 Note Real Duration
+!v6_note_timer        = $7C  	; (B) Voice 6 Note Internal Timer
+!v6_note_dur          = $7D  	; (B) Voice 6 Note Real Duration
+!v7_note_timer        = $7E  	; (B) Voice 7 Note Internal Timer
+!v7_note_dur          = $7F  	; (B) Voice 7 Note Real Duration
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Subroutine Call Amount (and UNUSED) per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_call_amt          = $80  	; (B) Number of calls of subroutine per voice
+    ; vX_UNUSED       = $81  	; (B) UNUSED IN SUPER MARIO KART
+;
+!v0_call_amt          = $80  	; (B) Voice 0 Subroutine Call Amount
+    ; v0_UNUSED       = $81  	; (B) Voice 0 UNUSED IN SUPER MARIO KART
+!v1_call_amt          = $82  	; (B) Voice 1 Subroutine Call Amount
+    ; v1_UNUSED       = $83  	; (B) Voice 1 UNUSED IN SUPER MARIO KART
+!v2_call_amt          = $84  	; (B) Voice 2 Subroutine Call Amount
+    ; v2_UNUSED       = $85  	; (B) Voice 2 UNUSED IN SUPER MARIO KART
+!v3_call_amt          = $86  	; (B) Voice 3 Subroutine Call Amount
+    ; v3_UNUSED       = $87  	; (B) Voice 3 UNUSED IN SUPER MARIO KART
+!v4_call_amt          = $88  	; (B) Voice 4 Subroutine Call Amount
+    ; v4_UNUSED       = $89  	; (B) Voice 4 UNUSED IN SUPER MARIO KART
+!v5_call_amt          = $8A  	; (B) Voice 5 Subroutine Call Amount
+    ; v5_UNUSED       = $8B  	; (B) Voice 5 UNUSED IN SUPER MARIO KART
+!v6_call_amt          = $8C  	; (B) Voice 6 Subroutine Call Amount
+    ; v6_UNUSED       = $8D  	; (B) Voice 6 UNUSED IN SUPER MARIO KART
+!v7_call_amt          = $8E  	; (B) Voice 7 Subroutine Call Amount
+    ; v7_UNUSED       = $8F  	; (B) Voice 7 UNUSED IN SUPER MARIO KART
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Voice Volume Fade Length and Pan Fade Length per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_vol_fade_len      = $90  	; (B) Voice Volume Fade Length per voice
+!vX_pan_fade_len      = $91  	; (B) Pan Fade length per voice
+;
+!v0_vol_fade_len      = $90  	; (B) Voice 0 Volume Fade Length
+!v0_pan_fade_len      = $91  	; (B) Voice 0 Pan Fade Length
+!v1_vol_fade_len      = $92  	; (B) Voice 1 Volume Fade Length
+!v1_pan_fade_len      = $93  	; (B) Voice 1 Pan Fade Length
+!v2_vol_fade_len      = $94  	; (B) Voice 2 Volume Fade Length
+!v2_pan_fade_len      = $95  	; (B) Voice 2 Pan Fade Length
+!v3_vol_fade_len      = $96  	; (B) Voice 3 Volume Fade Length
+!v3_pan_fade_len      = $97  	; (B) Voice 3 Pan Fade Length
+!v4_vol_fade_len      = $98  	; (B) Voice 4 Volume Fade Length
+!v4_pan_fade_len      = $99  	; (B) Voice 4 Pan Fade Length
+!v5_vol_fade_len      = $9A  	; (B) Voice 5 Volume Fade Length
+!v5_pan_fade_len      = $9B  	; (B) Voice 5 Pan Fade Length
+!v6_vol_fade_len      = $9C  	; (B) Voice 6 Volume Fade Length
+!v6_pan_fade_len      = $9D  	; (B) Voice 6 Pan Fade Length
+!v7_vol_fade_len      = $9E  	; (B) Voice 7 Volume Fade Length
+!v7_pan_fade_len      = $9F  	; (B) Voice 7 Pan Fade Length
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Portamento Active Tick and Delay Tick per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_pbend_bend_timer  = $A0  	; (B) Current time in Pitch Bend per voice
+!vX_pbend_delay_timer = $A1  	; (B) Current time in Pitch Bend Delay per voice
+;
+!v0_pbend_bend_timer  = $A0  	; (B) Voice 0 Portamento Active Tick
+!v0_pbend_delay_timer = $A1  	; (B) Voice 0 Portamento Delay Tick
+!v1_pbend_bend_timer  = $A2  	; (B) Voice 1 Portamento Active Tick
+!v1_pbend_delay_timer = $A3  	; (B) Voice 1 Portamento Delay Tick
+!v2_pbend_bend_timer  = $A4  	; (B) Voice 2 Portamento Active Tick
+!v2_pbend_delay_timer = $A5  	; (B) Voice 2 Portamento Delay Tick
+!v3_pbend_bend_timer  = $A6  	; (B) Voice 3 Portamento Active Tick
+!v3_pbend_delay_timer = $A7  	; (B) Voice 3 Portamento Delay Tick
+!v4_pbend_bend_timer  = $A8  	; (B) Voice 4 Portamento Active Tick
+!v4_pbend_delay_timer = $A9  	; (B) Voice 4 Portamento Delay Tick
+!v5_pbend_bend_timer  = $AA  	; (B) Voice 5 Portamento Active Tick
+!v5_pbend_delay_timer = $AB  	; (B) Voice 5 Portamento Delay Tick
+!v6_pbend_bend_timer  = $AC  	; (B) Voice 6 Portamento Active Tick
+!v6_pbend_delay_timer = $AD  	; (B) Voice 6 Portamento Delay Tick
+!v7_pbend_bend_timer  = $AE  	; (B) Voice 7 Portamento Active Tick
+!v7_pbend_delay_timer = $AF  	; (B) Voice 7 Portamento Delay Tick
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Vibrato Current Delay Tick and Depth per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_vibra_delay_tick  = $B0  	; (B) Current tick time in Vibrato Delay per voice
+!vX_curr_vibra_depth  = $B1  	; (B) Current Vibrato Depth per voice
+;
+!v0_vibra_delay_tick  = $B0  	; (B) Voice 0 Vibrato Current Delay Tick
+!v0_curr_vibra_depth  = $B1  	; (B) Voice 0 Current Vibrato Depth
+!v1_vibra_delay_tick  = $B2  	; (B) Voice 1 Vibrato Current Delay Tick
+!v1_curr_vibra_depth  = $B3  	; (B) Voice 1 Current Vibrato Depth
+!v2_vibra_delay_tick  = $B4  	; (B) Voice 2 Vibrato Current Delay Tick
+!v2_curr_vibra_depth  = $B5  	; (B) Voice 2 Current Vibrato Depth
+!v3_vibra_delay_tick  = $B6  	; (B) Voice 3 Vibrato Current Delay Tick
+!v3_curr_vibra_depth  = $B7  	; (B) Voice 3 Current Vibrato Depth
+!v4_vibra_delay_tick  = $B8  	; (B) Voice 4 Vibrato Current Delay Tick
+!v4_curr_vibra_depth  = $B9  	; (B) Voice 4 Current Vibrato Depth
+!v5_vibra_delay_tick  = $BA  	; (B) Voice 5 Vibrato Current Delay Tick
+!v5_curr_vibra_depth  = $BB  	; (B) Voice 5 Current Vibrato Depth
+!v6_vibra_delay_tick  = $BC  	; (B) Voice 6 Vibrato Current Delay Tick
+!v6_curr_vibra_depth  = $BD  	; (B) Voice 6 Current Vibrato Depth
+!v7_vibra_delay_tick  = $BE  	; (B) Voice 7 Vibrato Current Delay Tick
+!v7_curr_vibra_depth  = $BF  	; (B) Voice 7 Current Vibrato Depth
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Tremolo Current Delay Tick and Depth per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_tremo_delay_tick  = $C0  	; (B) Current tick time in Tremolo Delay per voice
+!vX_curr_tremo_depth  = $C1  	; (B) Current Tremolo Depth per voice
+;
+!v0_tremo_delay_tick  = $C0  	; (B) Voice 0 Tremolo Current Delay Tick
+!v0_curr_tremo_depth  = $C1  	; (B) Voice 0 Current Tremolo Depth
+!v1_tremo_delay_tick  = $C2  	; (B) Voice 1 Tremolo Current Delay Tick
+!v1_curr_tremo_depth  = $C3  	; (B) Voice 1 Current Tremolo Depth
+!v2_tremo_delay_tick  = $C4  	; (B) Voice 2 Tremolo Current Delay Tick
+!v2_curr_tremo_depth  = $C5  	; (B) Voice 2 Current Tremolo Depth
+!v3_tremo_delay_tick  = $C6  	; (B) Voice 3 Tremolo Current Delay Tick
+!v3_curr_tremo_depth  = $C7  	; (B) Voice 3 Current Tremolo Depth
+!v4_tremo_delay_tick  = $C8  	; (B) Voice 4 Tremolo Current Delay Tick
+!v4_curr_tremo_depth  = $C9  	; (B) Voice 4 Current Tremolo Depth
+!v5_tremo_delay_tick  = $CA  	; (B) Voice 5 Tremolo Current Delay Tick
+!v5_curr_tremo_depth  = $CB  	; (B) Voice 5 Current Tremolo Depth
+!v6_tremo_delay_tick  = $CC  	; (B) Voice 6 Tremolo Current Delay Tick
+!v6_curr_tremo_depth  = $CD  	; (B) Voice 6 Current Tremolo Depth
+!v7_tremo_delay_tick  = $CE  	; (B) Voice 7 Tremolo Current Delay Tick
+!v7_curr_tremo_depth  = $CF  	; (B) Voice 7 Current Tremolo Depth
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Temporary Scratch Storage Buffer B
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!temp_buffB           = $D0  	; (3 Bytes) Temporary Storage Buffer (Mostly for SFX params)
+    ;                 = $D0
+    ;                 = $D1
+    ;                 = $D2
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	General RAM
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!mvol_backup          = $D3  	; (B) Backup Music Volume for use in "pausing" and when lightning effect playing
+!exsfx_en             = $D4  	; (B) Bits to signal that Extra SFX are playing for Left/Right 
+                             	;	--LR ----
+                             	;	  L        Extra SFX Enabled on Left
+                             	;	   R       Extra SFX Enabled on Right
+!enemy_engine_status  = $D5  	; (B) Status of Enemy Doppler Engine Sound (0: Off, 1: Transition, 2: On)
+!exsfx_L_timer        = $D6  	; (B) Extra SFX Left Internal Timer
+!exsfx_R_timer        = $D7  	; (B) Extra SFX Right Internal Timer
+!exsfx_L_init_status  = $D8  	; (B) Init Sequence Status for Extra SFX Left
+!exsfx_R_init_status  = $D9  	; (B) Init Sequence Status for Extra SFX Right
+!engine_lvl_L         = $DA  	; (B) Left Port Engine Level (Roughly correlates to pitch and volume)
+!engine_lvl_R         = $DB  	; (B) Right Port Engine Level (Roughly correlates to pitch and volume)
+!p1_engine_status     = $DC  	; (B) Status of P1 Engine Sound Effect (0: Off, 1: Transition, 2: On)
+!p2_engine_status     = $DD  	; (B) Status of P2 Engine Sound Effect (0: Off, 1: Transition, 2: On)
+!exsfx_srcn_L         = $DE  	; (B) SRCN for Extra SFX Left
+!exsfx_srcn_R         = $DF  	; (B) SRCN for Extra SFX Right
+; - - - - - - -
+!jingle_timer         = $E0  	; (B) Timer for special "jingle" based normal SFX
+!danger_timer         = $E1  	; (B) Timer for "Warning" SFX
+!sfx_timer            = $E2  	; (B) Normal SFX Internal Timer
+!player_mode          = $E3  	; (B) Whether in 2-Player or 1-player mode (if in 1-player mode, port3 is in doppler mode)
+!pause_status         = $E4  	; (B) Current Status of Pause
+                             	;	0 = Playing
+                             	;	1 = Paused
+                             	;	2 = Updating Pause Status
+!material_L_timer     = $E5  	; (B) Internal Timer for Ground Material Based Extra SFX Left
+!material_R_timer     = $E6  	; (B) Internal Timer for Ground Material Based Extra SFX Right
+!exsfx_num            = $E7  	; (B) Extra SFX number read in from SNES (TODO: also the one that is playing?)
+                             	;	(not *actual* number that is playing, but one that is read)
+!new_sfx              = $E8  	; (B) SFX number read in from SNES (not *actual* SFX that is playing)
+!sfx_num              = $E9  	; (B) SFX number that is currently playing
+!ff_delay             = $EA  	; (B) Delay timer for starting Fast Forward version of song
+!exsfx_L              = $EB  	; (B) Extra SFX number for P1 (or Left channel, if you like)
+!exsfx_R              = $EC  	; (B) Extra SFX number for P2 (or Right channel, if you like)
+!sfx_vol_L            = $ED  	; (B) Left Volume for Normal SFX (Also consider "main" volume)
+!sfx_vol_R            = $EE  	; (B) Right Volume for Normal SFX (Also consider "sub" volume)
+!sfx_keystat          = $EF  	; (B) SFX voice key ADSR status (1: release then attack, 3: no release, continue current ADSR)
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Vibrato Fade Timer (and UNUSED) per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_vibra_fade_timer  = $0100	; (B) Timer for Vibrato Fade
+    ; vX_UNUSED       = $0101	; (B) UNUSED IN SUPER MARIO KART
+;
+!v0_vibra_fade_timer  = $0100	; (B) Voice 0 Vibrato Fade Timer
+    ; v0_UNUSED       = $0101	; (B) Voice 0 UNUSED IN SUPER MARIO KART
+!v1_vibra_fade_timer  = $0102	; (B) Voice 1 Vibrato Fade Timer
+    ; v1_UNUSED       = $0103	; (B) Voice 1 UNUSED IN SUPER MARIO KART
+!v2_vibra_fade_timer  = $0104	; (B) Voice 2 Vibrato Fade Timer
+    ; v2_UNUSED       = $0105	; (B) Voice 2 UNUSED IN SUPER MARIO KART
+!v3_vibra_fade_timer  = $0106	; (B) Voice 3 Vibrato Fade Timer
+    ; v3_UNUSED       = $0107	; (B) Voice 3 UNUSED IN SUPER MARIO KART
+!v4_vibra_fade_timer  = $0108	; (B) Voice 4 Vibrato Fade Timer
+    ; v4_UNUSED       = $0109	; (B) Voice 4 UNUSED IN SUPER MARIO KART
+!v5_vibra_fade_timer  = $010A	; (B) Voice 5 Vibrato Fade Timer
+    ; v5_UNUSED       = $010B	; (B) Voice 5 UNUSED IN SUPER MARIO KART
+!v6_vibra_fade_timer  = $010C	; (B) Voice 6 Vibrato Fade Timer
+    ; v6_UNUSED       = $010D	; (B) Voice 6 UNUSED IN SUPER MARIO KART
+!v7_vibra_fade_timer  = $010E	; (B) Voice 7 Vibrato Fade Timer
+    ; v7_UNUSED       = $010F	; (B) Voice 7 UNUSED IN SUPER MARIO KART
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	UNUSED IN SUPER MARIO KART [$0110 - $01BF]
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+; Stack starts at $01CF, and grows downwards. Usually it does not
+; go very deep, but to be safe try not to use memory too close to
+; the stack.
+;
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Note Length and Sustain Value per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_note_length       = $0200	; (B) current note length per voice
+!vX_note_sustain      = $0201	; (B) current note sustain value per voice
+;
+!v0_note_length       = $0200	; (B) Voice 0 Note Length
+!v0_note_sustain      = $0201	; (B) Voice 0 Note Sustain
+!v1_note_length       = $0202	; (B) Voice 1 Note Length
+!v1_note_sustain      = $0203	; (B) Voice 1 Note Sustain
+!v2_note_length       = $0204	; (B) Voice 2 Note Length
+!v2_note_sustain      = $0205	; (B) Voice 2 Note Sustain
+!v3_note_length       = $0206	; (B) Voice 3 Note Length
+!v3_note_sustain      = $0207	; (B) Voice 3 Note Sustain
+!v4_note_length       = $0208	; (B) Voice 4 Note Length
+!v4_note_sustain      = $0209	; (B) Voice 4 Note Sustain
+!v5_note_length       = $020A	; (B) Voice 5 Note Length
+!v5_note_sustain      = $020B	; (B) Voice 5 Note Sustain
+!v6_note_length       = $020C	; (B) Voice 6 Note Length
+!v6_note_sustain      = $020D	; (B) Voice 6 Note Sustain
+!v7_note_length       = $020E	; (B) Voice 7 Note Length
+!v7_note_sustain      = $020F	; (B) Voice 7 Note Sustain
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Note Velocity and Instrument per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_note_velocity     = $0210	; (B) current note velocity per voice
+!vX_instrument        = $0211	; (B) instrument per voice
+;
+!v0_note_velocity     = $0210	; (B) Voice 0 Note Velocity
+!v0_instrument        = $0211	; (B) Voice 0 Instrument
+!v1_note_velocity     = $0212	; (B) Voice 1 Note Velocity
+!v1_instrument        = $0213	; (B) Voice 1 Instrument
+!v2_note_velocity     = $0214	; (B) Voice 2 Note Velocity
+!v2_instrument        = $0215	; (B) Voice 2 Instrument
+!v3_note_velocity     = $0216	; (B) Voice 3 Note Velocity
+!v3_instrument        = $0217	; (B) Voice 3 Instrument
+!v4_note_velocity     = $0218	; (B) Voice 4 Note Velocity
+!v4_instrument        = $0219	; (B) Voice 4 Instrument
+!v5_note_velocity     = $021A	; (B) Voice 5 Note Velocity
+!v5_instrument        = $021B	; (B) Voice 5 Instrument
+!v6_note_velocity     = $021C	; (B) Voice 6 Note Velocity
+!v6_instrument        = $021D	; (B) Voice 6 Instrument
+!v7_note_velocity     = $021E	; (B) Voice 7 Note Velocity
+!v7_instrument        = $021F	; (B) Voice 7 Instrument
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Instrument Tuning Coefficient per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_tune_coeff        = $0220	; (W) Instrument-Based Pitch Tuning per voice
+    !vX_tune_coeffL       = $0220	; (B) Low byte of Instrument Tuning
+    !vX_tune_coeffH       = $0221	; (B) High byte of Instrument Tuning
+;
+!v0_tune_coeff        = $0220	; (W) Voice 0 Tuning Coefficient 
+!v1_tune_coeff        = $0222	; (W) Voice 1 Tuning Coefficient 
+!v2_tune_coeff        = $0224	; (W) Voice 2 Tuning Coefficient 
+!v3_tune_coeff        = $0226	; (W) Voice 3 Tuning Coefficient 
+!v4_tune_coeff        = $0228	; (W) Voice 4 Tuning Coefficient 
+!v5_tune_coeff        = $022A	; (W) Voice 5 Tuning Coefficient 
+!v6_tune_coeff        = $022C	; (W) Voice 6 Tuning Coefficient 
+!v7_tune_coeff        = $022E	; (W) Voice 7 Tuning Coefficient 
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Subroutine Return Address per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_return_addr       = $0230	; (W) Return Address per voice
+    !vX_return_addrL      = $0230	; (B) Low byte of Return Address
+    !vX_return_addrH      = $0231	; (B) High byte of Return Address
+;
+!v0_return_addr       = $0230	; (W) Voice 0 Subroutine Return Address
+!v1_return_addr       = $0232	; (W) Voice 1 Subroutine Return Address
+!v2_return_addr       = $0234	; (W) Voice 2 Subroutine Return Address
+!v3_return_addr       = $0236	; (W) Voice 3 Subroutine Return Address
+!v4_return_addr       = $0238	; (W) Voice 4 Subroutine Return Address
+!v5_return_addr       = $023A	; (W) Voice 5 Subroutine Return Address
+!v6_return_addr       = $023C	; (W) Voice 6 Subroutine Return Address
+!v7_return_addr       = $023E	; (W) Voice 7 Subroutine Return Address
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Subroutine Call Address per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_subroutine        = $0240	; (W) Subroutine per voice
+    !vX_subroutineL       = $0240	; (B) Low byte of Subroutine
+    !vX_subroutineH       = $0241	; (B) High byte of Subroutine
+;
+!v0_subroutine        = $0240	; (W) Voice 0 Subroutine Call Address
+!v1_subroutine        = $0242	; (W) Voice 1 Subroutine Call Address
+!v2_subroutine        = $0244	; (W) Voice 2 Subroutine Call Address
+!v3_subroutine        = $0246	; (W) Voice 3 Subroutine Call Address
+!v4_subroutine        = $0248	; (W) Voice 4 Subroutine Call Address
+!v5_subroutine        = $024A	; (W) Voice 5 Subroutine Call Address
+!v6_subroutine        = $024C	; (W) Voice 6 Subroutine Call Address
+!v7_subroutine        = $024E	; (W) Voice 7 Subroutine Call Address
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	UNUSED IN SUPER MARIO KART [$0250 - $027F]
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+;
+;
+;
+;
+;
+;
+;
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Pitch Bend / Portamento Length and Delay per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_pitch_bend_length = $0280	; (B) Pitch Bend Length per voice
+!vX_pitch_bend_delay  = $0281	; (B) Pitch Bend Delay per voice
+;
+!v0_pitch_bend_length = $0280	; (B) Voice 0 Pitch Bend Length
+!v0_pitch_bend_delay  = $0281	; (B) Voice 0 Pitch Bend Delay
+!v1_pitch_bend_length = $0282	; (B) Voice 1 Pitch Bend Length
+!v1_pitch_bend_delay  = $0283	; (B) Voice 1 Pitch Bend Delay
+!v2_pitch_bend_length = $0284	; (B) Voice 2 Pitch Bend Length
+!v2_pitch_bend_delay  = $0285	; (B) Voice 2 Pitch Bend Delay
+!v3_pitch_bend_length = $0286	; (B) Voice 3 Pitch Bend Length
+!v3_pitch_bend_delay  = $0287	; (B) Voice 3 Pitch Bend Delay
+!v4_pitch_bend_length = $0288	; (B) Voice 4 Pitch Bend Length
+!v4_pitch_bend_delay  = $0289	; (B) Voice 4 Pitch Bend Delay
+!v5_pitch_bend_length = $028A	; (B) Voice 5 Pitch Bend Length
+!v5_pitch_bend_delay  = $028B	; (B) Voice 5 Pitch Bend Delay
+!v6_pitch_bend_length = $028C	; (B) Voice 6 Pitch Bend Length
+!v6_pitch_bend_delay  = $028D	; (B) Voice 6 Pitch Bend Delay
+!v7_pitch_bend_length = $028E	; (B) Voice 7 Pitch Bend Length
+!v7_pitch_bend_delay  = $028F	; (B) Voice 7 Pitch Bend Delay
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Pitch Bend Envelope Type and Bend Offset per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_pitch_bend_type   = $0290	; (B) Pitch Bend Type per voice (0 = bend to pitch, 1 = bend from pitch)
+!vX_pitch_bend_offset = $0291	; (B) Pitch Bend Offset per voice
+;
+!v0_pitch_bend_type   = $0290	; (B) Voice 0 Pitch Bend Envelope Type
+!v0_pitch_bend_offset = $0291	; (B) Voice 0 Pitch Bend Offset
+!v1_pitch_bend_type   = $0292	; (B) Voice 1 Pitch Bend Envelope Type
+!v1_pitch_bend_offset = $0293	; (B) Voice 1 Pitch Bend Offset
+!v2_pitch_bend_type   = $0294	; (B) Voice 2 Pitch Bend Envelope Type
+!v2_pitch_bend_offset = $0295	; (B) Voice 2 Pitch Bend Offset
+!v3_pitch_bend_type   = $0296	; (B) Voice 3 Pitch Bend Envelope Type
+!v3_pitch_bend_offset = $0297	; (B) Voice 3 Pitch Bend Offset
+!v4_pitch_bend_type   = $0298	; (B) Voice 4 Pitch Bend Envelope Type
+!v4_pitch_bend_offset = $0299	; (B) Voice 4 Pitch Bend Offset
+!v5_pitch_bend_type   = $029A	; (B) Voice 5 Pitch Bend Envelope Type
+!v5_pitch_bend_offset = $029B	; (B) Voice 5 Pitch Bend Offset
+!v6_pitch_bend_type   = $029C	; (B) Voice 6 Pitch Bend Envelope Type
+!v6_pitch_bend_offset = $029D	; (B) Voice 6 Pitch Bend Offset
+!v7_pitch_bend_type   = $029E	; (B) Voice 7 Pitch Bend Envelope Type
+!v7_pitch_bend_offset = $029F	; (B) Voice 7 Pitch Bend Offset
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Vibrato Internal Clock and Rate per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_vibra_clock       = $02A0	; (B) Internal Clock for Vibrato
+!vX_vibra_rate        = $02A1	; (B) Vibrato Rate per voice
+;
+!v0_vibra_clock       = $02A0	; (B) Voice 0 Internal Clock for Vibrato
+!v0_vibra_rate        = $02A1	; (B) Voice 0 Vibrato Rate
+!v1_vibra_clock       = $02A2	; (B) Voice 1 Internal Clock for Vibrato
+!v1_vibra_rate        = $02A3	; (B) Voice 1 Vibrato Rate
+!v2_vibra_clock       = $02A4	; (B) Voice 2 Internal Clock for Vibrato
+!v2_vibra_rate        = $02A5	; (B) Voice 2 Vibrato Rate
+!v3_vibra_clock       = $02A6	; (B) Voice 3 Internal Clock for Vibrato
+!v3_vibra_rate        = $02A7	; (B) Voice 3 Vibrato Rate
+!v4_vibra_clock       = $02A8	; (B) Voice 4 Internal Clock for Vibrato
+!v4_vibra_rate        = $02A9	; (B) Voice 4 Vibrato Rate
+!v5_vibra_clock       = $02AA	; (B) Voice 5 Internal Clock for Vibrato
+!v5_vibra_rate        = $02AB	; (B) Voice 5 Vibrato Rate
+!v6_vibra_clock       = $02AC	; (B) Voice 6 Internal Clock for Vibrato
+!v6_vibra_rate        = $02AD	; (B) Voice 6 Vibrato Rate
+!v7_vibra_clock       = $02AE	; (B) Voice 7 Internal Clock for Vibrato
+!v7_vibra_rate        = $02AF	; (B) Voice 7 Vibrato Rate
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Vibrato Delay and Fade Length per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_vibra_delay       = $02B0	; (B) Vibrato Delay per voice
+!vX_vibra_fade_length = $02B1	; (B) Vibrato Fade Length per voice
+;
+!v0_vibra_delay       = $02B0	; (B) Voice 0 Vibrato Delay
+!v0_vibra_fade_length = $02B1	; (B) Voice 0 Vibrato Fade Length
+!v1_vibra_delay       = $02B2	; (B) Voice 1 Vibrato Delay
+!v1_vibra_fade_length = $02B3	; (B) Voice 1 Vibrato Fade Length
+!v2_vibra_delay       = $02B4	; (B) Voice 2 Vibrato Delay
+!v2_vibra_fade_length = $02B5	; (B) Voice 2 Vibrato Fade Length
+!v3_vibra_delay       = $02B6	; (B) Voice 3 Vibrato Delay
+!v3_vibra_fade_length = $02B7	; (B) Voice 3 Vibrato Fade Length
+!v4_vibra_delay       = $02B8	; (B) Voice 4 Vibrato Delay
+!v4_vibra_fade_length = $02B9	; (B) Voice 4 Vibrato Fade Length
+!v5_vibra_delay       = $02BA	; (B) Voice 5 Vibrato Delay
+!v5_vibra_fade_length = $02BB	; (B) Voice 5 Vibrato Fade Length
+!v6_vibra_delay       = $02BC	; (B) Voice 6 Vibrato Delay
+!v6_vibra_fade_length = $02BD	; (B) Voice 6 Vibrato Fade Length
+!v7_vibra_delay       = $02BE	; (B) Voice 7 Vibrato Delay
+!v7_vibra_fade_length = $02BF	; (B) Voice 7 Vibrato Fade Length
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Vibrato Fade Delta and Vibrato Depth per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_vibra_fade_delta  = $02C0	; (B) Vibrato Fade Delta Value per voice
+!vX_vibra_depth       = $02C1	; (B) Vibrato Depth per voice
+;
+!v0_vibra_fade_delta  = $02C0	; (B) Voice 0 Vibrato Fade Delta Value
+!v0_vibra_depth       = $02C1	; (B) Voice 0 Vibrato Depth
+!v1_vibra_fade_delta  = $02C2	; (B) Voice 1 Vibrato Fade Delta Value
+!v1_vibra_depth       = $02C3	; (B) Voice 1 Vibrato Depth
+!v2_vibra_fade_delta  = $02C4	; (B) Voice 2 Vibrato Fade Delta Value
+!v2_vibra_depth       = $02C5	; (B) Voice 2 Vibrato Depth
+!v3_vibra_fade_delta  = $02C6	; (B) Voice 3 Vibrato Fade Delta Value
+!v3_vibra_depth       = $02C7	; (B) Voice 3 Vibrato Depth
+!v4_vibra_fade_delta  = $02C8	; (B) Voice 4 Vibrato Fade Delta Value
+!v4_vibra_depth       = $02C9	; (B) Voice 4 Vibrato Depth
+!v5_vibra_fade_delta  = $02CA	; (B) Voice 5 Vibrato Fade Delta Value
+!v5_vibra_depth       = $02CB	; (B) Voice 5 Vibrato Depth
+!v6_vibra_fade_delta  = $02CC	; (B) Voice 6 Vibrato Fade Delta Value
+!v6_vibra_depth       = $02CD	; (B) Voice 6 Vibrato Depth
+!v7_vibra_fade_delta  = $02CE	; (B) Voice 7 Vibrato Fade Delta Value
+!v7_vibra_depth       = $02CF	; (B) Voice 7 Vibrato Depth
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Tremolo Internal Clock and Rate per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_tremo_clock       = $02D0	; (B) Internal Clock for Tremolo
+!vX_tremo_rate        = $02D1	; (B) Tremolo Rate per voice
+;
+!v0_tremo_clock       = $02D0	; (B) Voice 0 Internal Clock for Tremolo
+!v0_tremo_rate        = $02D1	; (B) Voice 0 Tremolo Rate
+!v1_tremo_clock       = $02D2	; (B) Voice 1 Internal Clock for Tremolo
+!v1_tremo_rate        = $02D3	; (B) Voice 1 Tremolo Rate
+!v2_tremo_clock       = $02D4	; (B) Voice 2 Internal Clock for Tremolo
+!v2_tremo_rate        = $02D5	; (B) Voice 2 Tremolo Rate
+!v3_tremo_clock       = $02D6	; (B) Voice 3 Internal Clock for Tremolo
+!v3_tremo_rate        = $02D7	; (B) Voice 3 Tremolo Rate
+!v4_tremo_clock       = $02D8	; (B) Voice 4 Internal Clock for Tremolo
+!v4_tremo_rate        = $02D9	; (B) Voice 4 Tremolo Rate
+!v5_tremo_clock       = $02DA	; (B) Voice 5 Internal Clock for Tremolo
+!v5_tremo_rate        = $02DB	; (B) Voice 5 Tremolo Rate
+!v6_tremo_clock       = $02DC	; (B) Voice 6 Internal Clock for Tremolo
+!v6_tremo_rate        = $02DD	; (B) Voice 6 Tremolo Rate
+!v7_tremo_clock       = $02DE	; (B) Voice 7 Internal Clock for Tremolo
+!v7_tremo_rate        = $02DF	; (B) Voice 7 Tremolo Rate
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Tremolo Delay (and UNUSED) per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_tremo_delay       = $02E0	; (B) Tremolo Delay per voice
+    ; vX_UNUSED       = $02E1	; (B) UNUSED IN SUPER MARIO KART
+;
+!v0_tremo_delay       = $02E0	; (B) Voice 0 Tremolo Delay
+    ; v0_UNUSED       = $02E1	; (B) Voice 0 UNUSED IN SUPER MARIO KART
+!v1_tremo_delay       = $02E2	; (B) Voice 1 Tremolo Delay
+    ; v1_UNUSED       = $02E3	; (B) Voice 1 UNUSED IN SUPER MARIO KART
+!v2_tremo_delay       = $02E4	; (B) Voice 2 Tremolo Delay
+    ; v2_UNUSED       = $02E5	; (B) Voice 2 UNUSED IN SUPER MARIO KART
+!v3_tremo_delay       = $02E6	; (B) Voice 3 Tremolo Delay
+    ; v3_UNUSED       = $02E7	; (B) Voice 3 UNUSED IN SUPER MARIO KART
+!v4_tremo_delay       = $02E8	; (B) Voice 4 Tremolo Delay
+    ; v4_UNUSED       = $02E9	; (B) Voice 4 UNUSED IN SUPER MARIO KART
+!v5_tremo_delay       = $02EA	; (B) Voice 5 Tremolo Delay
+    ; v5_UNUSED       = $02EB	; (B) Voice 5 UNUSED IN SUPER MARIO KART
+!v6_tremo_delay       = $02EC	; (B) Voice 6 Tremolo Delay
+    ; v6_UNUSED       = $02ED	; (B) Voice 6 UNUSED IN SUPER MARIO KART
+!v7_tremo_delay       = $02EE	; (B) Voice 7 Tremolo Delay
+    ; v7_UNUSED       = $02EF	; (B) Voice 7 UNUSED IN SUPER MARIO KART
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Voice Transpose (and UNUSED) per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_transpose         = $02F0	; (B) Transpose value per voice
+    ; vX_UNUSED       = $02F1	; (B) UNUSED IN SUPER MARIO KART
+;
+!v0_transpose         = $02F0	; (B) Voice 0 Transpose value
+    ; v0_UNUSED       = $02F1	; (B) Voice 0 UNUSED IN SUPER MARIO KART
+!v1_transpose         = $02F2	; (B) Voice 1 Transpose value
+    ; v1_UNUSED       = $02F3	; (B) Voice 1 UNUSED IN SUPER MARIO KART
+!v2_transpose         = $02F4	; (B) Voice 2 Transpose value
+    ; v2_UNUSED       = $02F5	; (B) Voice 2 UNUSED IN SUPER MARIO KART
+!v3_transpose         = $02F6	; (B) Voice 3 Transpose value
+    ; v3_UNUSED       = $02F7	; (B) Voice 3 UNUSED IN SUPER MARIO KART
+!v4_transpose         = $02F8	; (B) Voice 4 Transpose value
+    ; v4_UNUSED       = $02F9	; (B) Voice 4 UNUSED IN SUPER MARIO KART
+!v5_transpose         = $02FA	; (B) Voice 5 Transpose value
+    ; v5_UNUSED       = $02FB	; (B) Voice 5 UNUSED IN SUPER MARIO KART
+!v6_transpose         = $02FC	; (B) Voice 6 Transpose value
+    ; v6_UNUSED       = $02FD	; (B) Voice 6 UNUSED IN SUPER MARIO KART
+!v7_transpose         = $02FE	; (B) Voice 7 Transpose value
+    ; v7_UNUSED       = $02FF	; (B) Voice 7 UNUSED IN SUPER MARIO KART
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Voice Volume per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_volume            = $0300	; (W) Voice Volume per voice
+    !vX_volumeL           = $0300	; (B) Low byte of Voice Volume per voice
+    !vX_volumeH           = $0301	; (B) High byte of Voice Volume per voice
+;
+!v0_volume            = $0300	; (W) Voice 0 Volume
+!v1_volume            = $0302	; (W) Voice 1 Volume
+!v2_volume            = $0304	; (W) Voice 2 Volume
+!v3_volume            = $0306	; (W) Voice 3 Volume
+!v4_volume            = $0308	; (W) Voice 4 Volume
+!v5_volume            = $030A	; (W) Voice 5 Volume
+!v6_volume            = $030C	; (W) Voice 6 Volume
+!v7_volume            = $030E	; (W) Voice 7 Volume
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Voice Volume Fade Delta per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_vol_fade_delta    = $0310	; (W) Voice Volume Fade Delta Value per voice
+    !vX_vol_fade_deltaL   = $0310	; (B) Low byte of Voice Volume Fade Delta Value per voice
+    !vX_vol_fade_deltaH   = $0311	; (B) High byte of Voice Volume Fade Delta Value per voice
+;
+!v0_vol_fade_delta    = $0310	; (W) Voice 0 Volume Fade Delta Value
+!v1_vol_fade_delta    = $0312	; (W) Voice 1 Volume Fade Delta Value
+!v2_vol_fade_delta    = $0314	; (W) Voice 2 Volume Fade Delta Value
+!v3_vol_fade_delta    = $0316	; (W) Voice 3 Volume Fade Delta Value
+!v4_vol_fade_delta    = $0318	; (W) Voice 4 Volume Fade Delta Value
+!v5_vol_fade_delta    = $031A	; (W) Voice 5 Volume Fade Delta Value
+!v6_vol_fade_delta    = $031C	; (W) Voice 6 Volume Fade Delta Value
+!v7_vol_fade_delta    = $031E	; (W) Voice 7 Volume Fade Delta Value
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Voice Volume Fade Destination and Output Volume per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_vol_fade_dest     = $0320	; (B) Voice Volume Fade Destination per voice
+!vX_output_vol        = $0321	; (B) Output Volume per voice (final volume before pan)
+;
+!v0_vol_fade_dest     = $0320	; (B) Voice 0 Volume Fade Destination
+!v0_output_vol        = $0321	; (B) Voice 0 Output Volume
+!v1_vol_fade_dest     = $0322	; (B) Voice 1 Volume Fade Destination
+!v1_output_vol        = $0323	; (B) Voice 1 Output Volume
+!v2_vol_fade_dest     = $0324	; (B) Voice 2 Volume Fade Destination
+!v2_output_vol        = $0325	; (B) Voice 2 Output Volume
+!v3_vol_fade_dest     = $0326	; (B) Voice 3 Volume Fade Destination
+!v3_output_vol        = $0327	; (B) Voice 3 Output Volume
+!v4_vol_fade_dest     = $0328	; (B) Voice 4 Volume Fade Destination
+!v4_output_vol        = $0329	; (B) Voice 4 Output Volume
+!v5_vol_fade_dest     = $032A	; (B) Voice 5 Volume Fade Destination
+!v5_output_vol        = $032B	; (B) Voice 5 Output Volume
+!v6_vol_fade_dest     = $032C	; (B) Voice 6 Volume Fade Destination
+!v6_output_vol        = $032D	; (B) Voice 6 Output Volume
+!v7_vol_fade_dest     = $032E	; (B) Voice 7 Volume Fade Destination
+!v7_output_vol        = $032F	; (B) Voice 7 Output Volume
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Pan Value per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_pan_value         = $0330	; (W) Pan value per voice
+    !vX_pan_valueL        = $0330	; (W) High byte of Pan value per voice
+    !vX_pan_valueH        = $0331	; (W) Low byte of Pan value per voice
+;
+!v0_pan_value         = $0330	; (W) Voice 0 Pan Value
+!v1_pan_value         = $0332	; (W) Voice 1 Pan Value
+!v2_pan_value         = $0334	; (W) Voice 2 Pan Value
+!v3_pan_value         = $0336	; (W) Voice 3 Pan Value
+!v4_pan_value         = $0338	; (W) Voice 4 Pan Value
+!v5_pan_value         = $033A	; (W) Voice 5 Pan Value
+!v6_pan_value         = $033C	; (W) Voice 6 Pan Value
+!v7_pan_value         = $033E	; (W) Voice 7 Pan Value
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Pan Value Fade Delta per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_pan_fade_delta    = $0340	; (W) Pan Fade delta value
+    !vX_pan_fade_deltaL   = $0340	; (B) Low byte of Pan Fade delta
+    !vX_pan_fade_deltaH   = $0341	; (B) High byte of Pan Fade delta
+;
+!v0_pan_fade_delta    = $0340	; (W) Voice 0 Pan Fade Delta Value
+!v1_pan_fade_delta    = $0342	; (W) Voice 1 Pan Fade Delta Value
+!v2_pan_fade_delta    = $0344	; (W) Voice 2 Pan Fade Delta Value
+!v3_pan_fade_delta    = $0346	; (W) Voice 3 Pan Fade Delta Value
+!v4_pan_fade_delta    = $0348	; (W) Voice 4 Pan Fade Delta Value
+!v5_pan_fade_delta    = $034A	; (W) Voice 5 Pan Fade Delta Value
+!v6_pan_fade_delta    = $034C	; (W) Voice 6 Pan Fade Delta Value
+!v7_pan_fade_delta    = $034E	; (W) Voice 7 Pan Fade Delta Value
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Pan Value Fade Destination and Raw Pan Byte per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_pan_fade_dest     = $0350	; (B) Pan Fade Destination per voice
+!vX_pan_byte          = $0351	; (B) Raw Pan byte per voice
+;
+!v0_pan_fade_dest     = $0350	; (B) Voice 0 Pan Fade Destination
+!v0_pan_byte          = $0351	; (B) Voice 0 Raw Pan Byte
+!v1_pan_fade_dest     = $0352	; (B) Voice 1 Pan Fade Destination
+!v1_pan_byte          = $0353	; (B) Voice 1 Raw Pan Byte
+!v2_pan_fade_dest     = $0354	; (B) Voice 2 Pan Fade Destination
+!v2_pan_byte          = $0355	; (B) Voice 2 Raw Pan Byte
+!v3_pan_fade_dest     = $0356	; (B) Voice 3 Pan Fade Destination
+!v3_pan_byte          = $0357	; (B) Voice 3 Raw Pan Byte
+!v4_pan_fade_dest     = $0358	; (B) Voice 4 Pan Fade Destination
+!v4_pan_byte          = $0359	; (B) Voice 4 Raw Pan Byte
+!v5_pan_fade_dest     = $035A	; (B) Voice 5 Pan Fade Destination
+!v5_pan_byte          = $035B	; (B) Voice 5 Raw Pan Byte
+!v6_pan_fade_dest     = $035C	; (B) Voice 6 Pan Fade Destination
+!v6_pan_byte          = $035D	; (B) Voice 6 Raw Pan Byte
+!v7_pan_fade_dest     = $035E	; (B) Voice 7 Pan Fade Destination
+!v7_pan_byte          = $035F	; (B) Voice 7 Raw Pan Byte
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Note per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_note              = $0360	; (W) Note and fractional part base value before applying pitch bend
+    !vX_noteL             = $0360	; (B) Low byte of Note (fractional part of note)
+    !vX_noteH             = $0361	; (B) High byte of Note (whole part of note)
+;
+!v0_note              = $0360	; (W) Voice 0 Note
+!v1_note              = $0362	; (W) Voice 1 Note
+!v2_note              = $0364	; (W) Voice 2 Note
+!v3_note              = $0366	; (W) Voice 3 Note
+!v4_note              = $0368	; (W) Voice 4 Note
+!v5_note              = $036A	; (W) Voice 5 Note
+!v6_note              = $036C	; (W) Voice 6 Note
+!v7_note              = $036E	; (W) Voice 7 Note
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Pitch Bend / Portamento Delta Value per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_pitch_bend_delta  = $0370	; (W) Pitch Bend delta value
+    !vX_pitch_bend_deltaL = $0370	; (B) Low byte of Pitch Bend delta
+    !vX_pitch_bend_deltaH = $0371	; (B) High byte of Pitch Bend delta
+;
+!v0_pitch_bend_delta  = $0370	; (W) Voice 0 Portamento Delta Value
+!v1_pitch_bend_delta  = $0372	; (W) Voice 1 Portamento Delta Value
+!v2_pitch_bend_delta  = $0374	; (W) Voice 2 Portamento Delta Value
+!v3_pitch_bend_delta  = $0376	; (W) Voice 3 Portamento Delta Value
+!v4_pitch_bend_delta  = $0378	; (W) Voice 4 Portamento Delta Value
+!v5_pitch_bend_delta  = $037A	; (W) Voice 5 Portamento Delta Value
+!v6_pitch_bend_delta  = $037C	; (W) Voice 6 Portamento Delta Value
+!v7_pitch_bend_delta  = $037E	; (W) Voice 7 Portamento Delta Value
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Pitch Bend / Portamento Destination and Voice Tuning Offset per Voice
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!vX_pitch_bend_dest   = $0380	; (B) Pitch Bend destination note per voice
+!vX_tuning_offset     = $0381	; (B) Voice Tuning offset per voice
+;
+!v0_pitch_bend_dest   = $0380	; (B) Voice 0 Portamento Destination
+!v0_tuning_offset     = $0381	; (B) Voice 0 Tuning Offset
+!v1_pitch_bend_dest   = $0382	; (B) Voice 1 Portamento Destination
+!v1_tuning_offset     = $0383	; (B) Voice 1 Tuning Offset
+!v2_pitch_bend_dest   = $0384	; (B) Voice 2 Portamento Destination
+!v2_tuning_offset     = $0385	; (B) Voice 2 Tuning Offset
+!v3_pitch_bend_dest   = $0386	; (B) Voice 3 Portamento Destination
+!v3_tuning_offset     = $0387	; (B) Voice 3 Tuning Offset
+!v4_pitch_bend_dest   = $0388	; (B) Voice 4 Portamento Destination
+!v4_tuning_offset     = $0389	; (B) Voice 4 Tuning Offset
+!v5_pitch_bend_dest   = $038A	; (B) Voice 5 Portamento Destination
+!v5_tuning_offset     = $038B	; (B) Voice 5 Tuning Offset
+!v6_pitch_bend_dest   = $038C	; (B) Voice 6 Portamento Destination
+!v6_tuning_offset     = $038D	; (B) Voice 6 Tuning Offset
+!v7_pitch_bend_dest   = $038E	; (B) Voice 7 Portamento Destination
+!v7_tuning_offset     = $038F	; (B) Voice 7 Tuning Offset
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;	Super Mario Kart Extra General Common RAM
+; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!P1_ENGINE_SRCN       = $0390	; (B) Engine SRCN for P1
+!P2_ENGINE_SRCN       = $0391	; (B) Engine SRCN for P2
+!P1_BRIDGE_CYCLE      = $0392	; (B) Bridge pitch cycle tracker for P1 (flips between 0 and 1)
+!P2_BRIDGE_CYCLE      = $0393	; (B) Bridge pitch cycle tracker for P2 (flips between 0 and 1)
+!P1_ENGVOL_DECAY      = $0394	; (B) Engine Volume Decay Level for P1 (00 = 0% volume, FF = 100% volume)
+!P2_ENGVOL_DECAY      = $0395	; (B) Engine Volume Decay Level for P2 (00 = 0% volume, FF = 100% volume)
+!P1_ENGINE_LEVEL      = $0396	; (B) P1 Engine Level
+!P2_ENGINE_LEVEL      = $0397	; (B) P2 Engine Level
+!SPIN_VIBRA_DIR_L     = $0398	; (B) Spinout Vibrato Level Adjust Direction Left
+!SPIN_VIBRA_DIR_R     = $0399	; (B) Spinout Vibrato Level Adjust Direction Right
+!EXSFX_L_PITCHL       = $039A	; (B) Extra SFX Left Pitch (Low Byte)
+!EXSFX_R_PITCHL       = $039B	; (B) Extra SFX Right Pitch (Low Byte)
+!EXSFX_L_PITCHH       = $039C	; (B) Extra SFX Left Pitch (High Byte)
+!EXSFX_R_PITCHH       = $039D	; (B) Extra SFX Right Pitch (High Byte)
+!SFX_SRCN             = $039E	; (B) SRCN for SFX
+!DOPPLER_STATUS       = $039F	; (B) Status for Turning On Doppler Engine Effect (0: Off, 1: Transitioning, 2: On)
+; - - - - - - -
+!MUFFLE_ENGINE_L      = $03A0	; (B) Reduce Volume for Left Engine
+!MUFFLE_ENGINE_R      = $03A1	; (B) Reduce Volume for Right Engine
+!USE_OLD_ENGINE_L     = $03A2	; (B) Use the backup Engine Level for Left Engine Level (0 = use new level, 1 = use old level)
+!USE_OLD_ENGINE_R     = $03A3	; (B) Use the backup Engine Level for Right Engine Level (0 = use new level, 1 = use old level)
+!USE_NEW_ENGINE       = $03A4	; ** (B) Use the new Engine Level (0 = use old level, 1 = use new level)
+!P1_SIZE_SHIFT        = $03A5	; (B) P1 Engine Pitch Shift Direction (0 = Slide Pitch Down (Normal Size), 1 = Slide Pitch Up (Small))
+!P2_SIZE_SHIFT        = $03A6	; (B) P2 Engine Pitch Shift Direction (0 = Slide Pitch Down (Normal Size), 1 = Slide Pitch Up (Small))
+!ENEMY_SIZE_SHIFT     = $03A7	; (B) Enemy Engine Pitch Shift Direction (0 = Slide Pitch Down (Normal Size), 1 = Slide Pitch Up (Small))
+!SFX_ADSR1            = $03A8	; (B) ADSR1 Value for SFX
+!SFX_ADSR2            = $03A9	; (B) ADSR2 Value for SFX
+!EXSFX_L_VOLL         = $03AA	; (B) Extra SFX Left Volume Left (this is probably called "main")
+!EXSFX_R_VOLR         = $03AB	; (B) Extra SFX Right Volume Right (this is probably called "main")
+!EXSFX_L_VOLR         = $03AC	; (B) Extra SFX Left Volume Right (this is probably called "sub")
+!EXSFX_R_VOLL         = $03AD	; (B) Extra SFX Right Volume Left (this is probably called "sub")
+!P1_MUFFLE_ENGINE     = $03AE	; (B) Reduce Volume for P1 Engine
+!P2_MUFFLE_ENGINE     = $03AF	; (B) Reduce Volume for P2 Engine
+; - - - - - - -
+!EXSFX_L_CLRSTATUS    = $03B0	; (B) Clearing status for Extra SFX Left
+                             	;	0: Finished Clearing
+                             	;	1: Currently Clearing
+!EXSFX_R_CLRSTATUS    = $03B1	; (B) Clearing status for Extra SFX Right
+                             	;	0: Finished Clearing
+                             	;	1: Currently Clearing
+!P1_PITCH_BASEH       = $03B2	; (B) Base Pitch for P1 Engine
+!P2_PITCH_BASEH       = $03B3	; (B) Base Pitch for P2 Engine
+!ENEMY_PITCH_BASEH    = $03B4	; (B) Base Pitch for Enemy Doppler Engine
+!LIGHTNING_INACTIVE   = $03B5	; (B) If Lightning is inactive (0 = active, 1 = inactive) 
+!EXSFX_L_ADSR1        = $03B6	; (B) Extra SFX Left ADSR 1
+!EXSFX_L_ADSR2        = $03B7	; (B) Extra SFX Left ADSR 2
+!SFX_PITCHL           = $03B8	; (B) SFX Pitch (Low Byte)
+!SFX_PITCHH           = $03B9	; (B) SFX Pitch (High Byte)
+!BACK_engine_lvl_L    = $03BA	; (B) Internal Value for Engine Level for Left Engine
+!BACK_engine_lvl_R    = $03BB	; (B) Internal Value for Engine Level for Right Engine
+!END_SFX              = $03BC	; (B) If Current SFX Ended
+!SFX_END_DELAY        = $03BD	; (B) Delay for ending SFX
+!EXSFX_R_ADSR1        = $03BE	; (B) Extra SFX Right ADSR 1
+!EXSFX_R_ADSR2        = $03BF	; (B) Extra SFX Right ADSR 2
+; - - - - - - -
+!ENEMY_ENGINE_SRCN    = $03C0	; (B) Engine SRCN for Enemy Doppler Effect
+!DOPPLER_TIMER        = $03C1	; (B) Timer for Enemy Doppler Effect
+!EXSFX_L_KEYSTAT      = $03C2	; (B) Key Attack status for Extra SFX Left
+!EXSFX_R_KEYSTAT      = $03C3	; (B) Key Attack status for Extra SFX Right
+!CLEAR_EXSFX_L        = $03C4	; (B) Flag to Clear Extra SFX Left
+!CLEAR_EXSFX_R        = $03C5	; (B) Flag to Clear Extra SFX Right
+!EXSFX_L_DELAY        = $03C6	; (B) Delay for loading Extra SFX Left in Init Sequence
+!EXSFX_R_DELAY        = $03C7	; (B) Delay for loading Extra SFX Right in Init Sequence
+!SFX_VOLL             = $03C8	; (B) Left Volume for SFX
+!SFX_VOLR             = $03C9	; (B) Right Volume for SFX
+!P1_EXSFX_TIMER       = $03CA	; (B) P1 Extra SFX Timer Backup
+!P2_EXSFX_TIMER       = $03CB	; (B) P2 Extra SFX Timer Backup
+!BACK_EX_L_init       = $03CC	; (B) Backup for exsfx_L_init_status during pause
+!BACK_EX_R_init       = $03CD	; (B) Backup for exsfx_R_init_status during pause
+!P1_EXSFX_NUM         = $03CE	; (B) P1 Extra SFX Number Backup
+!P2_EXSFX_NUM         = $03CF	; (B) P2 Extra SFX Number Backup
+; - - - - - - -
+!SPIN_VIBRA_TIME_L    = $03D0	; (B) Vibrato Update Timer for Spinout Extra SFX Left
+!SPIN_MAXLVL_L        = $03D1	; (B) Spinout Max Vibrato Level Left
+!SPIN_VIBRA_TIME_R    = $03D2	; (B) Vibrato Update Timer for Spinout Extra SFX Right
+!SPIN_MAXLVL_R        = $03D3	; (B) Spinout Max Vibrato Level Right
+!P1_ENGVOL_BASE       = $03D4	; (B) P1 Base Engine Volume
+!P2_ENGVOL_BASE       = $03D5	; (B) P2 Base Engine Volume
+!P1_PITCH_SCALE       = $03D6	; (B) P1 Engine Pitch Scale Factor
+!P2_PITCH_SCALE       = $03D7	; (B) P2 Engine Pitch Scale Factor
+!SUPER_JUMP_TIMER     = $03D8	; (B) Internal Timer for Super Jump SFX
+!DOPPLER_PAN          = $03D9	; (B) Pan Value for Doppler Effect
+!DOPPLER_DATA         = $03DA	; (B) Raw Bits for Doppler Effect
+!MVOLBACK             = $03DB	; (B) Bool to check if Music Volume is backed up (JPN/PAL VERSIONS ONLY)
+; ----------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
