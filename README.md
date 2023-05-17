@@ -1,6 +1,7 @@
 # AuDism by MrL314
- Disassembly of Super Mario Kart's SPC700 Audio Driver Code
+ Disassembly of Super Mario Kart's SPC700 Audio Driver Code. Please read through the entire ReadMe before continuing!
 
+ Quick Download: [**[here](https://github.com/MrL314/smk-spc700-disassembly/archive/refs/heads/main.zip)**]
 
 
 ## Overview
@@ -113,3 +114,6 @@ Eventually... Need to convert everything to Unix based systems and rebuild Asar 
 - KungFuFurby
 - MrPinci19
 - The entire Asar development team
+
+## Disclaimer
+I am not affiliated with Nintendo, and do not represent Nintendo in any way. The naming conventions used in this disassembly are my own conventions and do not reflect the original views or names of the creators of the original code. This set of programs is provided without proprietary data. By providing your own Super Mario Kart ROM, you do so at your own risk.
